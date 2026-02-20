@@ -4,8 +4,10 @@
   --color-white-base: 255, 255, 255;
   --color-black-base: 0, 0, 0;
   --color-blue-gray-base: 34, 42, 53;
+  --color-off-white-base: 247, 247, 248;
 
   /* ─── Color Semantic ─── */
+  --color-body: rgba(var(--color-off-white-base), 1);
   --color-surface: rgba(248, 248, 248, 0.9);
   --color-text: rgba(var(--color-gray-base), 1);
   --color-text-muted: rgba(var(--color-gray-base), 0.5);

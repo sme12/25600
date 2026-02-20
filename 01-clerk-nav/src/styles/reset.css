@@ -12,6 +12,7 @@ body {
   line-height: 1.5;
   font-family: 'Geist', sans-serif;
   -webkit-font-smoothing: antialiased;
+  background: var(--color-body);
 }
 
 img,
