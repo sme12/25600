@@ -1,6 +1,7 @@
 .navbar {
   display: flex;
-  position: relative;
+  position: sticky;
+  top: var(--space-2);
   align-items: center;
   z-index: var(--z-navbar);
   transition-duration: var(--duration-entrance);
@@ -11,7 +12,8 @@
   border-radius: var(--radius-xl);
   background-color: var(--color-surface);
   padding: 0 0 0 var(--space-3);
-  width: 100%;
+  width: var(--navbar-width);
+  max-width: calc(100vw - var(--space-8));
   height: fit-content;
 }
 
@@ -23,6 +25,7 @@
 
 .logoLink {
   display: flex;
+  column-gap: var(--space-3);
   align-items: center;
   color: inherit;
   text-decoration: none;
@@ -46,6 +49,7 @@
 
 .navList {
   display: flex;
+  column-gap: calc(var(--space-2) * 2);
   align-items: center;
   margin: 0;
   padding: 0;
@@ -64,14 +68,9 @@
   cursor: pointer;
   border: none;
   background: none;
-  padding: 0 var(--space-2);
   color: inherit;
   font: inherit;
   text-decoration: none;
-}
-
-.navButton:first-child {
-  padding-left: 0;
 }
 
 .navItemLabel {
@@ -84,7 +83,7 @@
   color: var(--color-text);
   font-weight: var(--font-weight-medium);
   font-size: var(--font-size-sm);
-  line-height: var(--line-height-tight);
+  line-height: var(--navbar-control-height);
 }
 
 .navButton:hover .navItemLabel,

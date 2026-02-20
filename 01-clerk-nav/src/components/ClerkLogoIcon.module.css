@@ -1,0 +1,7 @@
+.icon {
+  color: var(--color-text);
+}
+
+.fadedPath {
+  fill-opacity: 0.4;
+}

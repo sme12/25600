@@ -1,5 +1,7 @@
 import ctaStyles from './CtaButton.module.css';
 import styles from './ClerkNav.module.css';
+import { ClerkLogoIcon } from './ClerkLogoIcon';
+import { ChevronDownIcon, PlayIcon } from './icons';
 
 const LABELS = {
   homeLink: 'Clerk Home Page',
@@ -25,7 +27,7 @@ function ClerkNav() {
   return (
     <div className={styles.navbar}>
       <a aria-label={LABELS.homeLink} className={styles.logoLink} href="/">
-        <div />
+        <ClerkLogoIcon />
         <div aria-hidden="true" className={styles.divider} />
       </a>
 
@@ -36,7 +38,7 @@ function ClerkNav() {
               <button className={styles.navButton} type="button">
                 <span className={styles.navItemLabel}>
                   {label}
-                  {hasDropdown && <div />}
+                  {hasDropdown && <ChevronDownIcon aria-hidden="true" />}
                 </span>
               </button>
             </li>
@@ -55,7 +57,7 @@ function ClerkNav() {
         </button>
         <a className={ctaStyles.ctaButton} href="/start-building">
           <span>{LABELS.startBuilding}</span>
-          <div />
+          <PlayIcon aria-hidden="true" />
         </a>
       </div>
 

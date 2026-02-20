@@ -3,9 +3,12 @@ import ClerkNav from './components/ClerkNav';
 
 function App() {
   return (
-    <div className={styles.container}>
+    <>
       <ClerkNav />
-    </div>
+      <main style={{ height: '3000px' }}>
+        <div className={styles.container}></div>
+      </main>
+    </>
   );
 }
 
