@@ -1,0 +1,26 @@
+.ctaButton {
+  display: inline-flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  transition: var(--duration-slow) var(--ease-cta);
+  cursor: pointer;
+  box-shadow: var(--shadow-cta);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(var(--color-gray-base), 0) 45%,
+      rgba(var(--color-gray-base), 0.03) 55%
+    ),
+    #fff;
+  padding: 0 var(--space-2-5);
+  height: var(--navbar-control-height);
+  overflow: hidden;
+  color: var(--color-text);
+  font: inherit;
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-tight);
+  text-decoration: none;
+}

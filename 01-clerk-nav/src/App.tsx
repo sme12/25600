@@ -1,9 +1,10 @@
 import styles from './App.module.css';
+import ClerkNav from './components/ClerkNav';
 
 function App() {
   return (
-    <div className={styles.app}>
-      <h1>01 — Clerk Nav</h1>
+    <div className={styles.container}>
+      <ClerkNav />
     </div>
   );
 }
