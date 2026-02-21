@@ -1,3 +1,4 @@
+import type { Ref } from 'react';
 import ctaStyles from './CtaButton.module.css';
 import styles from './ClerkNav.module.css';
 import { ClerkLogoIcon } from './ClerkLogoIcon';
@@ -23,9 +24,14 @@ const navItems = [
   { label: LABELS.company, hasDropdown: true },
 ];
 
-function ClerkNav() {
+interface ClerkNavProps {
+  theme?: 'light' | 'dark';
+  ref?: Ref<HTMLDivElement>;
+}
+
+function ClerkNav({ theme = 'light', ref }: ClerkNavProps) {
   return (
-    <div className={styles.navbar}>
+    <div ref={ref} className={styles.navbar} data-theme={theme}>
       <a aria-label={LABELS.homeLink} className={styles.logoLink} href="/">
         <ClerkLogoIcon />
         <div aria-hidden="true" className={styles.divider} />
