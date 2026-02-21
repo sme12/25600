@@ -23,8 +23,23 @@
 
   /* ─── Typography ─── */
   --font-size-sm: 13px;
+  --font-size-base: 16px;
+  --font-size-lg: 18px;
+  --font-size-3xl: 30px;
+  --font-size-4-5xl: 44px;
+  --font-size-5xl: 48px;
+  --font-size-6xl: 64px;
+  --line-height-3xl: 36px;
+  --line-height-4-5xl: 1.1;
+  --line-height-5xl: 1;
+  --line-height-6xl: 72px;
+  --line-height-base: 24px;
+  --line-height-lg: 28px;
   --font-weight-medium: 500;
+  --font-weight-bold: 700;
   --line-height-tight: 1;
+  --tracking-tight: -0.025em;
+  --color-text-secondary: rgba(var(--color-gray-base), 0.65);
 
   /* ─── Radii ─── */
   --radius-xs: 1px;
@@ -86,6 +101,7 @@
   --color-text-muted: rgba(var(--color-off-white-base), 0.4);
   --color-border: rgba(var(--color-off-white-base), 0.15);
   --color-border-subtle: rgba(var(--color-white-base), 0.14);
+  --color-text-secondary: rgba(var(--color-off-white-base), 0.55);
 
   /* ─── Backgrounds ─── */
   --bg-cta:
