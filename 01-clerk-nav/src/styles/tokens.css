@@ -13,6 +13,7 @@
   --color-text-muted: rgba(var(--color-gray-base), 0.5);
   --color-border: rgba(var(--color-gray-base), 0.15);
   --color-border-subtle: rgba(var(--color-gray-base), 0.12);
+  --color-divider: rgba(var(--color-white-base), 1);
 
   /* ─── Spacing (4px scale) ─── */
   --space-1: 4px;
@@ -78,6 +79,9 @@
   --duration-slow: 300ms;
   --duration-entrance: 450ms;
 
+  /* ─── Opacity ─── */
+  --logo-faded-path-opacity: 0.4;
+
   /* ─── Z-index ─── */
   --z-navbar: 30;
 
@@ -102,6 +106,7 @@
   --color-border: rgba(var(--color-off-white-base), 0.15);
   --color-border-subtle: rgba(var(--color-white-base), 0.14);
   --color-text-secondary: rgba(var(--color-off-white-base), 0.55);
+  --color-divider: rgba(var(--color-white-base), 0);
 
   /* ─── Backgrounds ─── */
   --bg-cta:
@@ -123,4 +128,7 @@
     0 2px 3px -1px rgba(var(--color-black-base), 0.08),
     0 0 0 0.5px rgba(var(--color-off-white-base), 0.1),
     0 1px 0 0 rgba(var(--color-white-base), 0.1) inset;
+
+  /* ─── Opacity ─── */
+  --logo-faded-path-opacity: 0.6;
 }

@@ -3,5 +3,5 @@
 }
 
 .fadedPath {
-  fill-opacity: 0.4;
+  fill-opacity: var(--logo-faded-path-opacity);
 }
