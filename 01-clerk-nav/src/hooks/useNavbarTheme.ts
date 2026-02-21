@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 type Theme = 'light' | 'dark';
 
 export function useNavbarTheme() {
-  const navbarRef = useRef<HTMLDivElement>(null);
+  const navbarRef = useRef<HTMLElement>(null);
   const [theme, setTheme] = useState<Theme>('light');
 
   useEffect(() => {

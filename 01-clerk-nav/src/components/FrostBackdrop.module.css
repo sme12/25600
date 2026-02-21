@@ -1,0 +1,16 @@
+/* ─── Frost backdrop ─── */
+
+.frostContainer {
+  position: absolute;
+  inset: 0;
+  top: var(--space-2);
+  z-index: -1;
+  height: var(--frost-backdrop-height);
+  pointer-events: none;
+}
+
+.frostLayer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
