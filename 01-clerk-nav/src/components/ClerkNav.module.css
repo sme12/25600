@@ -2,7 +2,7 @@
 
 .header {
   position: sticky;
-  top: var(--space-2);
+  top: 0;
   z-index: var(--z-navbar);
   width: 100%;
   height: fit-content;
@@ -12,6 +12,7 @@
 .navbar {
   display: flex;
   position: relative;
+  top: var(--space-2);
   align-items: center;
   transition-duration: var(--duration-entrance);
   transition-property: color, background-color, border-color, box-shadow;
