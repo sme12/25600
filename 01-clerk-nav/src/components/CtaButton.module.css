@@ -20,6 +20,28 @@
   text-decoration: none;
 }
 
-.ctaButton svg {
+.iconExit {
   opacity: 0.6;
+  transition:
+    transform var(--duration-slow) var(--ease-cta),
+    opacity var(--duration-slow) var(--ease-cta);
+}
+
+.iconEnter {
+  transform: translateX(-8px);
+  opacity: 0;
+  transition:
+    transform var(--duration-slow) var(--ease-cta),
+    opacity var(--duration-slow) var(--ease-cta);
+  margin-left: calc(-1 * (10px + var(--space-2)));
+}
+
+.ctaButton:hover .iconExit {
+  transform: translateX(24px);
+  opacity: 0;
+}
+
+.ctaButton:hover .iconEnter {
+  transform: translateX(0);
+  opacity: 1;
 }

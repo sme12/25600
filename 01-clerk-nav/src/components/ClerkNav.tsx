@@ -66,7 +66,8 @@ function ClerkNav({ theme = 'light', ref }: ClerkNavProps) {
           </button>
           <a className={ctaStyles.ctaButton} href="/start-building">
             <span>{LABELS.startBuilding}</span>
-            <PlayIcon aria-hidden="true" />
+            <PlayIcon aria-hidden="true" className={ctaStyles.iconExit} />
+            <PlayIcon aria-hidden="true" className={ctaStyles.iconEnter} />
           </a>
         </div>
 
