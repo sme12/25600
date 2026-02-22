@@ -78,6 +78,7 @@
   cursor: pointer;
   border: none;
   background: none;
+  padding: 0;
   color: inherit;
   font: inherit;
   text-decoration: none;
@@ -110,6 +111,12 @@
 /* Keep hovered item at full color */
 .navItem:hover .navItemLabel {
   color: var(--color-text) !important;
+}
+
+/* ─── Navigation menu popup ─── */
+
+.positioner {
+  z-index: var(--z-navbar);
 }
 
 /* ─── Right-side actions ─── */

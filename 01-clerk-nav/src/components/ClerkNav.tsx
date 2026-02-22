@@ -1,4 +1,5 @@
 import type { Ref } from 'react';
+import { NavigationMenu } from '@base-ui/react/navigation-menu';
 import ctaStyles from './CtaButton.module.css';
 import styles from './ClerkNav.module.css';
 import { ClerkLogoIcon } from './ClerkLogoIcon';
@@ -19,10 +20,10 @@ const LABELS = {
 } as const;
 
 const navItems = [
-  { label: LABELS.products, hasDropdown: true },
-  { label: LABELS.docs, hasDropdown: true },
-  { label: LABELS.changelog, hasDropdown: true },
-  { label: LABELS.company, hasDropdown: true },
+  { label: LABELS.products },
+  { label: LABELS.docs },
+  { label: LABELS.changelog },
+  { label: LABELS.company },
 ];
 
 interface ClerkNavProps {
@@ -40,25 +41,38 @@ function ClerkNav({ theme = 'light', ref }: ClerkNavProps) {
           <div aria-hidden="true" className={styles.divider} />
         </a>
 
-        <nav aria-label={LABELS.mainNav} className={styles.desktopNav}>
-          <ul className={styles.navList}>
-            {navItems.map(({ label, hasDropdown }) => (
-              <li key={label} className={styles.navItem}>
-                <button className={styles.navButton} type="button">
+        <NavigationMenu.Root className={styles.desktopNav}>
+          <NavigationMenu.List className={styles.navList}>
+            {navItems.map(({ label }) => (
+              <NavigationMenu.Item key={label} className={styles.navItem}>
+                <NavigationMenu.Trigger className={styles.navButton}>
                   <span className={styles.navItemLabel}>
                     {label}
-                    {hasDropdown && <ChevronDownIcon aria-hidden="true" />}
+                    <NavigationMenu.Icon>
+                      <ChevronDownIcon aria-hidden="true" />
+                    </NavigationMenu.Icon>
                   </span>
-                </button>
-              </li>
+                </NavigationMenu.Trigger>
+                <NavigationMenu.Content className={styles.navContent}>
+                  {/* Dropdown content will be added later */}
+                </NavigationMenu.Content>
+              </NavigationMenu.Item>
             ))}
-            <li className={styles.navItem}>
-              <a className={styles.navLink} href="/pricing">
+            <NavigationMenu.Item className={styles.navItem}>
+              <NavigationMenu.Link className={styles.navLink} href="/pricing">
                 <span className={styles.navItemLabel}>{LABELS.pricing}</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
+              </NavigationMenu.Link>
+            </NavigationMenu.Item>
+          </NavigationMenu.List>
+
+          <NavigationMenu.Portal>
+            <NavigationMenu.Positioner className={styles.positioner}>
+              <NavigationMenu.Popup className={styles.popup}>
+                <NavigationMenu.Viewport />
+              </NavigationMenu.Popup>
+            </NavigationMenu.Positioner>
+          </NavigationMenu.Portal>
+        </NavigationMenu.Root>
 
         <div className={styles.actions}>
           <button className={styles.signInButton} type="button">
