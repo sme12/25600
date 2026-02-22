@@ -102,6 +102,16 @@
   color: var(--color-text);
 }
 
+/* Dim all nav labels when any navItem is hovered */
+.navList:has(.navItem:hover) .navItemLabel {
+  color: var(--color-nav-item-muted);
+}
+
+/* Keep hovered item at full color */
+.navItem:hover .navItemLabel {
+  color: var(--color-text) !important;
+}
+
 /* ─── Right-side actions ─── */
 
 .actions {
