@@ -50,6 +50,7 @@
   --radius-xl: 12px;
 
   /* ─── Backgrounds ─── */
+  --nav-button-hover-surface-color: rgba(var(--color-gray-base), 0.02);
   --bg-cta:
     linear-gradient(
       180deg,
@@ -109,6 +110,7 @@
   --color-divider: rgba(var(--color-white-base), 0);
 
   /* ─── Backgrounds ─── */
+  --nav-button-hover-surface-color: rgba(var(--color-white-base), 0.05);
   --bg-cta:
     linear-gradient(
       180deg,

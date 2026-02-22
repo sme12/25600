@@ -136,7 +136,7 @@
 .signInButton:hover {
   transition-duration: var(--duration-fast);
   border-color: var(--color-border-subtle);
-  background-color: rgba(var(--color-gray-base), 0.02);
+  background-color: var(--nav-button-hover-surface-color);
 }
 
 /* ─── Mobile menu button ─── */
