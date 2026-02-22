@@ -50,75 +50,6 @@
   height: var(--navbar-control-height);
 }
 
-/* ─── Desktop nav ─── */
-
-.desktopNav {
-  display: none;
-  margin-left: var(--space-3);
-}
-
-.navList {
-  display: flex;
-  column-gap: calc(var(--space-2) * 2);
-  align-items: center;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.navItem {
-  display: flex;
-  position: relative;
-}
-
-.navButton,
-.navLink {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  border: none;
-  background: none;
-  padding: 0;
-  color: inherit;
-  font: inherit;
-  text-decoration: none;
-}
-
-.navItemLabel {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  transition-duration: var(--duration-entrance);
-  transition-property: color;
-  transition-timing-function: var(--ease-out);
-  color: var(--color-text);
-  font-weight: var(--font-weight-medium);
-  font-size: var(--font-size-sm);
-  line-height: var(--navbar-control-height);
-}
-
-.navButton:hover .navItemLabel,
-.navLink:hover .navItemLabel {
-  transition-duration: var(--duration-hover);
-  color: var(--color-text);
-}
-
-/* Dim all nav labels when any navItem is hovered */
-.navList:has(.navItem:hover) .navItemLabel {
-  color: var(--color-nav-item-muted);
-}
-
-/* Keep hovered item at full color */
-.navItem:hover .navItemLabel {
-  color: var(--color-text) !important;
-}
-
-/* ─── Navigation menu popup ─── */
-
-.positioner {
-  z-index: var(--z-navbar);
-}
-
 /* ─── Right-side actions ─── */
 
 .actions {
@@ -190,10 +121,6 @@
   }
 
   .divider {
-    display: block;
-  }
-
-  .desktopNav {
     display: block;
   }
 

@@ -1,0 +1,50 @@
+/* ─── Desktop nav ─── */
+
+.desktopNav {
+  display: none;
+  margin-left: var(--space-3);
+}
+
+.navList {
+  display: flex;
+  column-gap: calc(var(--space-2) * 2);
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ─── Navigation menu popup ─── */
+
+.positioner {
+  z-index: var(--z-navbar);
+}
+
+.popup {
+  transform: translateZ(0);
+  box-shadow: var(--shadow-popup-outer);
+  border-radius: var(--radius-xl);
+  background: var(--bg-popup-outer);
+  isolation: isolate;
+  overflow: clip;
+}
+
+.popupInner {
+  position: relative;
+  transform: translateZ(0);
+  z-index: 1;
+  box-shadow: var(--shadow-popup-inner);
+  border-right: 0.5px solid var(--color-popup-inner-border);
+  border-radius: var(--radius-xl);
+  background: var(--bg-popup-inner);
+  padding: var(--space-2);
+}
+
+/* ─── Responsive ─── */
+
+/* breakpoint: --breakpoint-tablet (768px) */
+@media (min-width: 768px) {
+  .desktopNav {
+    display: block;
+  }
+}

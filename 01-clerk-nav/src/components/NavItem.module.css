@@ -1,0 +1,66 @@
+.navItem {
+  display: flex;
+  position: relative;
+}
+
+.navButton,
+.navLink {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  text-decoration: none;
+}
+
+.navItemLabel {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  transition-duration: var(--duration-entrance);
+  transition-property: color;
+  transition-timing-function: var(--ease-out);
+  color: var(--color-text);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
+  line-height: var(--navbar-control-height);
+}
+
+.navButton:hover .navItemLabel,
+.navLink:hover .navItemLabel {
+  transition-duration: var(--duration-hover);
+  color: var(--color-text);
+}
+
+/* Dim all nav labels when any navItem is hovered or has an open popup */
+[data-nav-list]:has(.navItem:hover) .navItemLabel,
+[data-nav-list]:has([data-popup-open]) .navItemLabel {
+  color: var(--color-nav-item-muted);
+}
+
+/* Keep hovered/active item at full color */
+.navItem:hover .navItemLabel,
+.navItem:has([data-popup-open]) .navItemLabel {
+  color: var(--color-text) !important;
+}
+
+/* ─── Dropdown content ─── */
+
+.contentHeader {
+  margin-bottom: var(--space-2);
+  padding: 6px var(--space-3) 0;
+  color: var(--color-text-secondary);
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: var(--font-weight-medium);
+  font-size: 11px;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+}
+
+.navContent {
+  min-width: 180px;
+}
+
