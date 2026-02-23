@@ -1,6 +1,9 @@
+import { memo } from 'react';
 import styles from './ClerkLogoIcon.module.css';
 
-export function ClerkLogoIcon(props: React.SVGProps<SVGSVGElement>) {
+export const ClerkLogoIcon = memo(function ClerkLogoIcon(
+  props: React.SVGProps<SVGSVGElement>,
+) {
   return (
     <svg
       width="62"
@@ -30,4 +33,4 @@ export function ClerkLogoIcon(props: React.SVGProps<SVGSVGElement>) {
       />
     </svg>
   );
-}
+});
