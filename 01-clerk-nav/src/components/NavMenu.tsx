@@ -77,9 +77,7 @@ function NavMenu({ portalContainer }: NavMenuProps) {
           alignOffset={-12}
         >
           <NavigationMenu.Popup className={styles.popup}>
-            <div className={styles.popupInner}>
-              <NavigationMenu.Viewport />
-            </div>
+            <NavigationMenu.Viewport className={styles.popupInner} />
           </NavigationMenu.Popup>
         </NavigationMenu.Positioner>
       </NavigationMenu.Portal>

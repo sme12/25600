@@ -22,11 +22,29 @@
 
 .popup {
   transform: translateZ(0);
+  transform-origin: var(--transform-origin);
+
+  transition-duration: 150ms;
+  transition-property: opacity, transform;
+  transition-timing-function: cubic-bezier(0.15, 0.85, 0.35, 1);
   box-shadow: var(--shadow-popup-outer);
   border-radius: var(--radius-xl);
   background: var(--bg-popup-outer);
   isolation: isolate;
+  width: var(--popup-width);
+  height: var(--popup-height);
   overflow: clip;
+
+  &[data-starting-style] {
+    transform: scale(0.97);
+    opacity: 0;
+  }
+
+  &[data-ending-style] {
+    opacity: 0;
+    transition-duration: 200ms;
+    transition-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+  }
 }
 
 .popupInner {
@@ -38,6 +56,8 @@
   border-radius: var(--radius-xl);
   background: var(--bg-popup-inner);
   padding: var(--space-2);
+  width: 100%;
+  height: 100%;
 }
 
 /* ─── Responsive ─── */
