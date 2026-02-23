@@ -53,11 +53,11 @@ function NavMenu({ portalContainer }: NavMenuProps) {
         <NavItem label={LABELS.docs} contentLabel={LABELS.docsHeader}>
           <div />
         </NavItem>
-        <NavItem label={LABELS.company} contentLabel={LABELS.companyHeader}>
-          <div />
-        </NavItem>
         <NavItem label={LABELS.changelog} contentLabel={LABELS.changelogHeader}>
           <ChangelogContent entries={changelogEntries} />
+        </NavItem>
+        <NavItem label={LABELS.company} contentLabel={LABELS.companyHeader}>
+          <div />
         </NavItem>
         <NavigationMenu.Item className={navItemStyles.navItem}>
           <NavigationMenu.Link

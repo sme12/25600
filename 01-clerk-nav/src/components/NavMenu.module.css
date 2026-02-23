@@ -24,9 +24,9 @@
   transform: translateZ(0);
   transform-origin: var(--transform-origin);
 
-  transition-duration: 150ms;
+  transition-duration: 200ms;
   transition-property: opacity, transform;
-  transition-timing-function: cubic-bezier(0.15, 0.85, 0.35, 1);
+  transition-timing-function: var(--ease-out);
   box-shadow: var(--shadow-popup-outer);
   border-radius: var(--radius-xl);
   background: var(--bg-popup-outer);
@@ -48,11 +48,7 @@
 }
 
 .popupInner {
-  position: relative;
-  transform: translateZ(0);
-  z-index: 1;
   box-shadow: var(--shadow-popup-inner);
-  border-right: 0.5px solid var(--color-popup-inner-border);
   border-radius: var(--radius-xl);
   background: var(--bg-popup-inner);
   padding: var(--space-2);
