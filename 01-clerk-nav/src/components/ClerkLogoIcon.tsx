@@ -2,7 +2,7 @@ import { memo } from 'react';
 import styles from './ClerkLogoIcon.module.css';
 
 export const ClerkLogoIcon = memo(function ClerkLogoIcon(
-  props: React.SVGProps<SVGSVGElement>,
+  props: React.SVGProps<SVGSVGElement>
 ) {
   return (
     <svg

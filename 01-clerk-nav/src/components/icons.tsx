@@ -1,7 +1,7 @@
 import { memo } from 'react';
 
 export const ChevronDownIcon = memo(function ChevronDownIcon(
-  props: React.SVGProps<SVGSVGElement>,
+  props: React.SVGProps<SVGSVGElement>
 ) {
   return (
     <svg
@@ -22,7 +22,7 @@ export const ChevronDownIcon = memo(function ChevronDownIcon(
 });
 
 export const PlayIcon = memo(function PlayIcon(
-  props: React.SVGProps<SVGSVGElement>,
+  props: React.SVGProps<SVGSVGElement>
 ) {
   return (
     <svg
