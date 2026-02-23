@@ -114,6 +114,16 @@
   /* ─── Z-index ─── */
   --z-navbar: 30;
 
+  /* ─── Products dropdown ─── */
+  --shadow-icon:
+    0 1px 0 0 rgba(var(--color-white-base), 1) inset,
+    0 2px 2px -1px rgba(var(--color-black-base), 0.2),
+    0 0 0 0.5px rgba(var(--color-gray-base), 0.16);
+  --bg-icon: #f9fafb;
+  --bg-products-right: linear-gradient(180deg, #f7f7f8 0%, #f1f1f2 100%);
+  --color-beta-bg: #eff6ff;
+  --color-beta-text: #3b82f6;
+
   /* ─── Sizes ─── */
   --navbar-button-size: 42px;
   --navbar-control-height: 26px;
@@ -184,6 +194,22 @@
     0 2px 3px -1px rgba(var(--color-black-base), 0.08),
     0 0 0 0.5px rgba(var(--color-off-white-base), 0.1),
     0 1px 0 0 rgba(var(--color-white-base), 0.1) inset;
+
+  /* ─── Products dropdown ─── */
+  --shadow-icon:
+    0 1px 0 0 rgba(var(--color-white-base), 0.1) inset,
+    0 2px 2px -1px rgba(var(--color-black-base), 0.3),
+    0 0 0 0.5px rgba(var(--color-off-white-base), 0.16);
+  --bg-icon: rgba(var(--color-white-base), 0.06);
+  --bg-products-right:
+    linear-gradient(
+      180deg,
+      rgba(var(--color-white-base), 0.03) 0%,
+      rgba(var(--color-white-base), 0) 100%
+    ),
+    rgba(25, 25, 28, 1);
+  --color-beta-bg: rgba(59, 130, 246, 0.15);
+  --color-beta-text: #60a5fa;
 
   /* ─── Opacity ─── */
   --logo-faded-path-opacity: 0.6;

@@ -1,0 +1,273 @@
+/* ─── Two-column grid (the key animation target) ─── */
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 0px;
+  transition: grid-template-columns 200ms var(--ease-out);
+  overflow: clip;
+}
+
+.grid[data-submenu-open='true'] {
+  grid-template-columns: 1fr 17.5rem;
+}
+
+/* ─── Left panel ─── */
+
+.leftPanel {
+  position: relative;
+  z-index: 30;
+}
+
+.leftInner {
+  position: relative;
+  z-index: 10;
+  padding: var(--space-2);
+  width: max-content;
+  height: 100%;
+}
+
+.sectionLabel {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: var(--space-2);
+  padding: 6px var(--space-3) 0 var(--space-3);
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-medium);
+  font-size: 11px;
+  font-family: 'IBM Plex Mono', monospace;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+}
+
+.navList {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── Nav item link ─── */
+
+.navItemLink {
+  display: block;
+  transition:
+    color var(--duration-normal) var(--ease-out),
+    background-color var(--duration-normal) var(--ease-out),
+    border-color var(--duration-normal) var(--ease-out);
+  border: 0.5px solid transparent;
+  border-radius: var(--radius-lg);
+  background: transparent;
+  padding: var(--space-2) var(--space-3);
+  color: inherit;
+  text-decoration: none;
+}
+
+.navItemLink[data-active='true'] {
+  border-color: var(--color-dropdown-border-hover);
+  background: var(--color-dropdown-bg-hover);
+}
+
+.navItemRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  pointer-events: none;
+}
+
+/* ─── Icon wrapper ─── */
+
+.iconWrap {
+  display: flex;
+  position: relative;
+  flex: none;
+  justify-content: center;
+  align-items: center;
+  transition:
+    background-color var(--duration-entrance) var(--ease-out),
+    box-shadow var(--duration-entrance) var(--ease-out);
+  box-shadow: var(--shadow-icon);
+  border-radius: var(--radius-md);
+  background: var(--bg-icon);
+  padding: var(--space-1);
+  width: 2rem;
+  height: 2rem;
+  overflow: clip;
+}
+
+.iconSvg {
+  filter: drop-shadow(0 0.5px 0 rgba(255, 255, 255, 0.4))
+    drop-shadow(0 2px 1px rgba(0, 0, 0, 0.15));
+  transition: color var(--duration-entrance) var(--ease-out);
+  width: 100%;
+  height: 100%;
+  color: var(--color-text);
+}
+
+/* ─── Text block ─── */
+
+.navItemText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.navItemTitle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color var(--duration-entrance) var(--ease-out);
+  color: var(--color-text);
+  font-weight: var(--font-weight-medium);
+  font-size: 0.875rem;
+}
+
+.navItemDesc {
+  transition: color var(--duration-normal);
+  color: var(--color-text-secondary);
+  font-size: 0.75rem;
+}
+
+.navItemLink[data-active='true'] .navItemDesc {
+  color: var(--color-text);
+}
+
+.betaBadge {
+  display: inline-block;
+  border-radius: var(--radius-sm);
+  background: var(--color-beta-bg);
+  padding: 1.5px 3.5px;
+  color: var(--color-beta-text);
+  font-weight: var(--font-weight-medium);
+  font-size: 10px;
+  line-height: 14px;
+}
+
+/* ─── Right panel ─── */
+
+.rightPanel {
+  position: relative;
+  z-index: 10;
+  background: var(--bg-products-right);
+}
+
+.rightPanel::before {
+  position: absolute;
+  top: 0;
+  left: -30px;
+  background: var(--bg-products-right);
+  width: 30px;
+  height: 100%;
+  content: '';
+}
+
+.rightInner {
+  position: relative;
+  z-index: 10;
+  border-radius: var(--radius-xl);
+  padding: var(--space-2);
+  width: 17.5rem;
+  height: 100%;
+}
+
+/* ─── Right panel content animation ─── */
+
+.rightContent {
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+  transition:
+    opacity 200ms var(--ease-out),
+    transform 200ms var(--ease-out);
+}
+
+.rightContent[data-entering='true'] {
+  animation: slideIn 200ms var(--ease-out) forwards;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translate3d(8px, 0, 0);
+    opacity: 0;
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+/* ─── Submenu items ─── */
+
+.subItem {
+  display: block;
+  position: relative;
+  transition:
+    border-color var(--duration-normal) var(--ease-out),
+    background-color var(--duration-normal) var(--ease-out);
+  border: 0.5px solid transparent;
+  border-radius: var(--radius-md);
+  background: transparent;
+  padding: 6px 10px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.subItem:hover {
+  transition-duration: var(--duration-fast);
+  border-color: var(--color-dropdown-border-hover);
+  background: var(--color-dropdown-bg-hover);
+}
+
+.subItemLabel {
+  color: var(--color-text);
+  font-size: 0.8125rem;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.subItemBadge {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity var(--duration-normal) var(--ease-out);
+  color: var(--color-text-muted);
+  font-weight: var(--font-weight-medium);
+  font-size: 0.75rem;
+}
+
+.subItem:hover .subItemBadge {
+  opacity: 1;
+  transition-duration: var(--duration-fast);
+}
+
+/* ─── Stagger animation for submenu items ─── */
+
+.staggerItem {
+  transform: translate3d(0, 4px, 0);
+  opacity: 0;
+  animation: staggerIn 200ms var(--ease-out) forwards;
+}
+
+@keyframes staggerIn {
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+/* ─── Bottom twinkle overlay ─── */
+
+.bottomFade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 20;
+  width: 100%;
+  height: 3.5rem;
+  pointer-events: none;
+}
+
+.twinklePattern {
+  position: absolute;
+  opacity: 0.5;
+  inset: 0;
+  background-image: url('/twinkle.png');
+  background-size: 5.25rem 5.25rem;
+}

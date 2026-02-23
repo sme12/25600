@@ -43,3 +43,185 @@ export const PlayIcon = memo(function PlayIcon(
     </svg>
   );
 });
+
+export const UserAuthIcon = memo(function UserAuthIcon(
+  props: React.SVGProps<SVGSVGElement>
+) {
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      role="presentation"
+      {...props}
+    >
+      <circle cx="12" cy="8" r="3.5" stroke="currentColor" strokeWidth="1.5" />
+      <path
+        d="M5.5 19.5c0-3.59 2.91-6.5 6.5-6.5s6.5 2.91 6.5 6.5"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+      <circle
+        cx="12"
+        cy="12"
+        r="10.25"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
+    </svg>
+  );
+});
+
+export const B2BIcon = memo(function B2BIcon(
+  props: React.SVGProps<SVGSVGElement>
+) {
+  return (
+    <svg
+      width="22"
+      height="17"
+      viewBox="0 0 22 17"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      role="presentation"
+      {...props}
+    >
+      <rect
+        x="0.75"
+        y="4.75"
+        width="8.5"
+        height="11.5"
+        rx="1.25"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
+      <rect
+        x="3.5"
+        y="7.5"
+        width="1.5"
+        height="1.5"
+        rx="0.5"
+        fill="currentColor"
+      />
+      <rect
+        x="6"
+        y="7.5"
+        width="1.5"
+        height="1.5"
+        rx="0.5"
+        fill="currentColor"
+      />
+      <rect
+        x="3.5"
+        y="10.5"
+        width="1.5"
+        height="1.5"
+        rx="0.5"
+        fill="currentColor"
+      />
+      <rect
+        x="6"
+        y="10.5"
+        width="1.5"
+        height="1.5"
+        rx="0.5"
+        fill="currentColor"
+      />
+      <rect
+        x="12.75"
+        y="0.75"
+        width="8.5"
+        height="15.5"
+        rx="1.25"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
+      <rect
+        x="15.5"
+        y="3.5"
+        width="1.5"
+        height="1.5"
+        rx="0.5"
+        fill="currentColor"
+      />
+      <rect
+        x="18"
+        y="3.5"
+        width="1.5"
+        height="1.5"
+        rx="0.5"
+        fill="currentColor"
+      />
+      <rect
+        x="15.5"
+        y="6.5"
+        width="1.5"
+        height="1.5"
+        rx="0.5"
+        fill="currentColor"
+      />
+      <rect
+        x="18"
+        y="6.5"
+        width="1.5"
+        height="1.5"
+        rx="0.5"
+        fill="currentColor"
+      />
+      <rect
+        x="15.5"
+        y="9.5"
+        width="1.5"
+        height="1.5"
+        rx="0.5"
+        fill="currentColor"
+      />
+      <rect
+        x="18"
+        y="9.5"
+        width="1.5"
+        height="1.5"
+        rx="0.5"
+        fill="currentColor"
+      />
+    </svg>
+  );
+});
+
+export const BillingIcon = memo(function BillingIcon(
+  props: React.SVGProps<SVGSVGElement>
+) {
+  return (
+    <svg
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      role="presentation"
+      {...props}
+    >
+      <circle
+        cx="12"
+        cy="12"
+        r="10.25"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
+      <path
+        d="M14.5 9.5c0-1.1-.9-2-2.5-2s-2.5.9-2.5 2 .9 1.5 2.5 2 2.5 1.1 2.5 2.5-1.1 2.5-2.5 2.5-2.5-1.1-2.5-2.5"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+      <path
+        d="M12 6v1.5M12 16.5V18"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+});

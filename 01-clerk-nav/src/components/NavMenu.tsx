@@ -3,6 +3,7 @@ import { NavigationMenu } from '@base-ui/react/navigation-menu';
 import styles from './NavMenu.module.css';
 import { NavItem, navItemStyles } from './NavItem';
 import { ChangelogContent } from './ChangelogContent';
+import { ProductsContent } from './ProductsContent';
 
 const LABELS = {
   products: 'Products',
@@ -48,12 +49,12 @@ function NavMenu({ portalContainer }: NavMenuProps) {
   return (
     <NavigationMenu.Root
       className={styles.desktopNav}
-      // value={'Changelog'}
-      // onValueChange={() => {}}
+      value={'Products'}
+      onValueChange={() => {}}
     >
       <NavigationMenu.List className={styles.navList} data-nav-list>
-        <NavItem label={LABELS.products} contentLabel={LABELS.productsHeader}>
-          <div />
+        <NavItem label={LABELS.products}>
+          <ProductsContent />
         </NavItem>
         <NavItem label={LABELS.docs} contentLabel={LABELS.docsHeader}>
           <div />
