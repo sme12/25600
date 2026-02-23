@@ -20,6 +20,15 @@
   text-decoration: none;
 }
 
+.ctaButtonDropdown {
+  composes: ctaButton;
+  display: flex;
+  width: 100%;
+  height: var(--dropdown-button-height);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-sm);
+}
+
 .iconExit {
   opacity: 0.6;
   transition:

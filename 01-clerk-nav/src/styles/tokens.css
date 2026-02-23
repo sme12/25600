@@ -25,6 +25,7 @@
   --space-8: 32px;
 
   /* ─── Typography ─── */
+  --font-size-xs: 12px;
   --font-size-sm: 13px;
   --font-size-base: 16px;
   --font-size-lg: 18px;
@@ -38,6 +39,7 @@
   --line-height-6xl: 72px;
   --line-height-base: 24px;
   --line-height-lg: 28px;
+  --line-height-sm: 16px;
   --font-weight-medium: 500;
   --font-weight-bold: 700;
   --line-height-tight: 1;
@@ -69,19 +71,26 @@
     0 4px 6px 0 rgba(var(--color-blue-gray-base), 0.04),
     0 1px 1px 0 rgba(var(--color-black-base), 0.05);
   --shadow-popup-outer:
-    0 0 0 0.5px rgba(var(--color-gray-base), 0.10),
-    0 16px 36px -6px rgba(25, 28, 33, 0.20),
+    0 0 0 0.5px rgba(var(--color-gray-base), 0.1),
+    0 16px 36px -6px rgba(25, 28, 33, 0.2),
     0 8px 16px -3px rgba(var(--color-black-base), 0.08),
-    0 0 0 0.5px rgba(var(--color-white-base), 0.70) inset;
+    0 0 0 0.5px rgba(var(--color-white-base), 0.7) inset;
   --shadow-popup-inner:
-    0 0 0 0.5px rgba(var(--color-white-base), 0.70) inset,
-    0 0 0 0.5px rgba(var(--color-gray-base), 0.10),
+    0 0 0 0.5px rgba(var(--color-white-base), 0.7) inset,
+    0 0 0 0.5px rgba(var(--color-gray-base), 0.1),
     0 1px 1px 0 rgba(var(--color-black-base), 0.05);
   --bg-popup-outer:
-    linear-gradient(180deg, rgba(var(--color-black-base), 0) 0%, rgba(var(--color-black-base), 0.03) 100%),
+    linear-gradient(
+      180deg,
+      rgba(var(--color-black-base), 0) 0%,
+      rgba(var(--color-black-base), 0.03) 100%
+    ),
     rgba(var(--color-off-white-base), 0.95);
-  --bg-popup-inner:
-    linear-gradient(180deg, rgba(var(--color-white-base), 0.90) 10%, rgba(247, 247, 247, 0.90) 90%);
+  --bg-popup-inner: linear-gradient(
+    180deg,
+    rgba(var(--color-white-base), 0.9) 10%,
+    rgba(247, 247, 247, 0.9) 90%
+  );
   --color-dropdown-border-hover: rgba(var(--color-gray-base), 0.12);
   --color-dropdown-bg-hover: rgba(var(--color-gray-base), 0.02);
   --color-popup-inner-border: rgba(var(--color-white-base), 1);
@@ -108,6 +117,7 @@
   /* ─── Sizes ─── */
   --navbar-button-size: 42px;
   --navbar-control-height: 26px;
+  --dropdown-button-height: 30px;
   --container-max-width: 1280px;
   --navbar-width: 1228px;
   --frost-backdrop-height: 80px;
@@ -146,19 +156,26 @@
     0 4px 6px 0 rgba(var(--color-blue-gray-base), 0.16),
     0 1px 1px 0 rgba(var(--color-black-base), 0.16);
   --shadow-popup-outer:
-    0 0 0 0.5px rgba(var(--color-gray-base), 0.80),
-    0 16px 36px -6px rgba(25, 28, 33, 0.20),
+    0 0 0 0.5px rgba(var(--color-gray-base), 0.8),
+    0 16px 36px -6px rgba(25, 28, 33, 0.2),
     0 8px 16px -3px rgba(var(--color-black-base), 0.08),
     0 0 0 0.5px #38383b inset;
   --shadow-popup-inner:
-    0 0 0 0.5px #38383b inset,
-    0 0 0 0.5px rgba(var(--color-gray-base), 0.8),
+    0 0 0 0.5px #38383b inset, 0 0 0 0.5px rgba(var(--color-gray-base), 0.8),
     0 1px 1px 0 rgba(var(--color-black-base), 0.05);
   --bg-popup-outer:
-    linear-gradient(180deg, rgba(var(--color-white-base), 0.04) 10%, rgba(var(--color-white-base), 0) 90%),
+    linear-gradient(
+      180deg,
+      rgba(var(--color-white-base), 0.04) 10%,
+      rgba(var(--color-white-base), 0) 90%
+    ),
     rgba(33, 33, 38, 0.9);
   --bg-popup-inner:
-    linear-gradient(180deg, rgba(var(--color-white-base), 0.04) 10%, rgba(var(--color-white-base), 0) 90%),
+    linear-gradient(
+      180deg,
+      rgba(var(--color-white-base), 0.04) 10%,
+      rgba(var(--color-white-base), 0) 90%
+    ),
     #131316;
   --color-dropdown-border-hover: rgba(var(--color-white-base), 0.14);
   --color-dropdown-bg-hover: rgba(var(--color-white-base), 0.05);

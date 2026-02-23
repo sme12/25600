@@ -48,3 +48,8 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+.ctaButtonWrapper {
+  padding: var(--space-2);
+  width: 100%;
+}

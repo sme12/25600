@@ -11,6 +11,7 @@ const LABELS = {
   docsHeader: 'Featured Docs',
   changelog: 'Changelog',
   changelogHeader: 'Latest Changelog',
+  changelogCta: 'Go to Changelog',
   company: 'Company',
   companyHeader: 'Resources',
   pricing: 'Pricing',
@@ -45,7 +46,11 @@ interface NavMenuProps {
 
 function NavMenu({ portalContainer }: NavMenuProps) {
   return (
-    <NavigationMenu.Root className={styles.desktopNav}>
+    <NavigationMenu.Root
+      className={styles.desktopNav}
+      // value={'Changelog'}
+      // onValueChange={() => {}}
+    >
       <NavigationMenu.List className={styles.navList} data-nav-list>
         <NavItem label={LABELS.products} contentLabel={LABELS.productsHeader}>
           <div />
@@ -54,7 +59,11 @@ function NavMenu({ portalContainer }: NavMenuProps) {
           <div />
         </NavItem>
         <NavItem label={LABELS.changelog} contentLabel={LABELS.changelogHeader}>
-          <ChangelogContent entries={changelogEntries} />
+          <ChangelogContent
+            entries={changelogEntries}
+            ctaLabel={LABELS.changelogCta}
+            ctaHref="/changelog"
+          />
         </NavItem>
         <NavItem label={LABELS.company} contentLabel={LABELS.companyHeader}>
           <div />
