@@ -19,6 +19,19 @@ const LAYERS = [
 const MASK_START = `rgba(0,0,0,var(--mask-opacity,1))`;
 const SCROLL_FADE_DISTANCE = 300; // px to scroll before frost is fully opaque
 
+const FROST_LAYERS = LAYERS.map(({ blur, end }, i) => (
+  <div
+    key={i}
+    className={styles.frostLayer}
+    style={{
+      backdropFilter: `blur(${blur}px)`,
+      WebkitBackdropFilter: `blur(${blur}px)`,
+      maskImage: `linear-gradient(to bottom, ${MASK_START} 40%, transparent ${end}%)`,
+      WebkitMaskImage: `linear-gradient(to bottom, ${MASK_START} 40%, transparent ${end}%)`,
+    }}
+  />
+));
+
 export function FrostBackdrop() {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -45,18 +58,7 @@ export function FrostBackdrop() {
 
   return (
     <div ref={ref} className={styles.frostContainer} aria-hidden="true">
-      {LAYERS.map(({ blur, end }, i) => (
-        <div
-          key={i}
-          className={styles.frostLayer}
-          style={{
-            backdropFilter: `blur(${blur}px)`,
-            WebkitBackdropFilter: `blur(${blur}px)`,
-            maskImage: `linear-gradient(to bottom, ${MASK_START} 40%, transparent ${end}%)`,
-            WebkitMaskImage: `linear-gradient(to bottom, ${MASK_START} 40%, transparent ${end}%)`,
-          }}
-        />
-      ))}
+      {FROST_LAYERS}
     </div>
   );
 }
