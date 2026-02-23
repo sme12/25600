@@ -53,9 +53,9 @@
   margin-bottom: var(--space-2);
   padding: 6px var(--space-3) 0;
   color: var(--color-text-secondary);
-  font-family: "IBM Plex Mono", monospace;
   font-weight: var(--font-weight-medium);
   font-size: 11px;
+  font-family: 'IBM Plex Mono', monospace;
   letter-spacing: 1.1px;
   text-transform: uppercase;
 }
@@ -64,3 +64,41 @@
   min-width: 180px;
 }
 
+/* ─── Chevron cross-fade ─── */
+
+.chevronWrap {
+  display: flex;
+  position: relative;
+  width: 8px;
+  height: 4px;
+}
+
+.chevronClosed,
+.chevronOpen {
+  position: absolute;
+  transition:
+    color var(--duration-entrance) var(--ease-out),
+    transform var(--duration-hover) var(--ease-out),
+    opacity var(--duration-hover) var(--ease-out);
+  inset: 0;
+}
+
+.chevronClosed {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.chevronOpen {
+  transform: translateY(-2px) rotate(180deg);
+  opacity: 0;
+}
+
+[data-popup-open] .chevronClosed {
+  transform: translateY(2px);
+  opacity: 0;
+}
+
+[data-popup-open] .chevronOpen {
+  transform: translateY(0) rotate(180deg);
+  opacity: 1;
+}

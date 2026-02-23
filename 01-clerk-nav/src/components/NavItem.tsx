@@ -15,8 +15,15 @@ function NavItem({ label, contentLabel, children }: NavItemProps) {
       <NavigationMenu.Trigger className={styles.navButton}>
         <span className={styles.navItemLabel}>
           {label}
-          <NavigationMenu.Icon>
-            <ChevronDownIcon aria-hidden="true" />
+          <NavigationMenu.Icon className={styles.chevronWrap}>
+            <ChevronDownIcon
+              className={styles.chevronClosed}
+              aria-hidden="true"
+            />
+            <ChevronDownIcon
+              className={styles.chevronOpen}
+              aria-hidden="true"
+            />
           </NavigationMenu.Icon>
         </span>
       </NavigationMenu.Trigger>
