@@ -1,4 +1,8 @@
-export function ChevronDownIcon(props: React.SVGProps<SVGSVGElement>) {
+import { memo } from 'react';
+
+export const ChevronDownIcon = memo(function ChevronDownIcon(
+  props: React.SVGProps<SVGSVGElement>,
+) {
   return (
     <svg
       width="8"
@@ -15,9 +19,11 @@ export function ChevronDownIcon(props: React.SVGProps<SVGSVGElement>) {
       />
     </svg>
   );
-}
+});
 
-export function PlayIcon(props: React.SVGProps<SVGSVGElement>) {
+export const PlayIcon = memo(function PlayIcon(
+  props: React.SVGProps<SVGSVGElement>,
+) {
   return (
     <svg
       width="10"
@@ -36,4 +42,4 @@ export function PlayIcon(props: React.SVGProps<SVGSVGElement>) {
       />
     </svg>
   );
-}
+});
