@@ -11,6 +11,15 @@ const SECTIONS = [
   { height: '90vh', theme: 'dark' },
 ] as const;
 
+const SECTION_STYLES = SECTIONS.map((section, i) => ({
+  height: section.height,
+  backgroundColor: section.theme === 'light' ? '#f7f7f8' : '#131316',
+  display: i === 0 ? ('flex' as const) : undefined,
+  alignItems: i === 0 ? ('center' as const) : undefined,
+  paddingTop: i === 0 ? '192px' : undefined,
+  paddingBottom: i === 0 ? '128px' : undefined,
+}));
+
 function App() {
   const { theme, navbarRef } = useNavbarTheme();
 
@@ -22,15 +31,7 @@ function App() {
           <section
             key={i}
             data-section={section.theme}
-            style={{
-              height: section.height,
-              backgroundColor:
-                section.theme === 'light' ? '#f7f7f8' : '#131316',
-              display: i === 0 ? 'flex' : undefined,
-              alignItems: i === 0 ? 'center' : undefined,
-              paddingTop: i === 0 ? '192px' : undefined,
-              paddingBottom: i === 0 ? '128px' : undefined,
-            }}
+            style={SECTION_STYLES[i]}
           >
             {i === 0 && <HeroContent />}
           </section>
