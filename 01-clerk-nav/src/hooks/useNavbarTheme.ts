@@ -35,7 +35,7 @@ export function useNavbarTheme() {
       },
       {
         root: null,
-        rootMargin: '-0px 0px -85% 0px',
+        rootMargin: '-0px 0px -95% 0px',
         threshold: 0,
       }
     );
