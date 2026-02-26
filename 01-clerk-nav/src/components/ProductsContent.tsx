@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { NavigationMenu } from '@base-ui/react/navigation-menu';
 import styles from './ProductsContent.module.css';
+import popupStyles from './Popup.module.css';
 import { UserAuthIcon, B2BIcon, BillingIcon } from './icons';
 import type { ProductNavItem } from './products.data';
 
@@ -69,7 +70,7 @@ function ProductsContent() {
   return (
     <div className={styles.grid} data-submenu-open={activeIndex !== null}>
       {/* Left panel */}
-      <div className={styles.leftPanel}>
+      <div className={`${styles.leftPanel} ${popupStyles.popupInner}`}>
         <div className={styles.leftInner}>
           <div className={styles.sectionLabel}>Products</div>
           <div className={styles.navList}>

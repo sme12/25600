@@ -1,5 +1,6 @@
 import { NavigationMenu } from '@base-ui/react/navigation-menu';
 import styles from './ChangelogContent.module.css';
+import popupStyles from './Popup.module.css';
 import ctaStyles from './CtaButton.module.css';
 import { PlayIcon } from './icons';
 
@@ -15,7 +16,7 @@ function ChangelogContent({
   ctaHref,
 }: ChangelogContentProps) {
   return (
-    <>
+    <div className={popupStyles.popupInner}>
       <ul className={styles.dropdownList}>
         {entries.map((entry) => (
           <li key={entry.href}>
@@ -36,7 +37,7 @@ function ChangelogContent({
           <PlayIcon aria-hidden="true" className={ctaStyles.iconEnter} />
         </a>
       </div>
-    </>
+    </div>
   );
 }
 

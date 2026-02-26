@@ -1,7 +1,9 @@
 import type { RefObject } from 'react';
 import { NavigationMenu } from '@base-ui/react/navigation-menu';
 import styles from './NavMenu.module.css';
-import { NavItem, navItemStyles } from './NavItem';
+import popupStyles from './Popup.module.css';
+import navItemStyles from './NavItem.module.css';
+import { NavItem } from './NavItem';
 import { ChangelogContent } from './ChangelogContent';
 import { ProductsContent } from './ProductsContent';
 
@@ -86,8 +88,8 @@ function NavMenu({ portalContainer }: NavMenuProps) {
           align="start"
           alignOffset={-12}
         >
-          <NavigationMenu.Popup className={styles.popup}>
-            <NavigationMenu.Viewport className={styles.popupInner} />
+          <NavigationMenu.Popup className={popupStyles.popup}>
+            <NavigationMenu.Viewport />
           </NavigationMenu.Popup>
         </NavigationMenu.Positioner>
       </NavigationMenu.Portal>

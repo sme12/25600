@@ -39,4 +39,4 @@ function NavItem({ label, contentLabel, children }: NavItemProps) {
   );
 }
 
-export { NavItem, styles as navItemStyles };
+export { NavItem };
