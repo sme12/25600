@@ -5,11 +5,10 @@ import { ChevronDownIcon } from './icons';
 
 interface NavItemProps {
   label: string;
-  contentLabel?: string;
   children?: ReactNode;
 }
 
-function NavItem({ label, contentLabel, children }: NavItemProps) {
+function NavItem({ label, children }: NavItemProps) {
   return (
     <NavigationMenu.Item value={label} className={styles.navItem}>
       <NavigationMenu.Trigger className={styles.navButton}>
@@ -27,14 +26,7 @@ function NavItem({ label, contentLabel, children }: NavItemProps) {
           </NavigationMenu.Icon>
         </span>
       </NavigationMenu.Trigger>
-      {children && (
-        <NavigationMenu.Content className={styles.navContent}>
-          {contentLabel && (
-            <div className={styles.contentHeader}>{contentLabel}</div>
-          )}
-          {children}
-        </NavigationMenu.Content>
-      )}
+      {children && <NavigationMenu.Content>{children}</NavigationMenu.Content>}
     </NavigationMenu.Item>
   );
 }

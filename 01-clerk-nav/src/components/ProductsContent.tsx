@@ -72,7 +72,7 @@ function ProductsContent() {
       {/* Left panel */}
       <div className={`${styles.leftPanel} ${popupStyles.popupInner}`}>
         <div className={styles.leftInner}>
-          <div className={styles.sectionLabel}>Products</div>
+          <div className={popupStyles.popupContentHeader}>Products</div>
           <div className={styles.navList}>
             {productsNav.map((item, i) => (
               <NavigationMenu.Link
@@ -111,7 +111,7 @@ function ProductsContent() {
               className={styles.rightContent}
               data-entering="true"
             >
-              <div className={styles.sectionLabel}>
+              <div className={popupStyles.popupContentHeader}>
                 {activeItem.subSection.heading}
               </div>
               <div>

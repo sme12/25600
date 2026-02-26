@@ -47,23 +47,6 @@
   color: var(--color-text) !important;
 }
 
-/* ─── Dropdown content ─── */
-
-.contentHeader {
-  margin-bottom: var(--space-2);
-  padding: 6px var(--space-3) 0;
-  color: var(--color-text-secondary);
-  font-weight: var(--font-weight-medium);
-  font-size: 11px;
-  font-family: 'IBM Plex Mono', monospace;
-  letter-spacing: 1.1px;
-  text-transform: uppercase;
-}
-
-.navContent {
-  min-width: 180px;
-}
-
 /* ─── Chevron cross-fade ─── */
 
 .chevronWrap {

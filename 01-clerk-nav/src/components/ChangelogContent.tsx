@@ -5,18 +5,21 @@ import ctaStyles from './CtaButton.module.css';
 import { PlayIcon } from './icons';
 
 interface ChangelogContentProps {
+  contentLabel: string;
   entries: { date: string; title: string; href: string }[];
   ctaLabel: string;
   ctaHref: string;
 }
 
 function ChangelogContent({
+  contentLabel,
   entries,
   ctaLabel,
   ctaHref,
 }: ChangelogContentProps) {
   return (
     <div className={popupStyles.popupInner}>
+      <div className={popupStyles.popupContentHeader}>{contentLabel}</div>
       <ul className={styles.dropdownList}>
         {entries.map((entry) => (
           <li key={entry.href}>
