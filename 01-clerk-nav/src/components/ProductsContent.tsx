@@ -63,7 +63,7 @@ const productsNav: ProductNavItem[] = [
   },
 ];
 
-function ProductsContent() {
+function ProductsContent({ contentLabel }: { contentLabel: string }) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const activeItem = activeIndex !== null ? productsNav[activeIndex] : null;
 
@@ -72,7 +72,7 @@ function ProductsContent() {
       {/* Left panel */}
       <div className={`${styles.leftPanel} ${popupStyles.popupInner}`}>
         <div className={styles.leftInner}>
-          <div className={popupStyles.popupContentHeader}>Products</div>
+          <div className={popupStyles.popupContentHeader}>{contentLabel}</div>
           <div className={styles.navList}>
             {productsNav.map((item, i) => (
               <NavigationMenu.Link

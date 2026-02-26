@@ -57,7 +57,7 @@ function NavMenu({ portalContainer }: NavMenuProps) {
     >
       <NavigationMenu.List className={styles.navList} data-nav-list>
         <NavItem label={LABELS.products}>
-          <ProductsContent />
+          <ProductsContent contentLabel={LABELS.productsHeader} />
         </NavItem>
         <NavItem label={LABELS.docs}>
           <PlaceholderContent contentLabel={LABELS.docsHeader} />
