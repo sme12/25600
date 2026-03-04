@@ -86,6 +86,7 @@ function ProductsContent({ contentLabel }: { contentLabel: string }) {
                   <NavigationMenu.Trigger
                     className={styles.navItemLink}
                     render={<a href={item.href} />}
+                    nativeButton={false}
                   >
                     <div className={styles.navItemRow}>
                       <div className={styles.iconWrap}>
