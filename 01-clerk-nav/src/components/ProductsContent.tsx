@@ -64,79 +64,87 @@ const productsNav: ProductNavItem[] = [
 ];
 
 function ProductsContent({ contentLabel }: { contentLabel: string }) {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const activeItem = activeIndex !== null ? productsNav[activeIndex] : null;
+  const [submenuOpen, setSubmenuOpen] = useState(false);
 
   return (
-    <div className={styles.grid} data-submenu-open={activeIndex !== null}>
-      {/* Left panel */}
-      <div className={`${styles.leftPanel} ${popupStyles.popupInner}`}>
-        <div className={styles.leftInner}>
-          <div className={popupStyles.popupContentHeader}>{contentLabel}</div>
-          <div className={styles.navList}>
-            {productsNav.map((item, i) => (
-              <NavigationMenu.Link
-                key={item.label}
-                className={styles.navItemLink}
-                data-active={activeIndex === i}
-                onMouseEnter={() => setActiveIndex(i)}
-                render={<a href={item.href} />}
-              >
-                <div className={styles.navItemRow}>
-                  <div className={styles.iconWrap}>
-                    <span className={styles.iconSvg}>{item.icon}</span>
-                  </div>
-                  <div className={styles.navItemText}>
-                    <div className={styles.navItemTitle}>
-                      {item.label}
-                      {item.tag && (
-                        <span className={styles.betaBadge}>{item.tag}</span>
-                      )}
+    <NavigationMenu.Root
+      orientation="vertical"
+      onValueChange={(value) => {
+        if (value != null) {
+          setSubmenuOpen(true);
+        }
+      }}
+    >
+      <div className={styles.grid} data-submenu-open={submenuOpen}>
+        {/* Left panel */}
+        <div className={`${styles.leftPanel} ${popupStyles.popupInner}`}>
+          <div className={styles.leftInner}>
+            <div className={popupStyles.popupContentHeader}>{contentLabel}</div>
+            <NavigationMenu.List className={styles.navList}>
+              {productsNav.map((item) => (
+                <NavigationMenu.Item key={item.label} value={item.label}>
+                  <NavigationMenu.Trigger
+                    className={styles.navItemLink}
+                    render={<a href={item.href} />}
+                  >
+                    <div className={styles.navItemRow}>
+                      <div className={styles.iconWrap}>
+                        <span className={styles.iconSvg}>{item.icon}</span>
+                      </div>
+                      <div className={styles.navItemText}>
+                        <div className={styles.navItemTitle}>
+                          {item.label}
+                          {item.tag && (
+                            <span className={styles.betaBadge}>{item.tag}</span>
+                          )}
+                        </div>
+                        <div className={styles.navItemDesc}>
+                          {item.description}
+                        </div>
+                      </div>
                     </div>
-                    <div className={styles.navItemDesc}>{item.description}</div>
-                  </div>
-                </div>
-              </NavigationMenu.Link>
-            ))}
+                  </NavigationMenu.Trigger>
+                  <NavigationMenu.Content className={styles.rightContent}>
+                    <div className={popupStyles.popupContentHeader}>
+                      {item.subSection.heading}
+                    </div>
+                    <div>
+                      {item.subSection.items.map((sub, i) => (
+                        <a
+                          key={sub.label}
+                          className={`${styles.subItem} ${styles.staggerItem}`}
+                          href={sub.href}
+                          style={{ animationDelay: `${i * 25}ms` }}
+                        >
+                          <span className={styles.subItemLabel}>
+                            {sub.label}
+                          </span>
+                          {sub.badge && (
+                            <span className={styles.subItemBadge}>
+                              {sub.badge}
+                            </span>
+                          )}
+                        </a>
+                      ))}
+                    </div>
+                  </NavigationMenu.Content>
+                </NavigationMenu.Item>
+              ))}
+            </NavigationMenu.List>
+          </div>
+        </div>
+
+        {/* Right panel */}
+        <div className={styles.rightPanel}>
+          <div className={styles.rightInner}>
+            <NavigationMenu.Viewport className={styles.viewport} />
+          </div>
+          <div className={styles.bottomFade}>
+            <div className={styles.twinklePattern} />
           </div>
         </div>
       </div>
-
-      {/* Right panel */}
-      <div className={styles.rightPanel}>
-        <div className={styles.rightInner}>
-          {activeItem && (
-            <div
-              key={activeIndex}
-              className={styles.rightContent}
-              data-entering="true"
-            >
-              <div className={popupStyles.popupContentHeader}>
-                {activeItem.subSection.heading}
-              </div>
-              <div>
-                {activeItem.subSection.items.map((sub, i) => (
-                  <a
-                    key={sub.label}
-                    className={`${styles.subItem} ${styles.staggerItem}`}
-                    href={sub.href}
-                    style={{ animationDelay: `${i * 25}ms` }}
-                  >
-                    <span className={styles.subItemLabel}>{sub.label}</span>
-                    {sub.badge && (
-                      <span className={styles.subItemBadge}>{sub.badge}</span>
-                    )}
-                  </a>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
-        <div className={styles.bottomFade}>
-          <div className={styles.twinklePattern} />
-        </div>
-      </div>
-    </div>
+    </NavigationMenu.Root>
   );
 }
 

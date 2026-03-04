@@ -18,6 +18,7 @@
 
 .positioner {
   z-index: var(--z-navbar);
+  pointer-events: auto;
 }
 
 /* ─── Responsive ─── */
