@@ -2,7 +2,13 @@ import { useState } from 'react';
 import { NavigationMenu } from '@base-ui/react/navigation-menu';
 import styles from './ProductsContent.module.css';
 import popupStyles from './Popup.module.css';
-import { UserAuthIcon, B2BIcon, BillingIcon } from './icons';
+import {
+  UserAuthIcon,
+  B2BIcon,
+  BillingIcon,
+  DashedHLine,
+  DashedVLine,
+} from './icons';
 import type { ProductNavItem } from './products.data';
 
 const productsNav: ProductNavItem[] = [
@@ -90,13 +96,28 @@ function ProductsContent({ contentLabel }: { contentLabel: string }) {
                   >
                     <div className={styles.navItemRow}>
                       <div className={styles.iconWrap}>
+                        <div className={styles.iconGradient} />
                         <span className={styles.iconSvg}>{item.icon}</span>
                       </div>
                       <div className={styles.navItemText}>
                         <div className={styles.navItemTitle}>
                           {item.label}
                           {item.tag && (
-                            <span className={styles.betaBadge}>{item.tag}</span>
+                            <span className={styles.betaBadge}>
+                              {item.tag}
+                              <span className={styles.betaBadgeBorderTop}>
+                                <DashedHLine />
+                              </span>
+                              <span className={styles.betaBadgeBorderBottom}>
+                                <DashedHLine />
+                              </span>
+                              <span className={styles.betaBadgeBorderLeft}>
+                                <DashedVLine />
+                              </span>
+                              <span className={styles.betaBadgeBorderRight}>
+                                <DashedVLine />
+                              </span>
+                            </span>
                           )}
                         </div>
                         <div className={styles.navItemDesc}>
@@ -106,10 +127,10 @@ function ProductsContent({ contentLabel }: { contentLabel: string }) {
                     </div>
                   </NavigationMenu.Trigger>
                   <NavigationMenu.Content className={styles.rightContent}>
-                    <div className={popupStyles.popupContentHeader}>
+                    <div className={styles.rightContentHeader}>
                       {item.subSection.heading}
                     </div>
-                    <div>
+                    <div className={styles.subItemList}>
                       {item.subSection.items.map((sub, i) => (
                         <a
                           key={sub.label}
