@@ -50,11 +50,7 @@ interface NavMenuProps {
 
 function NavMenu({ portalContainer }: NavMenuProps) {
   return (
-    <NavigationMenu.Root
-      className={styles.desktopNav}
-      // value={'Products'}
-      // onValueChange={() => {}}
-    >
+    <NavigationMenu.Root className={styles.desktopNav}>
       <NavigationMenu.List className={styles.navList} data-nav-list>
         <NavItem label={LABELS.products}>
           <ProductsContent contentLabel={LABELS.productsHeader} />

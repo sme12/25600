@@ -224,28 +224,6 @@
   height: 100%;
 }
 
-/* ─── Right panel content animation ─── */
-
-.rightContent {
-  transform: translate3d(0, 0, 0);
-  opacity: 1;
-  transition:
-    opacity 200ms var(--ease-out),
-    transform 200ms var(--ease-out);
-  width: 100%;
-  height: 100%;
-}
-
-.rightContent[data-starting-style] {
-  transform: translate3d(8px, 0, 0);
-  opacity: 0;
-}
-
-.rightContent[data-ending-style] {
-  transform: translate3d(8px, 0, 0);
-  opacity: 0;
-}
-
 .rightContentHeader {
   margin-bottom: var(--space-1);
   padding: 6px var(--space-3) 0;
@@ -310,28 +288,6 @@
 .subItem:hover .subItemBadge {
   opacity: 1;
   transition-duration: var(--duration-fast);
-}
-
-/* ─── Stagger animation for submenu items ─── */
-
-.staggerItem {
-  transform: translate3d(0, 4px, 0);
-  opacity: 0;
-  animation: staggerIn 200ms var(--ease-out) forwards;
-}
-
-@keyframes staggerIn {
-  to {
-    transform: translate3d(0, 0, 0);
-    opacity: 1;
-  }
-}
-
-/* ─── Viewport ─── */
-
-.viewport {
-  width: 100%;
-  height: 100%;
 }
 
 /* ─── Bottom twinkle overlay ─── */

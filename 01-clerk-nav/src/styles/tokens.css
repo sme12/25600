@@ -6,6 +6,7 @@
   --color-blue-gray-base: 34, 42, 53;
   --color-off-white-base: 247, 247, 248;
   --color-purple-base: 116, 118, 134;
+  --color-purple-light-base: 183, 184, 194;
 
   /* ─── Color Semantic ─── */
   --color-body: rgba(var(--color-off-white-base), 1);
@@ -147,6 +148,7 @@
   --color-border-subtle: rgba(var(--color-white-base), 0.14);
   --color-text-secondary: rgba(var(--color-off-white-base), 0.55);
   --color-divider: rgba(var(--color-white-base), 0);
+  --color-nav-item-muted: rgba(var(--color-purple-light-base), 1);
 
   /* ─── Backgrounds ─── */
   --nav-button-hover-surface-color: rgba(var(--color-white-base), 0.05);
