@@ -88,7 +88,14 @@ export const B2BIcon = memo(function B2BIcon(
 
 export const DashedHLine = memo(function DashedHLine() {
   return (
-    <svg width="100%" height="1" strokeLinecap="round">
+    <svg
+      width="100%"
+      height="1"
+      strokeLinecap="round"
+      aria-hidden="true"
+      focusable="false"
+      role="presentation"
+    >
       <line
         x1="0"
         y1="0.5"
@@ -106,7 +113,14 @@ export const DashedHLine = memo(function DashedHLine() {
 
 export const DashedVLine = memo(function DashedVLine() {
   return (
-    <svg width="1" height="100%" strokeLinecap="round">
+    <svg
+      width="1"
+      height="100%"
+      strokeLinecap="round"
+      aria-hidden="true"
+      focusable="false"
+      role="presentation"
+    >
       <line
         x1="0.5"
         y1="0"
