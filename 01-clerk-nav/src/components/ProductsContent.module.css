@@ -260,7 +260,8 @@
   text-decoration: none;
 }
 
-.subItem:hover {
+.subItem:hover,
+.subItem:focus-visible {
   transition-duration: var(--duration-fast);
   border-color: var(--color-dropdown-border-hover);
   background: var(--color-dropdown-bg-hover);
@@ -285,7 +286,8 @@
   font-size: 0.6875rem;
 }
 
-.subItem:hover .subItemBadge {
+.subItem:hover .subItemBadge,
+.subItem:focus-visible .subItemBadge {
   opacity: 1;
   transition-duration: var(--duration-fast);
 }

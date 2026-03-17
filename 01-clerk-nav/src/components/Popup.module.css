@@ -1,7 +1,6 @@
 .popup {
   transform: translateZ(0);
-  transform-origin: var(--transform-origin);
-
+  transform-origin: var(--transform-origin, center center);
   transition-duration: 300ms;
   transition-property: opacity, transform;
   transition-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
@@ -9,8 +8,8 @@
   border-radius: var(--radius-xl);
   background: var(--bg-popup-outer);
   isolation: isolate;
-  width: var(--popup-width);
-  height: var(--popup-height);
+  width: var(--popup-width, 240px);
+  height: var(--popup-height, auto);
   overflow: clip;
 
   &[data-starting-style] {
