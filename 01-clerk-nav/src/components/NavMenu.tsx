@@ -1,8 +1,12 @@
 import type { RefObject } from 'react';
 import { NavigationMenu } from '@base-ui/react/navigation-menu';
 import styles from './NavMenu.module.css';
-import { NavItem, navItemStyles } from './NavItem';
+import popupStyles from './Popup.module.css';
+import navItemStyles from './NavItem.module.css';
+import { NavItem } from './NavItem';
 import { ChangelogContent } from './ChangelogContent';
+import { PlaceholderContent } from './PlaceholderContent';
+import { ProductsContent } from './ProductsContent';
 
 const LABELS = {
   products: 'Products',
@@ -46,27 +50,24 @@ interface NavMenuProps {
 
 function NavMenu({ portalContainer }: NavMenuProps) {
   return (
-    <NavigationMenu.Root
-      className={styles.desktopNav}
-      // value={'Changelog'}
-      // onValueChange={() => {}}
-    >
+    <NavigationMenu.Root className={styles.desktopNav}>
       <NavigationMenu.List className={styles.navList} data-nav-list>
-        <NavItem label={LABELS.products} contentLabel={LABELS.productsHeader}>
-          <div />
+        <NavItem label={LABELS.products}>
+          <ProductsContent contentLabel={LABELS.productsHeader} />
         </NavItem>
-        <NavItem label={LABELS.docs} contentLabel={LABELS.docsHeader}>
-          <div />
+        <NavItem label={LABELS.docs}>
+          <PlaceholderContent contentLabel={LABELS.docsHeader} />
         </NavItem>
-        <NavItem label={LABELS.changelog} contentLabel={LABELS.changelogHeader}>
+        <NavItem label={LABELS.changelog}>
           <ChangelogContent
+            contentLabel={LABELS.changelogHeader}
             entries={changelogEntries}
             ctaLabel={LABELS.changelogCta}
             ctaHref="/changelog"
           />
         </NavItem>
-        <NavItem label={LABELS.company} contentLabel={LABELS.companyHeader}>
-          <div />
+        <NavItem label={LABELS.company}>
+          <PlaceholderContent contentLabel={LABELS.companyHeader} />
         </NavItem>
         <NavigationMenu.Item className={navItemStyles.navItem}>
           <NavigationMenu.Link
@@ -85,8 +86,8 @@ function NavMenu({ portalContainer }: NavMenuProps) {
           align="start"
           alignOffset={-12}
         >
-          <NavigationMenu.Popup className={styles.popup}>
-            <NavigationMenu.Viewport className={styles.popupInner} />
+          <NavigationMenu.Popup className={popupStyles.popup}>
+            <NavigationMenu.Viewport />
           </NavigationMenu.Popup>
         </NavigationMenu.Positioner>
       </NavigationMenu.Portal>

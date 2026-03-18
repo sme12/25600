@@ -1,0 +1,45 @@
+.popup {
+  transform: translateZ(0);
+  transform-origin: var(--transform-origin, center center);
+  transition-duration: 300ms;
+  transition-property: opacity, transform;
+  transition-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+  box-shadow: var(--shadow-popup-outer);
+  border-radius: var(--radius-xl);
+  background: var(--bg-popup-outer);
+  isolation: isolate;
+  width: var(--popup-width, 240px);
+  height: var(--popup-height, auto);
+  overflow: clip;
+
+  &[data-starting-style] {
+    transform: translateY(4px) scale(0.97);
+    opacity: 0;
+  }
+
+  &[data-ending-style] {
+    transform: translateY(4px) scale(1);
+    opacity: 0;
+    transition-duration: 200ms;
+  }
+}
+
+.popupInner {
+  box-shadow: var(--shadow-popup-inner);
+  border-radius: var(--radius-xl);
+  background: var(--bg-popup-inner);
+  padding: var(--space-2);
+  width: 100%;
+  height: 100%;
+}
+
+.popupContentHeader {
+  margin-bottom: var(--space-2);
+  padding: 6px var(--space-3) 0;
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-medium);
+  font-size: 11px;
+  font-family: 'IBM Plex Mono', monospace;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+}
