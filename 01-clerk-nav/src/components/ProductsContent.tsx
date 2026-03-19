@@ -6,12 +6,29 @@ import popupStyles from './Popup.module.css';
 import { DashedHLine, DashedVLine } from './icons';
 import { productsNav } from './products.data';
 import { EASE_OUT } from './motion-constants';
+import { useSubmenuKeyboard } from '../hooks/useSubmenuKeyboard';
 
 function ProductsContent({ contentLabel }: { contentLabel: string }) {
   const [submenuOpen, setSubmenuOpen] = useState(false);
   const [activeValue, setActiveValue] = useState<string | null>(null);
   const [direction, setDirection] = useState<'down' | 'up'>('down');
   const previousIndexRef = useRef(-1);
+
+  const {
+    triggerRef,
+    subItemRef,
+    handleTriggerFocus,
+    handleTriggerKeyDown,
+    handleSubItemKeyDown,
+    resetSubItemRefs,
+  } = useSubmenuKeyboard({
+    items: productsNav,
+    activeValue,
+    setActiveValue,
+    setSubmenuOpen,
+    setDirection,
+    previousIndexRef,
+  });
 
   const activeItem = activeValue
     ? productsNav.find((item) => item.label === activeValue)
@@ -20,6 +37,7 @@ function ProductsContent({ contentLabel }: { contentLabel: string }) {
   return (
     <NavigationMenu.Root
       orientation="vertical"
+      value={activeValue}
       onValueChange={(value) => {
         if (value != null) {
           const newIndex = productsNav.findIndex(
@@ -38,12 +56,15 @@ function ProductsContent({ contentLabel }: { contentLabel: string }) {
           <div className={styles.leftInner}>
             <div className={popupStyles.popupContentHeader}>{contentLabel}</div>
             <NavigationMenu.List className={styles.navList}>
-              {productsNav.map((item) => (
+              {productsNav.map((item, index) => (
                 <NavigationMenu.Item key={item.label} value={item.label}>
                   <NavigationMenu.Trigger
                     className={styles.navItemLink}
                     render={<a href={item.href} />}
                     nativeButton={false}
+                    ref={triggerRef(index)}
+                    onFocus={() => handleTriggerFocus(item.label, index)}
+                    onKeyDown={handleTriggerKeyDown}
                   >
                     <div className={styles.navItemRow}>
                       <div className={styles.iconWrap}>
@@ -139,11 +160,14 @@ function ProductsContent({ contentLabel }: { contentLabel: string }) {
                         </motion.div>
 
                         <div className={styles.subItemList}>
+                          {resetSubItemRefs()}
                           {activeItem.subSection.items.map((sub, i) => (
                             <motion.a
                               key={sub.href}
                               className={styles.subItem}
                               href={sub.href}
+                              ref={subItemRef(i)}
+                              onKeyDown={(e) => handleSubItemKeyDown(e, i)}
                               style={{ willChange: 'transform' }}
                               initial={{
                                 opacity: 0,
