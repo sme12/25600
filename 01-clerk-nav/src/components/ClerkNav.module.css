@@ -114,7 +114,7 @@
 
 /* ─── Responsive ─── */
 
-/* breakpoint: --breakpoint-tablet (768px) */
+/* --breakpoint-md */
 @media (min-width: 768px) {
   .navbar {
     padding: var(--space-2) var(--space-2) var(--space-2) var(--space-3);

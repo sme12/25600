@@ -3,12 +3,12 @@
 .grid {
   display: grid;
   grid-template-columns: 1fr 0px;
-  transition: grid-template-columns 200ms var(--ease-out);
+  transition: grid-template-columns var(--duration-hover) var(--ease-out);
   overflow: clip;
 }
 
 .grid[data-submenu-open='true'] {
-  grid-template-columns: 1fr 17.5rem;
+  grid-template-columns: 1fr 280px;
 }
 
 /* ─── Left panel ─── */
@@ -56,8 +56,8 @@
 
 .iconWrap {
   composes: iconWrap from './Popup.module.css';
-  width: 2rem;
-  height: 2rem;
+  width: 32px;
+  height: 32px;
 }
 
 .iconGradient {
@@ -103,14 +103,14 @@
   transition: color var(--duration-entrance) var(--ease-out);
   color: var(--color-text);
   font-weight: var(--font-weight-medium);
-  font-size: 0.8125rem;
+  font-size: var(--font-size-sm);
   line-height: 153.846%;
 }
 
 .navItemDesc {
   transition: color var(--duration-normal);
   color: var(--color-text-secondary);
-  font-size: 0.8125rem;
+  font-size: var(--font-size-sm);
   line-height: 153.846%;
 }
 
@@ -125,7 +125,7 @@
   padding: 1.5px 3.5px;
   color: var(--color-beta-text);
   font-weight: var(--font-weight-medium);
-  font-size: 10px;
+  font-size: var(--font-size-3xs);
   line-height: 14px;
 }
 
@@ -133,7 +133,7 @@
   display: block;
   position: absolute;
   transform: translateZ(0);
-  color: rgba(37, 99, 235, 0.6);
+  color: var(--color-beta-border);
 }
 
 .betaBadgeBorderH {
@@ -172,19 +172,13 @@
 
 .rightInner {
   composes: rightInner from './Popup.module.css';
-  width: 17.5rem;
+  width: 280px;
 }
 
 .rightContentHeader {
+  composes: popupContentHeader from './Popup.module.css';
   margin-bottom: var(--space-1);
-  padding: 6px var(--space-3) 0;
-  color: var(--color-text-secondary);
-  font-weight: var(--font-weight-medium);
-  font-size: 11px;
   line-height: 163.636%;
-  font-family: 'IBM Plex Mono', monospace;
-  letter-spacing: 1.1px;
-  text-transform: uppercase;
 }
 
 .subItemList {
@@ -204,9 +198,9 @@
   border: 0.5px solid transparent;
   border-radius: var(--radius-md);
   background: transparent;
-  padding: 6px 10px;
+  padding: var(--space-1-5) var(--space-2-5);
   color: inherit;
-  font-size: 0.75rem;
+  font-size: var(--font-size-xs);
   line-height: 150%;
   text-decoration: none;
 }
@@ -220,7 +214,7 @@
 
 .subItemLabel {
   color: var(--color-text);
-  font-size: 0.75rem;
+  font-size: var(--font-size-xs);
   line-height: 150%;
   font-family: 'IBM Plex Mono', monospace;
 }
@@ -234,7 +228,7 @@
   transition: opacity var(--duration-normal) var(--ease-out);
   color: var(--color-text-muted);
   font-weight: var(--font-weight-medium);
-  font-size: 0.6875rem;
+  font-size: var(--font-size-2xs);
 }
 
 .subItem:hover .subItemBadge,

@@ -29,8 +29,8 @@
 .changelogDate {
   transition: color var(--duration-normal) var(--ease-out);
   color: var(--color-text-secondary);
-  font-size: 11px;
-  line-height: 1.4;
+  font-size: var(--font-size-2xs);
+  line-height: var(--line-height-2xs);
 }
 
 .changelogLink:hover .changelogDate {
