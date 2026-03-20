@@ -20,12 +20,16 @@
 
   /* ─── Spacing (4px scale) ─── */
   --space-1: 4px;
+  --space-1-5: 6px;
   --space-2: 8px;
   --space-2-5: 10px;
   --space-3: 12px;
+  --space-4: 16px;
   --space-8: 32px;
 
   /* ─── Typography ─── */
+  --font-size-3xs: 10px;
+  --font-size-2xs: 11px;
   --font-size-xs: 12px;
   --font-size-sm: 13px;
   --font-size-base: 16px;
@@ -40,11 +44,13 @@
   --line-height-6xl: 72px;
   --line-height-base: 24px;
   --line-height-lg: 28px;
+  --line-height-2xs: 1.4;
   --line-height-sm: 16px;
   --font-weight-medium: 500;
   --font-weight-bold: 700;
   --line-height-tight: 1;
   --tracking-tight: -0.025em;
+  --tracking-wide: 1.1px;
   --color-text-secondary: rgba(var(--color-gray-base), 0.65);
 
   /* ─── Radii ─── */
