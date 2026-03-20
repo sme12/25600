@@ -5,6 +5,7 @@ import popupStyles from './Popup.module.css';
 import navItemStyles from './NavItem.module.css';
 import { NavItem } from './NavItem';
 import { ChangelogContent } from './ChangelogContent';
+import { DocsContent } from './DocsContent';
 import { PlaceholderContent } from './PlaceholderContent';
 import { ProductsContent } from './ProductsContent';
 
@@ -12,7 +13,7 @@ const LABELS = {
   products: 'Products',
   productsHeader: 'Products',
   docs: 'Docs',
-  docsHeader: 'Featured Docs',
+  docsHeader: 'Top SDKs',
   changelog: 'Changelog',
   changelogHeader: 'Latest Changelog',
   changelogCta: 'Go to Changelog',
@@ -56,7 +57,7 @@ function NavMenu({ portalContainer }: NavMenuProps) {
           <ProductsContent contentLabel={LABELS.productsHeader} />
         </NavItem>
         <NavItem label={LABELS.docs}>
-          <PlaceholderContent contentLabel={LABELS.docsHeader} />
+          <DocsContent contentLabel={LABELS.docsHeader} />
         </NavItem>
         <NavItem label={LABELS.changelog}>
           <ChangelogContent
