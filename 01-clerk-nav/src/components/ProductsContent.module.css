@@ -133,7 +133,7 @@
   display: block;
   position: absolute;
   transform: translateZ(0);
-  color: rgba(37, 99, 235, 0.6);
+  color: var(--color-beta-border);
 }
 
 .betaBadgeBorderH {

@@ -13,6 +13,13 @@
   --color-off-white-base: 247, 247, 248;
   --color-purple-base: 116, 118, 134;
   --color-purple-light-base: 183, 184, 194;
+  --color-shadow-base: 25, 28, 33;
+  --color-light-gray-base: 249, 250, 251;
+  --color-panel-base: 241, 241, 242;
+  --color-blue-100-base: 239, 246, 255;
+  --color-blue-400-base: 96, 165, 250;
+  --color-blue-500-base: 59, 130, 246;
+  --color-blue-600-base: 37, 99, 235;
 
   /* ─── Spacing (4px scale) ─── */
   --space-1: 4px;
@@ -67,14 +74,6 @@
   /* ─── Z-index ─── */
   --z-navbar: 30;
 
-  /* ─── Sizes ─── */
-  --navbar-button-size: 42px;
-  --navbar-control-height: 26px;
-  --dropdown-button-height: 30px;
-  --container-max-width: 1280px;
-  --navbar-width: 1228px;
-  --frost-backdrop-height: 80px;
-
   /*
    * ═══════════════════════════════════════════
    *  TIER 2 — Semantic (overridden per theme)
@@ -83,7 +82,7 @@
 
   /* ─── Color Semantic ─── */
   --color-body: rgba(var(--color-off-white-base), 1);
-  --color-surface: rgba(248, 248, 248, 0.9);
+  --color-surface: rgba(var(--color-off-white-base), 0.9);
   --color-text: rgba(var(--color-gray-base), 1);
   --color-text-muted: rgba(var(--color-gray-base), 0.5);
   --color-text-secondary: rgba(var(--color-gray-base), 0.65);
@@ -123,10 +122,18 @@
    * ═══════════════════════════════════════════
    */
 
+  /* ─── Component Sizes ─── */
+  --navbar-button-size: 42px;
+  --navbar-control-height: 26px;
+  --navbar-width: 1228px;
+  --dropdown-button-height: 30px;
+  --container-max-width: 1280px;
+  --frost-backdrop-height: 80px;
+
   /* ─── Popup ─── */
   --shadow-popup-outer:
     0 0 0 0.5px rgba(var(--color-gray-base), 0.1),
-    0 16px 36px -6px rgba(25, 28, 33, 0.2),
+    0 16px 36px -6px rgba(var(--color-shadow-base), 0.2),
     0 8px 16px -3px rgba(var(--color-black-base), 0.08),
     0 0 0 0.5px rgba(var(--color-white-base), 0.7) inset;
   --shadow-popup-inner:
@@ -143,7 +150,7 @@
   --bg-popup-inner: linear-gradient(
     180deg,
     rgba(var(--color-white-base), 0.9) 10%,
-    rgba(247, 247, 247, 0.9) 90%
+    rgba(var(--color-off-white-base), 0.9) 90%
   );
   --color-dropdown-border-hover: rgba(var(--color-gray-base), 0.12);
   --color-dropdown-bg-hover: rgba(var(--color-gray-base), 0.02);
@@ -153,10 +160,15 @@
     0 1px 0 0 rgba(var(--color-white-base), 1) inset,
     0 2px 2px -1px rgba(var(--color-black-base), 0.2),
     0 0 0 0.5px rgba(var(--color-gray-base), 0.16);
-  --bg-icon: #f9fafb;
-  --bg-products-right: linear-gradient(180deg, #f7f7f8 0%, #f1f1f2 100%);
-  --color-beta-bg: #eff6ff;
-  --color-beta-text: #3b82f6;
+  --bg-icon: rgba(var(--color-light-gray-base), 1);
+  --bg-products-right: linear-gradient(
+    180deg,
+    rgba(var(--color-off-white-base), 1) 0%,
+    rgba(var(--color-panel-base), 1) 100%
+  );
+  --color-beta-bg: rgba(var(--color-blue-100-base), 1);
+  --color-beta-text: rgba(var(--color-blue-500-base), 1);
+  --color-beta-border: rgba(var(--color-blue-600-base), 0.6);
 
   /* ─── SDK Icons ─── */
   --sdk-icon-mono: black;
@@ -170,12 +182,16 @@
 [data-theme='dark'] {
   /* ─── Color Primitives (dark-specific) ─── */
   --color-cta-dark-base: 66, 67, 77; /* #42434d */
+  --color-dark-border-base: 56, 56, 59;
+  --color-dark-surface-base: 33, 33, 38;
+  --color-dark-icon-base: 3, 7, 18;
 
   /*
    * ─── TIER 2 — Semantic ───
    */
 
   /* ─── Color Semantic ─── */
+  --color-body: rgba(var(--color-gray-base), 1);
   --color-surface: rgba(var(--color-gray-base), 0.9);
   --color-text: rgba(var(--color-off-white-base), 1);
   --color-text-muted: rgba(var(--color-off-white-base), 0.4);
@@ -217,11 +233,12 @@
   /* ─── Popup ─── */
   --shadow-popup-outer:
     0 0 0 0.5px rgba(var(--color-gray-base), 0.8),
-    0 16px 36px -6px rgba(25, 28, 33, 0.2),
+    0 16px 36px -6px rgba(var(--color-shadow-base), 0.2),
     0 8px 16px -3px rgba(var(--color-black-base), 0.08),
-    0 0 0 0.5px #38383b inset;
+    0 0 0 0.5px rgba(var(--color-dark-border-base), 1) inset;
   --shadow-popup-inner:
-    0 0 0 0.5px #38383b inset, 0 0 0 0.5px rgba(var(--color-gray-base), 0.8),
+    0 0 0 0.5px rgba(var(--color-dark-border-base), 1) inset,
+    0 0 0 0.5px rgba(var(--color-gray-base), 0.8),
     0 1px 1px 0 rgba(var(--color-black-base), 0.05);
   --bg-popup-outer:
     linear-gradient(
@@ -229,14 +246,14 @@
       rgba(var(--color-white-base), 0.04) 10%,
       rgba(var(--color-white-base), 0) 90%
     ),
-    rgba(33, 33, 38, 0.9);
+    rgba(var(--color-dark-surface-base), 0.9);
   --bg-popup-inner:
     linear-gradient(
       180deg,
       rgba(var(--color-white-base), 0.04) 10%,
       rgba(var(--color-white-base), 0) 90%
     ),
-    #131316;
+    rgba(var(--color-gray-base), 1);
   --color-dropdown-border-hover: rgba(var(--color-white-base), 0.14);
   --color-dropdown-bg-hover: rgba(var(--color-white-base), 0.05);
 
@@ -245,16 +262,16 @@
     0 1px 0 0 rgba(var(--color-off-white-base), 0.08) inset,
     0 2px 2px -1px rgba(var(--color-black-base), 0.15),
     0 0 0 0.5px rgba(var(--color-off-white-base), 0.15);
-  --bg-icon: #030712;
+  --bg-icon: rgba(var(--color-dark-icon-base), 1);
   --bg-products-right:
     linear-gradient(
       180deg,
       rgba(var(--color-white-base), 0.04) 10%,
       rgba(var(--color-white-base), 0) 90%
     ),
-    rgba(33, 33, 38, 0.9);
-  --color-beta-bg: rgba(59, 130, 246, 0.15);
-  --color-beta-text: #60a5fa;
+    rgba(var(--color-dark-surface-base), 0.9);
+  --color-beta-bg: rgba(var(--color-blue-500-base), 0.15);
+  --color-beta-text: rgba(var(--color-blue-400-base), 1);
 
   /* ─── SDK Icons ─── */
   --sdk-icon-mono: white;
