@@ -14,7 +14,7 @@ function DocsContent({ contentLabel }: DocsContentProps) {
     <div className={styles.grid}>
       {/* Left panel – Top SDKs */}
       <div className={`${styles.leftPanel} ${popupStyles.popupInner}`}>
-        <div className={styles.leftInner}>
+        <div className={popupStyles.leftInner}>
           <div className={popupStyles.popupContentHeader}>{contentLabel}</div>
           <div className={styles.sdkGrid}>
             {sdkItems.map((item) => (
@@ -24,7 +24,11 @@ function DocsContent({ contentLabel }: DocsContentProps) {
                 render={<a href={item.href} />}
               >
                 <div className={styles.iconWrap}>
-                  <span className={styles.iconSvg}>{item.icon}</span>
+                  <span
+                    className={`${popupStyles.iconSvg} ${styles.iconSvgChildren}`}
+                  >
+                    {item.icon}
+                  </span>
                 </div>
                 <span className={styles.sdkLabel}>{item.label}</span>
               </NavigationMenu.Link>
@@ -41,7 +45,7 @@ function DocsContent({ contentLabel }: DocsContentProps) {
       </div>
 
       {/* Right panel – Featured Docs */}
-      <div className={styles.rightPanel}>
+      <div className={popupStyles.rightPanel}>
         <div className={styles.rightInner}>
           <div className={popupStyles.popupContentHeader}>Featured Docs</div>
           <div className={styles.featuredList}>
@@ -56,8 +60,8 @@ function DocsContent({ contentLabel }: DocsContentProps) {
             ))}
           </div>
         </div>
-        <div className={styles.bottomFade}>
-          <div className={styles.twinklePattern} />
+        <div className={popupStyles.bottomFade}>
+          <div className={popupStyles.twinklePattern} />
         </div>
       </div>
     </div>

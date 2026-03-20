@@ -52,8 +52,8 @@ function ProductsContent({ contentLabel }: { contentLabel: string }) {
     >
       <div className={styles.grid} data-submenu-open={submenuOpen}>
         {/* Left panel */}
-        <div className={`${styles.leftPanel} ${popupStyles.popupInner}`}>
-          <div className={styles.leftInner}>
+        <div className={`${popupStyles.leftPanel} ${popupStyles.popupInner}`}>
+          <div className={popupStyles.leftInner}>
             <div className={popupStyles.popupContentHeader}>{contentLabel}</div>
             <NavigationMenu.List className={styles.navList}>
               {productsNav.map((item, index) => (
@@ -105,7 +105,7 @@ function ProductsContent({ contentLabel }: { contentLabel: string }) {
         </div>
 
         {/* Right panel */}
-        <div className={styles.rightPanel}>
+        <div className={popupStyles.rightPanel}>
           <div className={styles.rightInner}>
             <AnimatePresence>
               {submenuOpen && (
@@ -201,8 +201,8 @@ function ProductsContent({ contentLabel }: { contentLabel: string }) {
               )}
             </AnimatePresence>
           </div>
-          <div className={styles.bottomFade}>
-            <div className={styles.twinklePattern} />
+          <div className={popupStyles.bottomFade}>
+            <div className={popupStyles.twinklePattern} />
           </div>
         </div>
       </div>
