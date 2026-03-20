@@ -92,7 +92,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 16px;
+  gap: var(--space-4);
   transition:
     border-color var(--duration-normal) var(--ease-out),
     background-color var(--duration-normal) var(--ease-out);
