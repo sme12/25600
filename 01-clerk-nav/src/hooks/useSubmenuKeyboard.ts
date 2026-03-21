@@ -11,7 +11,7 @@ function preventAll(e: KeyboardEvent) {
   e.preventDefault();
   e.stopPropagation();
   preventBaseUI(e);
-} 
+}
 
 interface UseSubmenuKeyboardOptions {
   items: { label: string }[];
@@ -34,9 +34,12 @@ function useSubmenuKeyboard({
   const subItemElements = useRef<(HTMLAnchorElement | null)[]>([]);
   const subItemGeneration = useRef(0);
 
-  const triggerRef = (index: number) => (el: HTMLElement | null) => {
-    triggerElements.current[index] = el;
-  };
+  const triggerRef = useCallback(
+    (index: number) => (el: HTMLElement | null) => {
+      triggerElements.current[index] = el;
+    },
+    []
+  );
 
   const subItemRef = (index: number) => {
     // Capture generation at call time (during render, after reset)

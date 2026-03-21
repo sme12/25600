@@ -21,11 +21,11 @@ const SECTION_STYLES = SECTIONS.map((section, i) => ({
 }));
 
 function App() {
-  const { theme, navbarRef } = useNavbarTheme();
+  const { theme } = useNavbarTheme();
 
   return (
     <>
-      <ClerkNav theme={theme} ref={navbarRef} />
+      <ClerkNav theme={theme} />
       <main>
         {SECTIONS.map((section, i) => (
           <section

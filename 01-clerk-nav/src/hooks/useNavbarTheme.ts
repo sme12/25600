@@ -1,9 +1,8 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 type Theme = 'light' | 'dark';
 
 export function useNavbarTheme() {
-  const navbarRef = useRef<HTMLElement>(null);
   const [theme, setTheme] = useState<Theme>('light');
 
   useEffect(() => {
@@ -44,5 +43,5 @@ export function useNavbarTheme() {
     return () => observer.disconnect();
   }, []);
 
-  return { theme, navbarRef };
+  return { theme };
 }

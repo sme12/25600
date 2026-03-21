@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useCallback } from 'react';
 import { NavigationMenu } from '@base-ui/react/navigation-menu';
 import { motion, AnimatePresence } from 'motion/react';
 import styles from './ProductsContent.module.css';
@@ -30,6 +30,16 @@ function ProductsContent({ contentLabel }: { contentLabel: string }) {
     previousIndexRef,
   });
 
+  const handleValueChange = useCallback((value: string | null) => {
+    if (value != null) {
+      const newIndex = productsNav.findIndex((item) => item.label === value);
+      setDirection(newIndex > previousIndexRef.current ? 'down' : 'up');
+      previousIndexRef.current = newIndex;
+      setActiveValue(value);
+      setSubmenuOpen(true);
+    }
+  }, []);
+
   const activeItem = activeValue
     ? productsNav.find((item) => item.label === activeValue)
     : null;
@@ -38,17 +48,7 @@ function ProductsContent({ contentLabel }: { contentLabel: string }) {
     <NavigationMenu.Root
       orientation="vertical"
       value={activeValue}
-      onValueChange={(value) => {
-        if (value != null) {
-          const newIndex = productsNav.findIndex(
-            (item) => item.label === value
-          );
-          setDirection(newIndex > previousIndexRef.current ? 'down' : 'up');
-          previousIndexRef.current = newIndex;
-          setActiveValue(value);
-          setSubmenuOpen(true);
-        }
-      }}
+      onValueChange={handleValueChange}
     >
       <div className={styles.grid} data-submenu-open={submenuOpen}>
         {/* Left panel */}
