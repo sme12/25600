@@ -1,0 +1,50 @@
+.dropdownList {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  width: 232px;
+  list-style: none;
+}
+
+.companyLink {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition:
+    color var(--duration-normal) var(--ease-out),
+    background-color var(--duration-normal) var(--ease-out),
+    border-color var(--duration-normal) var(--ease-out);
+  border: 0.5px solid transparent;
+  border-radius: var(--radius-lg);
+  background-color: transparent;
+  padding: var(--space-2) var(--space-3);
+  text-decoration: none;
+}
+
+.companyLink:hover {
+  transition-duration: var(--duration-fast);
+  border-color: var(--color-dropdown-border-hover);
+  background-color: var(--color-dropdown-bg-hover);
+}
+
+.iconWrap {
+  display: flex;
+  flex: none;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  color: var(--color-text-secondary);
+}
+
+[data-theme='dark'] .iconWrap {
+  color: var(--color-text);
+}
+
+.linkLabel {
+  color: var(--color-text);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-base);
+}
