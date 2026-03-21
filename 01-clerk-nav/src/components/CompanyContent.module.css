@@ -13,6 +13,11 @@
   color: var(--color-text-secondary);
 }
 
+.iconWrap svg {
+  width: 100%;
+  height: 100%;
+}
+
 [data-theme='dark'] .iconWrap {
   color: var(--color-text);
 }
