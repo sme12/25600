@@ -6,7 +6,7 @@ import navItemStyles from './NavItem.module.css';
 import { NavItem } from './NavItem';
 import { ChangelogContent } from './ChangelogContent';
 import { DocsContent } from './DocsContent';
-import { PlaceholderContent } from './PlaceholderContent';
+import { CompanyContent } from './CompanyContent';
 import { ProductsContent } from './ProductsContent';
 
 const LABELS = {
@@ -68,7 +68,7 @@ function NavMenu({ portalContainer }: NavMenuProps) {
           />
         </NavItem>
         <NavItem label={LABELS.company}>
-          <PlaceholderContent contentLabel={LABELS.companyHeader} />
+          <CompanyContent contentLabel={LABELS.companyHeader} />
         </NavItem>
         <NavigationMenu.Item className={navItemStyles.navItem}>
           <NavigationMenu.Link

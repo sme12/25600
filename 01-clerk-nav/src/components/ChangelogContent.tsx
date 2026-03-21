@@ -20,15 +20,19 @@ function ChangelogContent({
   return (
     <div className={popupStyles.popupInner}>
       <div className={popupStyles.popupContentHeader}>{contentLabel}</div>
-      <ul className={styles.dropdownList}>
+      <ul className={popupStyles.dropdownList}>
         {entries.map((entry) => (
           <li key={entry.href}>
             <NavigationMenu.Link
-              className={styles.changelogLink}
+              className={`${popupStyles.dropdownLink} ${styles.changelogLink}`}
               render={<a href={entry.href} />}
             >
               <div className={styles.changelogDate}>{entry.date}</div>
-              <div className={styles.changelogTitle}>{entry.title}</div>
+              <div
+                className={`${popupStyles.dropdownLabel} ${styles.changelogTitle}`}
+              >
+                {entry.title}
+              </div>
             </NavigationMenu.Link>
           </li>
         ))}
