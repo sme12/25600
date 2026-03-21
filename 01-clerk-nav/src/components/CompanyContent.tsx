@@ -32,15 +32,15 @@ function CompanyContent({ contentLabel }: CompanyContentProps) {
   return (
     <div className={popupStyles.popupInner}>
       <div className={popupStyles.popupContentHeader}>{contentLabel}</div>
-      <ul className={styles.dropdownList}>
+      <ul className={popupStyles.dropdownList}>
         {companyLinks.map((link) => (
           <li key={link.href}>
             <NavigationMenu.Link
-              className={styles.companyLink}
+              className={`${popupStyles.dropdownLink} ${styles.companyLink}`}
               render={<a href={link.href} />}
             >
               <div className={styles.iconWrap}>{link.icon}</div>
-              <div className={styles.linkLabel}>{link.label}</div>
+              <div className={popupStyles.dropdownLabel}>{link.label}</div>
             </NavigationMenu.Link>
           </li>
         ))}
