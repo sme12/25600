@@ -22,6 +22,10 @@
     opacity: 0;
     transition-duration: var(--duration-hover);
   }
+
+  &[data-instant] {
+    transition-duration: 0s;
+  }
 }
 
 .popupInner {

@@ -26,7 +26,11 @@ function NavItem({ label, children }: NavItemProps) {
           </NavigationMenu.Icon>
         </span>
       </NavigationMenu.Trigger>
-      {children && <NavigationMenu.Content>{children}</NavigationMenu.Content>}
+      {children && (
+        <NavigationMenu.Content className={styles.content}>
+          {children}
+        </NavigationMenu.Content>
+      )}
     </NavigationMenu.Item>
   );
 }
