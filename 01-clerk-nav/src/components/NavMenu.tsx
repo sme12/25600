@@ -1,4 +1,4 @@
-import type { RefObject } from 'react';
+import { type RefObject, useState } from 'react';
 import { NavigationMenu } from '@base-ui/react/navigation-menu';
 import styles from './NavMenu.module.css';
 import popupStyles from './Popup.module.css';
@@ -8,6 +8,7 @@ import { ChangelogContent } from './ChangelogContent';
 import { DocsContent } from './DocsContent';
 import { CompanyContent } from './CompanyContent';
 import { ProductsContent } from './ProductsContent';
+import { useMediaQuery } from '../hooks/useMediaQuery';
 
 const LABELS = {
   products: 'Products',
@@ -49,9 +50,24 @@ interface NavMenuProps {
   portalContainer?: RefObject<HTMLElement | null>;
 }
 
+const DOCS_ALIGN_OFFSET_CENTER = 96;
+
 function NavMenu({ portalContainer }: NavMenuProps) {
+  const [activeValue, setActiveValue] = useState('');
+  const isLg = useMediaQuery('(min-width: 1024px)');
+  const align = isLg ? 'start' : 'center';
+  const alignOffset =
+    align === 'start'
+      ? -12
+      : activeValue === LABELS.docs
+        ? DOCS_ALIGN_OFFSET_CENTER
+        : 0;
+
   return (
-    <NavigationMenu.Root className={styles.desktopNav}>
+    <NavigationMenu.Root
+      className={styles.desktopNav}
+      onValueChange={setActiveValue}
+    >
       <NavigationMenu.List className={styles.navList} data-nav-list>
         <NavItem label={LABELS.products}>
           <ProductsContent contentLabel={LABELS.productsHeader} />
@@ -84,8 +100,8 @@ function NavMenu({ portalContainer }: NavMenuProps) {
         <NavigationMenu.Positioner
           className={styles.positioner}
           sideOffset={12}
-          align="start"
-          alignOffset={-12}
+          align={align}
+          alignOffset={alignOffset}
         >
           <NavigationMenu.Popup className={popupStyles.popup}>
             <NavigationMenu.Viewport />
