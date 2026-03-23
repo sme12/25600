@@ -119,6 +119,7 @@
 .menuIcon {
   width: var(--space-4);
   height: var(--space-4);
+  overflow: visible;
 }
 
 /* ─── Responsive ─── */

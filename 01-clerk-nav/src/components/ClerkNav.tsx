@@ -5,15 +5,14 @@ import { NavMenu } from './NavMenu';
 import { ClerkLogoIcon } from './ClerkLogoIcon';
 import { FrostBackdrop } from './FrostBackdrop';
 import { MobileMenu } from './MobileMenu';
-import { MenuIcon, PlayIcon } from './icons';
+import { BurgerButton } from './BurgerButton';
+import { PlayIcon } from './icons';
 
 const LABELS = {
   homeLink: 'Clerk Home Page',
   mainNav: 'Main',
   signIn: 'Sign in',
   startBuilding: 'Start building',
-  openNav: 'Open navigation',
-  closeNav: 'Close navigation',
 } as const;
 
 interface ClerkNavProps {
@@ -46,16 +45,12 @@ function ClerkNav({ theme = 'light' }: ClerkNavProps) {
           </a>
         </div>
 
-        <button
+        <BurgerButton
+          isOpen={mobileMenuOpen}
+          onToggle={() => setMobileMenuOpen((prev) => !prev)}
           className={styles.mobileMenuButton}
-          type="button"
-          aria-label={mobileMenuOpen ? LABELS.closeNav : LABELS.openNav}
-          aria-expanded={mobileMenuOpen}
-          aria-controls="mobile-navigation"
-          onClick={() => setMobileMenuOpen((prev) => !prev)}
-        >
-          <MenuIcon className={styles.menuIcon} />
-        </button>
+          iconClassName={styles.menuIcon}
+        />
       </div>
 
       <MobileMenu
