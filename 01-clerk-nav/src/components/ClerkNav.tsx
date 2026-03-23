@@ -4,7 +4,7 @@ import styles from './ClerkNav.module.css';
 import { NavMenu } from './NavMenu';
 import { ClerkLogoIcon } from './ClerkLogoIcon';
 import { FrostBackdrop } from './FrostBackdrop';
-import { PlayIcon } from './icons';
+import { MenuIcon, PlayIcon } from './icons';
 
 const LABELS = {
   homeLink: 'Clerk Home Page',
@@ -48,7 +48,7 @@ function ClerkNav({ theme = 'light' }: ClerkNavProps) {
           type="button"
           aria-label={LABELS.openNav}
         >
-          <div />
+          <MenuIcon className={styles.menuIcon} />
         </button>
       </div>
     </header>

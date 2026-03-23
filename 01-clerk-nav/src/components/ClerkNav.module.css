@@ -53,7 +53,7 @@
 /* ─── Right-side actions ─── */
 
 .actions {
-  display: flex;
+  display: none;
   align-items: center;
   gap: var(--space-2);
   margin-left: auto;
@@ -95,11 +95,14 @@
   justify-content: center;
   align-items: center;
   transition-duration: var(--duration-entrance);
-  transition-property: color;
+  transition-property:
+    color, background-color, border-color, text-decoration-color, fill, stroke,
+    box-shadow, background;
   transition-timing-function: var(--ease-out);
   cursor: pointer;
   margin-left: 0;
-  outline: none;
+  margin-left: auto;
+  outline-offset: -8px;
   border: none;
   background: none;
   width: var(--navbar-button-size);
@@ -112,7 +115,23 @@
   color: var(--color-text);
 }
 
+.menuIcon {
+  width: var(--space-4);
+  height: var(--space-4);
+}
+
 /* ─── Responsive ─── */
+
+/* --breakpoint-xs */
+@media (min-width: 440px) {
+  .actions {
+    display: flex;
+  }
+
+  .mobileMenuButton {
+    margin-left: 0;
+  }
+}
 
 /* --breakpoint-md */
 @media (min-width: 768px) {
