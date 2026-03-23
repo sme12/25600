@@ -36,6 +36,7 @@ export const BurgerButton = memo(function BurgerButton({
           stroke="currentColor"
           strokeWidth={1.2}
           strokeLinecap="round"
+          initial={false}
           animate={{ d: isOpen ? 'M4 4L12 12' : 'M4 4.667L12 4.667' }}
           transition={TRANSITION}
         />
@@ -43,6 +44,7 @@ export const BurgerButton = memo(function BurgerButton({
           stroke="currentColor"
           strokeWidth={1.2}
           strokeLinecap="round"
+          initial={false}
           animate={{ d: isOpen ? 'M12 4L4 12' : 'M4 11.333L12 11.333' }}
           transition={TRANSITION}
         />
