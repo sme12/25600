@@ -28,9 +28,11 @@ button,
 input,
 optgroup,
 select,
-textarea {
+textarea,
+a {
   margin: 0;
   padding: 0;
+  -webkit-tap-highlight-color: transparent;
   color: inherit;
   font-weight: inherit;
   font-size: 100%;
