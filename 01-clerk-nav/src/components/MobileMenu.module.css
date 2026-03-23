@@ -1,8 +1,15 @@
 .popup {
   position: fixed;
+  opacity: 1;
   z-index: calc(var(--z-navbar) - 1);
+  transition: opacity var(--duration-entrance) var(--ease-out);
   inset: 0;
   background-color: var(--color-body);
   padding-top: 96px;
   height: 100dvh;
+}
+
+.popup[data-starting-style],
+.popup[data-ending-style] {
+  opacity: 0;
 }
