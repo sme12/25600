@@ -1,9 +1,10 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import ctaStyles from './CtaButton.module.css';
 import styles from './ClerkNav.module.css';
 import { NavMenu } from './NavMenu';
 import { ClerkLogoIcon } from './ClerkLogoIcon';
 import { FrostBackdrop } from './FrostBackdrop';
+import { MobileMenu } from './MobileMenu';
 import { MenuIcon, PlayIcon } from './icons';
 
 const LABELS = {
@@ -12,6 +13,7 @@ const LABELS = {
   signIn: 'Sign in',
   startBuilding: 'Start building',
   openNav: 'Open navigation',
+  closeNav: 'Close navigation',
 } as const;
 
 interface ClerkNavProps {
@@ -20,6 +22,7 @@ interface ClerkNavProps {
 
 function ClerkNav({ theme = 'light' }: ClerkNavProps) {
   const headerRef = useRef<HTMLElement>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <header ref={headerRef} className={styles.header} data-theme={theme}>
@@ -46,11 +49,20 @@ function ClerkNav({ theme = 'light' }: ClerkNavProps) {
         <button
           className={styles.mobileMenuButton}
           type="button"
-          aria-label={LABELS.openNav}
+          aria-label={mobileMenuOpen ? LABELS.closeNav : LABELS.openNav}
+          aria-expanded={mobileMenuOpen}
+          aria-controls="mobile-navigation"
+          onClick={() => setMobileMenuOpen((prev) => !prev)}
         >
           <MenuIcon className={styles.menuIcon} />
         </button>
       </div>
+
+      <MobileMenu
+        open={mobileMenuOpen}
+        onOpenChange={setMobileMenuOpen}
+        portalContainer={headerRef}
+      />
     </header>
   );
 }
