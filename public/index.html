@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="refresh" content="5;url=/01-clerk-nav/" />
+    <title>25600.design</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #0a0a0a;
+        min-height: 100dvh;
+        color: #888;
+        font-weight: 300;
+        font-size: 15px;
+        font-family: 'Geist', system-ui, sans-serif;
+        letter-spacing: 0.01em;
+        -webkit-font-smoothing: antialiased;
+      }
+      p {
+        line-height: 1.8;
+        text-align: center;
+      }
+      a {
+        color: #ccc;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      Work in progress.<br />
+      Redirecting to <a href="/01-clerk-nav/">Clerk Nav</a> in
+      <span id="c">5</span>s
+    </p>
+    <script>
+      const c = document.getElementById('c');
+      let t = 5;
+      const i = setInterval(() => {
+        t--;
+        c.textContent = t;
+        if (t <= 0) {
+          clearInterval(i);
+          location.href = '/01-clerk-nav/';
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>
