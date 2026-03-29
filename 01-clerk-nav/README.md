@@ -1,17 +1,23 @@
 # 01 — Clerk Nav
 
-## Original
+> Recreation of [clerk.com](https://clerk.com/) navigation bar (snapshot from Feb 2026).
 
-https://clerk.com/
+## Demo
 
-## What caught my attention
+[Live demo](https://www.25600.design/01-clerk-nav)
 
-<!-- notes -->
+<div align="center">
+
+### Desktop
+
+<video src="https://github.com/user-attachments/assets/ef87d493-3fec-413f-ba05-fb0e12700e07" controls width="700"></video>
+
+### Mobile
+
+<video src="https://github.com/user-attachments/assets/8fbf98af-c0a7-4e3a-8639-8e3d87a589f4" controls width="350"></video>
+
+</div>
 
 ## What I found
 
-<!-- findings -->
-
-## Figma
-
-[Figma Mockup](https://www.figma.com/design/98Sf0VEh0DLS7G8RRTsM2r/clerk-navbar--WIP-?node-id=0-1&t=5ScJdKCxEBAsx40p-1)
+WIP
