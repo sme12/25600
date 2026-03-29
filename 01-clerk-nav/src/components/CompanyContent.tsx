@@ -1,28 +1,7 @@
-import type { ReactNode } from 'react';
 import { NavigationMenu } from '@base-ui/react/navigation-menu';
 import styles from './CompanyContent.module.css';
 import popupStyles from './Popup.module.css';
-import {
-  AboutIcon,
-  PartnersIcon,
-  BlogIcon,
-  CareersIcon,
-  ContactIcon,
-} from './company-icons';
-
-interface CompanyLink {
-  label: string;
-  href: string;
-  icon: ReactNode;
-}
-
-const companyLinks: CompanyLink[] = [
-  { label: 'About', href: '/company', icon: <AboutIcon /> },
-  { label: 'Partnership Program', href: '/creators', icon: <PartnersIcon /> },
-  { label: 'Blog', href: '/blog', icon: <BlogIcon /> },
-  { label: 'Careers', href: '/careers', icon: <CareersIcon /> },
-  { label: 'Contact', href: '/contact', icon: <ContactIcon /> },
-];
+import { companyLinks } from './company.data';
 
 interface CompanyContentProps {
   contentLabel: string;

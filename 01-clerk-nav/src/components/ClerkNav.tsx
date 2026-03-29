@@ -25,7 +25,7 @@ function ClerkNav({ theme = 'light' }: ClerkNavProps) {
 
   return (
     <header ref={headerRef} className={styles.header} data-theme={theme}>
-      <FrostBackdrop />
+      <FrostBackdrop forceVisible={mobileMenuOpen} />
       <div className={styles.navbar}>
         <a aria-label={LABELS.homeLink} className={styles.logoLink} href="/">
           <ClerkLogoIcon />

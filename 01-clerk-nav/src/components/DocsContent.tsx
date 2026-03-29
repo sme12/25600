@@ -4,6 +4,7 @@ import popupStyles from './Popup.module.css';
 import ctaStyles from './CtaButton.module.css';
 import { PlayIcon } from './icons';
 import { sdkItems, featuredDocs } from './docs.data';
+import { LABELS } from './nav.labels';
 
 interface DocsContentProps {
   contentLabel: string;
@@ -36,7 +37,7 @@ function DocsContent({ contentLabel }: DocsContentProps) {
           </div>
           <div className={styles.ctaWrapper}>
             <a href="/docs" className={ctaStyles.ctaButtonDropdown}>
-              <span>Go to Clerk Docs</span>
+              <span>{LABELS.docsCta}</span>
               <PlayIcon aria-hidden="true" className={ctaStyles.iconExit} />
               <PlayIcon aria-hidden="true" className={ctaStyles.iconEnter} />
             </a>
@@ -47,7 +48,9 @@ function DocsContent({ contentLabel }: DocsContentProps) {
       {/* Right panel – Featured Docs */}
       <div className={popupStyles.rightPanel}>
         <div className={styles.rightInner}>
-          <div className={popupStyles.popupContentHeader}>Featured Docs</div>
+          <div className={popupStyles.popupContentHeader}>
+            {LABELS.featuredDocsHeader}
+          </div>
           <div className={styles.featuredList}>
             {featuredDocs.map((doc) => (
               <NavigationMenu.Link

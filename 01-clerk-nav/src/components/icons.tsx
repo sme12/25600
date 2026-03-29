@@ -86,6 +86,30 @@ export const B2BIcon = memo(function B2BIcon(
   );
 });
 
+export const ChevronDownMobileIcon = memo(function ChevronDownMobileIcon(
+  props: React.SVGProps<SVGSVGElement>
+) {
+  return (
+    <svg
+      width="10"
+      height="10"
+      viewBox="0 0 10 10"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      role="presentation"
+      {...props}
+    >
+      <path
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.5"
+        d="M1.75 3.75 5 7.25l3.25-3.5"
+      />
+    </svg>
+  );
+});
+
 export const DashedHLine = memo(function DashedHLine() {
   return (
     <svg

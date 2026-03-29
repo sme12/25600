@@ -32,12 +32,21 @@ const FROST_LAYERS = LAYERS.map(({ blur, end }, i) => (
   />
 ));
 
-export function FrostBackdrop() {
+interface FrostBackdropProps {
+  forceVisible?: boolean;
+}
+
+export function FrostBackdrop({ forceVisible = false }: FrostBackdropProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
+    if (forceVisible) {
+      el.style.setProperty('--mask-opacity', '1');
+      return;
+    }
 
     let ticking = false;
     function onScroll() {
@@ -54,7 +63,7 @@ export function FrostBackdrop() {
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  }, [forceVisible]);
 
   return (
     <div ref={ref} className={styles.frostContainer} aria-hidden="true">

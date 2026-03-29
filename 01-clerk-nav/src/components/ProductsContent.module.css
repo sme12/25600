@@ -86,6 +86,16 @@
     drop-shadow(0 2px 1px rgba(0, 0, 0, 0.15));
   transition: color var(--duration-entrance) var(--ease-out);
   color: var(--color-text);
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+[data-theme='dark'] .iconSvg {
+  filter: drop-shadow(0 0.5px 0 rgba(194, 194, 195, 0.2))
+    drop-shadow(0 2px 1px rgba(194, 194, 195, 0.15));
 }
 
 /* ─── Text block ─── */
