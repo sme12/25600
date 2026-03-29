@@ -7,6 +7,9 @@
 
   /* ─── Color Primitives (raw RGB channels) ─── */
   --color-gray-base: 19, 19, 22;
+  --color-gray-600-base: 94, 95, 110;
+  --color-gray-400-base: 147, 148, 161;
+  --color-gray-500-base: 116, 118, 134;
   --color-white-base: 255, 255, 255;
   --color-black-base: 0, 0, 0;
   --color-blue-gray-base: 34, 42, 53;
@@ -28,7 +31,12 @@
   --space-2-5: 10px;
   --space-3: 12px;
   --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
   --space-8: 32px;
+  --space-9: 36px;
+  --space-10: 40px;
 
   /* ─── Typography ─── */
   --font-size-3xs: 10px;
@@ -86,10 +94,14 @@
   --color-text: rgba(var(--color-gray-base), 1);
   --color-text-muted: rgba(var(--color-gray-base), 0.5);
   --color-text-secondary: rgba(var(--color-gray-base), 0.65);
+  --color-text-content-heading: rgba(var(--color-gray-600-base), 1);
+  --color-mobile-divider: rgba(var(--color-gray-400-base), 0.1);
+  --color-text-black: rgba(var(--color-black-base), 1);
   --color-border: rgba(var(--color-gray-base), 0.15);
   --color-border-subtle: rgba(var(--color-gray-base), 0.12);
   --color-divider: rgba(var(--color-white-base), 1);
   --color-nav-item-muted: rgba(var(--color-purple-base), 1);
+  --color-mobile-nav-chevron: rgba(var(--color-gray-500-base), 1);
 
   /* ─── Surfaces & Backgrounds ─── */
   --nav-button-hover-surface-color: rgba(var(--color-gray-base), 0.02);
@@ -195,7 +207,10 @@
   --color-surface: rgba(var(--color-gray-base), 0.9);
   --color-text: rgba(var(--color-off-white-base), 1);
   --color-text-muted: rgba(var(--color-off-white-base), 0.4);
-  --color-text-secondary: rgba(var(--color-off-white-base), 0.55);
+  --color-text-secondary: rgba(var(--color-gray-400-base), 1);
+  --color-text-content-heading: rgba(var(--color-gray-400-base), 1);
+  --color-text-black: rgba(var(--color-off-white-base), 1);
+  --color-mobile-divider: rgba(var(--color-dark-border-base), 1);
   --color-border: rgba(var(--color-off-white-base), 0.15);
   --color-border-subtle: rgba(var(--color-white-base), 0.14);
   --color-divider: rgba(var(--color-white-base), 0);

@@ -14,6 +14,7 @@
   position: relative;
   top: var(--space-2);
   align-items: center;
+  z-index: var(--z-navbar);
   transition-duration: var(--duration-entrance);
   transition-property: color, background-color, border-color, box-shadow;
   transition-timing-function: var(--ease-out);
@@ -23,7 +24,7 @@
   background-color: var(--color-surface);
   padding: 0 0 0 var(--space-3);
   width: var(--navbar-width);
-  max-width: calc(100vw - var(--space-8));
+  max-width: calc(100vw - var(--space-4));
   height: fit-content;
 }
 
@@ -53,7 +54,7 @@
 /* ─── Right-side actions ─── */
 
 .actions {
-  display: flex;
+  display: none;
   align-items: center;
   gap: var(--space-2);
   margin-left: auto;
@@ -95,11 +96,13 @@
   justify-content: center;
   align-items: center;
   transition-duration: var(--duration-entrance);
-  transition-property: color;
+  transition-property:
+    color, background-color, border-color, text-decoration-color, fill, stroke,
+    box-shadow, background;
   transition-timing-function: var(--ease-out);
   cursor: pointer;
-  margin-left: 0;
-  outline: none;
+  margin-left: auto;
+  outline-offset: -8px;
   border: none;
   background: none;
   width: var(--navbar-button-size);
@@ -107,17 +110,39 @@
   color: var(--color-text-muted);
 }
 
+[data-theme='dark'] .mobileMenuButton {
+  color: var(--color-text);
+}
+
 .mobileMenuButton:hover {
   transition-duration: var(--duration-hover);
   color: var(--color-text);
 }
 
+.menuIcon {
+  width: var(--space-4);
+  height: var(--space-4);
+  overflow: visible;
+}
+
 /* ─── Responsive ─── */
+
+/* --breakpoint-xxs */
+@media (min-width: 360px) {
+  .actions {
+    display: flex;
+  }
+
+  .mobileMenuButton {
+    margin-left: 0;
+  }
+}
 
 /* --breakpoint-md */
 @media (min-width: 768px) {
   .navbar {
     padding: var(--space-2) var(--space-2) var(--space-2) var(--space-3);
+    max-width: calc(100vw - var(--space-8));
   }
 
   .divider {

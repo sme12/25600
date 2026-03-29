@@ -1,0 +1,349 @@
+.popup {
+  position: fixed;
+  opacity: 1;
+  z-index: calc(var(--z-navbar) - 1);
+  transition: opacity var(--duration-entrance) var(--ease-out);
+  inset: 0;
+  background-color: var(--color-body);
+  height: 100dvh;
+}
+
+[data-theme='dark'] .popup {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.04) 10%,
+      rgba(255, 255, 255, 0) 90%
+    ),
+    rgba(var(--color-dark-surface-base), 1);
+}
+
+.popup[data-starting-style],
+.popup[data-ending-style] {
+  opacity: 0;
+}
+
+.scrollContainer {
+  padding-top: 96px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.navWrapper {
+  margin-bottom: var(--space-8);
+  padding-right: var(--space-4);
+  padding-bottom: var(--space-10);
+  padding-left: var(--space-4);
+}
+
+.accordion {
+  margin-bottom: var(--space-10);
+}
+
+/* ─── Accordion trigger ─── */
+
+.sectionTrigger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  border: 0 solid var(--color-mobile-divider);
+  border-top-width: 1px;
+  background: none;
+  padding: var(--space-3) 5px var(--space-3) 0;
+  width: 100%;
+  color: var(--color-text);
+  font: inherit;
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-base);
+}
+
+.sectionTriggerFirst {
+  composes: sectionTrigger;
+  border-top-width: 0;
+}
+
+.chevron {
+  color: var(--color-mobile-nav-chevron);
+}
+
+[data-theme='dark'] .chevron {
+  color: var(--color-text);
+}
+
+[data-open] > .sectionTrigger .chevron {
+  transform: rotate(180deg);
+  color: var(--color-text);
+}
+
+/* ─── Accordion panel ─── */
+
+.sectionPanel {
+  padding-top: var(--space-3);
+  padding-bottom: var(--space-3);
+  height: var(--accordion-panel-height);
+}
+
+.sectionContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+/* ─── Section heading ─── */
+
+.sectionHeading {
+  margin-bottom: var(--space-3);
+  color: var(--color-text-content-heading);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-2xs);
+  font-family: 'IBM Plex Mono', monospace;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+.sectionHeadingProducts {
+  composes: sectionHeading;
+  margin-bottom: var(--space-4);
+}
+
+.subSectionHeading {
+  composes: sectionHeading;
+  margin-bottom: var(--space-2);
+}
+
+/* ─── List reset ─── */
+
+.productList,
+.subItemGrid,
+.sdkGrid,
+.featuredList,
+.changelogList,
+.companyList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ─── Products ─── */
+
+.productList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.productLink {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: inherit;
+  text-decoration: none;
+}
+
+.productIconWrap {
+  flex: none;
+  width: var(--space-8);
+  height: var(--space-8);
+}
+
+.productText {
+  display: flex;
+  flex-direction: column;
+}
+
+.productLabel {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1-5);
+  color: var(--color-text);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
+  line-height: 153.846%;
+}
+
+.productDesc {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  line-height: 153.846%;
+}
+
+/* ─── Products sub-sections ─── */
+
+.subSections {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.subSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.subItemGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.subItemLink {
+  display: block;
+  padding: var(--space-1-5) 0;
+  color: var(--color-text-black);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-xs);
+  line-height: 150%;
+  font-family: 'IBM Plex Mono', monospace;
+  text-decoration: none;
+}
+
+/* ─── Docs – SDK grid ─── */
+
+.sectionPanelDocs {
+  composes: sectionPanel;
+  padding-bottom: var(--space-6);
+}
+
+.sdkGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+}
+
+.sdkLink {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2-5);
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.sdkLink:hover {
+  color: var(--color-text-secondary);
+}
+
+.sdkIconWrap {
+  flex: none;
+  width: 26px;
+  height: 26px;
+}
+
+.sdkLabel {
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
+  line-height: 153.846%;
+}
+
+/* ─── Docs – Featured list ─── */
+
+.featuredDocsSection {
+  margin-top: var(--space-1);
+}
+
+.featuredList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.featuredLink {
+  display: block;
+  color: var(--color-text);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
+  line-height: 153.846%;
+  text-decoration: none;
+}
+
+.featuredLink:hover {
+  color: var(--color-text-secondary);
+}
+
+/* ─── CTA wrapper ─── */
+
+.ctaWrapper {
+  width: 100%;
+}
+
+/* ─── Changelog ─── */
+
+.changelogList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.changelogLink {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.changelogDate {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-2xs);
+  line-height: var(--line-height-2xs);
+}
+
+.changelogLink:hover .changelogDate {
+  transition-duration: var(--duration-hover);
+  color: var(--color-text);
+}
+
+.changelogTitle {
+  color: var(--color-text);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
+  line-height: 153.846%;
+}
+
+/* ─── Company ─── */
+
+.companyList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.companyLink {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-text);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
+  line-height: 153.846%;
+  text-decoration: none;
+}
+
+.companyLink:hover {
+  color: var(--color-text-secondary);
+}
+
+.companyIconWrap {
+  display: flex;
+  flex: none;
+  justify-content: center;
+  align-items: center;
+  width: var(--space-5);
+  height: var(--space-5);
+  color: var(--color-text-secondary);
+}
+
+.companyIconWrap svg {
+  width: 100%;
+  height: 100%;
+}
+
+[data-theme='dark'] .companyIconWrap {
+  color: var(--color-text);
+}
+
+/* ─── Pricing link ─── */
+
+.pricingLink {
+  composes: sectionTrigger;
+  text-decoration: none;
+}

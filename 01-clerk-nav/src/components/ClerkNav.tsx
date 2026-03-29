@@ -1,9 +1,11 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import ctaStyles from './CtaButton.module.css';
 import styles from './ClerkNav.module.css';
 import { NavMenu } from './NavMenu';
 import { ClerkLogoIcon } from './ClerkLogoIcon';
 import { FrostBackdrop } from './FrostBackdrop';
+import { MobileMenu } from './MobileMenu';
+import { BurgerButton } from './BurgerButton';
 import { PlayIcon } from './icons';
 
 const LABELS = {
@@ -11,7 +13,6 @@ const LABELS = {
   mainNav: 'Main',
   signIn: 'Sign in',
   startBuilding: 'Start building',
-  openNav: 'Open navigation',
 } as const;
 
 interface ClerkNavProps {
@@ -20,10 +21,11 @@ interface ClerkNavProps {
 
 function ClerkNav({ theme = 'light' }: ClerkNavProps) {
   const headerRef = useRef<HTMLElement>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <header ref={headerRef} className={styles.header} data-theme={theme}>
-      <FrostBackdrop />
+      <FrostBackdrop forceVisible={mobileMenuOpen} />
       <div className={styles.navbar}>
         <a aria-label={LABELS.homeLink} className={styles.logoLink} href="/">
           <ClerkLogoIcon />
@@ -43,14 +45,19 @@ function ClerkNav({ theme = 'light' }: ClerkNavProps) {
           </a>
         </div>
 
-        <button
+        <BurgerButton
+          isOpen={mobileMenuOpen}
+          onToggle={() => setMobileMenuOpen((prev) => !prev)}
           className={styles.mobileMenuButton}
-          type="button"
-          aria-label={LABELS.openNav}
-        >
-          <div />
-        </button>
+          iconClassName={styles.menuIcon}
+        />
       </div>
+
+      <MobileMenu
+        open={mobileMenuOpen}
+        onOpenChange={setMobileMenuOpen}
+        portalContainer={headerRef}
+      />
     </header>
   );
 }

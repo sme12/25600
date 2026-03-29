@@ -6,45 +6,11 @@ import navItemStyles from './NavItem.module.css';
 import { NavItem } from './NavItem';
 import { ChangelogContent } from './ChangelogContent';
 import { DocsContent } from './DocsContent';
+import { changelogEntries } from './changelog.data';
 import { CompanyContent } from './CompanyContent';
 import { ProductsContent } from './ProductsContent';
 import { useMediaQuery } from '../hooks/useMediaQuery';
-
-const LABELS = {
-  products: 'Products',
-  productsHeader: 'Products',
-  docs: 'Docs',
-  docsHeader: 'Top SDKs',
-  changelog: 'Changelog',
-  changelogHeader: 'Latest Changelog',
-  changelogCta: 'Go to Changelog',
-  company: 'Company',
-  companyHeader: 'Resources',
-  pricing: 'Pricing',
-} as const;
-
-const changelogEntries = [
-  {
-    date: 'Feb 20, 2026',
-    title: 'Require multi-factor authentication (MFA)',
-    href: '/changelog/2026-02-20-require-mfa',
-  },
-  {
-    date: 'Feb 11, 2026',
-    title: 'Improved visibility into Stripe account status',
-    href: '/changelog/2026-02-11-account-detection',
-  },
-  {
-    date: 'Feb 11, 2026',
-    title: 'Share Dashboard Analytics',
-    href: '/changelog/2026-02-11-export-dashboard-analytics',
-  },
-  {
-    date: 'Feb 10, 2026',
-    title: 'iOS and Android SDKs v1',
-    href: '/changelog/2026-02-10-ios-android-sdk-v1',
-  },
-];
+import { LABELS } from './nav.labels';
 
 interface NavMenuProps {
   portalContainer?: RefObject<HTMLElement | null>;
