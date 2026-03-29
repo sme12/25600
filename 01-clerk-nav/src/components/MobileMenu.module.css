@@ -65,7 +65,7 @@
 }
 
 .chevron {
-  color: var(--color-text-secondary);
+  color: var(--color-mobile-nav-chevron);
 }
 
 [data-theme='dark'] .chevron {
@@ -74,6 +74,7 @@
 
 [data-open] > .sectionTrigger .chevron {
   transform: rotate(180deg);
+  color: var(--color-text);
 }
 
 /* ─── Accordion panel ─── */

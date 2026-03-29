@@ -53,7 +53,7 @@ function MobileProductsContent() {
       {/* Sub-sections */}
       <div className={styles.subSections}>
         {productsNav.map((item) => (
-          <div key={item.label} className={styles.subSection}>
+          <div key={item.href} className={styles.subSection}>
             <div className={styles.subSectionHeading}>
               {item.subSection.heading}
             </div>

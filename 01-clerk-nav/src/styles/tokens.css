@@ -9,6 +9,7 @@
   --color-gray-base: 19, 19, 22;
   --color-gray-600-base: 94, 95, 110;
   --color-gray-400-base: 147, 148, 161;
+  --color-gray-500-base: 116, 118, 134;
   --color-white-base: 255, 255, 255;
   --color-black-base: 0, 0, 0;
   --color-blue-gray-base: 34, 42, 53;
@@ -100,6 +101,7 @@
   --color-border-subtle: rgba(var(--color-gray-base), 0.12);
   --color-divider: rgba(var(--color-white-base), 1);
   --color-nav-item-muted: rgba(var(--color-purple-base), 1);
+  --color-mobile-nav-chevron: rgba(var(--color-gray-500-base), 1);
 
   /* ─── Surfaces & Backgrounds ─── */
   --nav-button-hover-surface-color: rgba(var(--color-gray-base), 0.02);
