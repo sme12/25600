@@ -1,4 +1,5 @@
 {
+  "installCommand": "npm install",
   "buildCommand": "turbo run build && node scripts/assemble.js",
   "outputDirectory": "dist",
   "rewrites": [
