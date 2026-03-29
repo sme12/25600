@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npm run deploy",
+  "buildCommand": "turbo run build && node scripts/assemble.js",
   "outputDirectory": "dist",
   "rewrites": [
     {
