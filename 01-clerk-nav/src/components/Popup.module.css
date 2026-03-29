@@ -8,8 +8,8 @@
   border-radius: var(--radius-xl);
   background: var(--bg-popup-outer);
   isolation: isolate;
-  width: var(--popup-width, 240px);
-  height: var(--popup-height, auto);
+  width: var(--popup-width);
+  height: var(--popup-height);
   overflow: clip;
 
   &[data-starting-style] {
