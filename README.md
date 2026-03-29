@@ -17,6 +17,14 @@ Painters did it centuries before them. Van Gogh made 21 copies of Millet’s wor
 
 In an era of AI-generated slop, I believe a unique voice and well-developed taste become more valuable than ever. This is my attempt to build those.
 
+## Development
+
+```bash
+npm install              # install all workspace deps
+npm run dev -w 01-clerk-nav  # run a specific project dev server
+npm run deploy           # build all projects + assemble for production
+```
+
 ## Studies
 
 | #   | Study                        | Company                    | Status         |

@@ -3,7 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
+  "packageManager": "npm@11.6.2",
+  "workspaces": [
+    "01-clerk-nav"
+  ],
   "scripts": {
+    "build": "turbo run build",
+    "deploy": "turbo run build && node scripts/assemble.js",
     "lint:all": "eslint \"*/src/**/*.{ts,tsx}\"",
     "format:all": "prettier --write \"**/*.{ts,tsx,css,md,json}\" --ignore-path .gitignore"
   },
@@ -13,6 +19,7 @@
     "eslint-plugin-react-hooks": "^5.0.0",
     "prettier": "^3.0.0",
     "prettier-plugin-css-order": "^2.2.0",
+    "turbo": "^2.5.0",
     "typescript-eslint": "^8.0.0"
   }
 }

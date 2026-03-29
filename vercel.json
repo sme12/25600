@@ -1,0 +1,10 @@
+{
+  "buildCommand": "npm run deploy",
+  "outputDirectory": "dist",
+  "rewrites": [
+    {
+      "source": "/01-clerk-nav/(.*)",
+      "destination": "/01-clerk-nav/index.html"
+    }
+  ]
+}
