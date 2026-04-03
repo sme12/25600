@@ -15,7 +15,7 @@
       rgba(255, 255, 255, 0.04) 10%,
       rgba(255, 255, 255, 0) 90%
     ),
-    rgba(var(--color-dark-surface-base), 1);
+    rgba(var(--color-gray-800), 1);
 }
 
 .popup[data-starting-style],
@@ -191,7 +191,7 @@
 .subItemLink {
   display: block;
   padding: var(--space-1-5) 0;
-  color: var(--color-text-black);
+  color: var(--color-text-strong);
   font-weight: var(--font-weight-medium);
   font-size: var(--font-size-xs);
   line-height: 150%;

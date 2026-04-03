@@ -70,9 +70,9 @@
   transition-property: color, background-color, border-color;
   transition-timing-function: var(--ease-out);
   cursor: pointer;
-  border: 0.5px solid rgba(var(--color-gray-base), 0);
+  border: 0.5px solid rgba(var(--color-gray-950), 0);
   border-radius: var(--radius-lg);
-  background-color: rgba(var(--color-gray-base), 0);
+  background-color: rgba(var(--color-gray-950), 0);
   padding: 0 var(--space-2-5);
   height: var(--navbar-control-height);
   color: var(--color-text);
@@ -85,7 +85,7 @@
 .signInButton:hover {
   transition-duration: var(--duration-fast);
   border-color: var(--color-border-subtle);
-  background-color: var(--nav-button-hover-surface-color);
+  background-color: var(--bg-surface-hover);
 }
 
 /* ─── Mobile menu button ─── */
