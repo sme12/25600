@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import { useMediaQuery } from '../hooks/useMediaQuery';
 import ctaStyles from './CtaButton.module.css';
 import styles from './ClerkNav.module.css';
 import { NavMenu } from './NavMenu';
@@ -22,10 +23,12 @@ interface ClerkNavProps {
 function ClerkNav({ theme = 'light' }: ClerkNavProps) {
   const headerRef = useRef<HTMLElement>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const isDesktop = useMediaQuery('(min-width: 768px)');
+  const isMobileMenuOpen = mobileMenuOpen && !isDesktop;
 
   return (
     <header ref={headerRef} className={styles.header} data-theme={theme}>
-      <FrostBackdrop forceVisible={mobileMenuOpen} />
+      <FrostBackdrop forceVisible={isMobileMenuOpen} />
       <div className={styles.navbar}>
         <a aria-label={LABELS.homeLink} className={styles.logoLink} href="/">
           <ClerkLogoIcon />
@@ -46,7 +49,7 @@ function ClerkNav({ theme = 'light' }: ClerkNavProps) {
         </div>
 
         <BurgerButton
-          isOpen={mobileMenuOpen}
+          isOpen={isMobileMenuOpen}
           onToggle={() => setMobileMenuOpen((prev) => !prev)}
           className={styles.mobileMenuButton}
           iconClassName={styles.menuIcon}
@@ -54,7 +57,7 @@ function ClerkNav({ theme = 'light' }: ClerkNavProps) {
       </div>
 
       <MobileMenu
-        open={mobileMenuOpen}
+        open={isMobileMenuOpen}
         onOpenChange={setMobileMenuOpen}
         portalContainer={headerRef}
       />
