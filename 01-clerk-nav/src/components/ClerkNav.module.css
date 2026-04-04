@@ -4,6 +4,7 @@
   position: sticky;
   top: 0;
   z-index: var(--z-navbar);
+  margin-top: var(--banner-height);
   width: 100%;
   height: fit-content;
 }
