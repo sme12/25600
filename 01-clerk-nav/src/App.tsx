@@ -1,5 +1,6 @@
 import ClerkNav from './components/ClerkNav';
 import HeroContent from './components/HeroContent';
+import StudyBanner from './components/StudyBanner';
 import { useNavbarTheme } from './hooks/useNavbarTheme';
 
 const SECTIONS = [
@@ -27,6 +28,7 @@ function App() {
     <>
       <ClerkNav theme={theme} />
       <main>
+        <StudyBanner />
         {SECTIONS.map((section, i) => (
           <section
             key={i}
