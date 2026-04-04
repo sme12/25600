@@ -27,7 +27,12 @@ function ClerkNav({ theme = 'light' }: ClerkNavProps) {
   const isMobileMenuOpen = mobileMenuOpen && !isDesktop;
 
   return (
-    <header ref={headerRef} className={styles.header} data-theme={theme}>
+    <header
+      ref={headerRef}
+      className={styles.header}
+      data-theme={theme}
+      data-mobile-open={isMobileMenuOpen || undefined}
+    >
       <FrostBackdrop forceVisible={isMobileMenuOpen} />
       <div className={styles.navbar}>
         <a aria-label={LABELS.homeLink} className={styles.logoLink} href="/">

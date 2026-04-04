@@ -8,6 +8,10 @@
   width: 100%;
   height: fit-content;
 }
+
+.header[data-mobile-open] {
+  margin-top: 0;
+}
 /* ─── Navbar pill ─── */
 
 .navbar {
