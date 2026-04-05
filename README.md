@@ -27,9 +27,11 @@ npm run deploy           # build all projects + assemble for production
 
 ## Studies
 
-| #   | Study                        | Company                    | Status         |
-| --- | ---------------------------- | -------------------------- | -------------- |
-| 01  | [clerk-nav](./01-clerk-nav/) | [Clerk](https://clerk.com) | 🚧 In progress |
+| #   | Study                        | Live Demo                                                          | Original                                           | Status  |
+| --- | ---------------------------- | ------------------------------------------------------------------ | -------------------------------------------------- | ------- |
+| 01  | [clerk-nav](./01-clerk-nav/) | [25600.design/01-clerk-nav](https://www.25600.design/01-clerk-nav) | [clerk.com](https://clerk.com) (snapshot Feb 2026) | ✅ Done |
+| 02  | TBA                          |                                                                    |                                                    | TBA     |
+| 03  | TBA                          |                                                                    |                                                    | TBA     |
 
 ## Disclaimer
 
