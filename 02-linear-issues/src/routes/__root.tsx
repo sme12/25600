@@ -24,43 +24,50 @@ function RootComponent() {
 
   return (
     <>
-      <div className="min-h-dvh bg-bg text-text font-sans">
-        <nav className="flex items-center gap-1.5 h-[43.5px] px-4 border-b border-border">
-          <Link
-            to="/all"
-            className={tabBase}
-            activeProps={{ className: cn(tabBase, tabActive) }}
-            inactiveProps={{ className: cn(tabBase, tabInactive) }}
-          >
-            All
-          </Link>
-          <Link
-            to="/active"
-            className={tabBase}
-            activeProps={{ className: cn(tabBase, tabActive) }}
-            inactiveProps={{ className: cn(tabBase, tabInactive) }}
-          >
-            Active
-          </Link>
-          <Link
-            to="/backlog"
-            className={tabBase}
-            activeProps={{ className: cn(tabBase, tabActive) }}
-            inactiveProps={{ className: cn(tabBase, tabInactive) }}
-          >
-            Backlog
-          </Link>
-          <button
-            type="button"
-            onClick={() => setTheme(toggleTheme(theme))}
-            className="ml-auto text-[12px] text-text-secondary hover:text-text"
-          >
-            {theme === 'dark' ? 'Switch to light' : 'Switch to dark'}
-          </button>
-        </nav>
-        <main className="p-6">
-          <Outlet />
-        </main>
+      <div className="grid grid-cols-[auto_1fr] w-full h-full bg-bg text-text font-sans min-h-screen">
+        <div className="w-0 lg:w-61">
+          <div></div>
+        </div>
+        <div className="lg:py-2 lg:pr-2">
+          <main className="flex flex-col flex-auto relative overflow-hidden items-stretch bg-surface isolate lg:border-[0.5px] border-border-panel lg:rounded-xl lg:shadow-panel min-h-full">
+            <div className="flex items-center gap-1.5 h-[43.5px] px-4 border-b border-border">
+              <Link
+                to="/all"
+                className={tabBase}
+                activeProps={{ className: cn(tabBase, tabActive) }}
+                inactiveProps={{ className: cn(tabBase, tabInactive) }}
+              >
+                All
+              </Link>
+              <Link
+                to="/active"
+                className={tabBase}
+                activeProps={{ className: cn(tabBase, tabActive) }}
+                inactiveProps={{ className: cn(tabBase, tabInactive) }}
+              >
+                Active
+              </Link>
+              <Link
+                to="/backlog"
+                className={tabBase}
+                activeProps={{ className: cn(tabBase, tabActive) }}
+                inactiveProps={{ className: cn(tabBase, tabInactive) }}
+              >
+                Backlog
+              </Link>
+              <button
+                type="button"
+                onClick={() => setTheme(toggleTheme(theme))}
+                className="ml-auto text-[12px] text-text-secondary hover:text-text"
+              >
+                {theme === 'dark' ? 'Switch to light' : 'Switch to dark'}
+              </button>
+            </div>
+            <div className="p-6">
+              <Outlet />
+            </div>
+          </main>
+        </div>
       </div>
       <TanStackDevtools
         config={{

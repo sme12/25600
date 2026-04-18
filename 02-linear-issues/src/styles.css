@@ -26,6 +26,9 @@
   --color-label-design: #5e6ad2;
   --color-success: #59a200;
   --color-avatar-blue: #008deb;
+
+  --color-border-panel: lch(90.84% 0 282);
+  --shadow-panel: 0 3px 6px -2px lch(0 0 0 / 0.02), 0 1px 1px lch(0 0 0 / 0.04);
 }
 
 .dark {
@@ -41,6 +44,10 @@
 
   --color-border: #262628;
   --color-border-strong: #555557;
+
+  --color-border-panel: lch(11% 1.38 272);
+  --shadow-panel:
+    0 4px 4px -1px lch(0 0 0 / 0.04), 0 1px 1px 0 lch(0 0 0 / 0.08);
 }
 
 @layer base {
