@@ -1,1 +1,54 @@
 @import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans:
+    'Inter Variable', 'SF Pro Display', -apple-system, system-ui, 'Segoe UI',
+    Roboto, sans-serif;
+
+  --color-bg: lch(95.94% 0.5 282);
+  --color-surface: lch(98.94% 0.5 282);
+  --color-surface-active: lch(94.04% 0.5 282);
+  --color-section-header: lch(95.94% 0.5 282);
+
+  --color-text: #1b1b1b;
+  --color-text-secondary: #5d5d5f;
+  --color-text-tertiary: #303032;
+  --color-text-muted: #9e9ea1;
+  --color-on-accent: #ffffff;
+
+  --color-border: #d5d5d5;
+  --color-border-strong: #9e9ea1;
+
+  --color-label-feature: #bb87fc;
+  --color-label-improvement: #4ea7fc;
+  --color-label-design: #5e6ad2;
+  --color-success: #59a200;
+  --color-avatar-blue: #008deb;
+}
+
+.dark {
+  --color-bg: lch(1.82% 0 272);
+  --color-surface: lch(4.52% 0.3 272);
+  --color-surface-active: lch(11.72% 0.75 272);
+  --color-section-header: lch(7.67% 0.75 272);
+
+  --color-text: #ffffff;
+  --color-text-secondary: #949496;
+  --color-text-tertiary: #949496;
+  --color-text-muted: #555557;
+
+  --color-border: #262628;
+  --color-border-strong: #555557;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+  }
+
+  body {
+    @apply bg-bg text-text antialiased;
+  }
+}
