@@ -6,6 +6,10 @@
     {
       "source": "/01-clerk-nav/(.*)",
       "destination": "/01-clerk-nav/index.html"
+    },
+    {
+      "source": "/02-linear-issues/(.*)",
+      "destination": "/02-linear-issues/index.html"
     }
   ]
 }
