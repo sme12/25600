@@ -7,18 +7,20 @@ import type { Theme } from '../lib/theme';
 import { cn } from '../lib/utils';
 import { Tooltip, TooltipProvider } from './tooltip';
 
-const tabBase = 'inline-flex items-center px-2.5 h-7 rounded-full';
+const tabBase =
+  'inline-flex items-center px-2.5 h-7 rounded-full border-[0.5px]';
 
-const tabActive = 'bg-surface-active text-text text-[13px] font-medium';
+const tabActive =
+  'bg-button-tab-bg text-button-tab-color border-button-tab-border text-[12px] font-medium';
 
 const tabInactive =
-  'text-text-secondary text-[12px] font-medium hover:text-text';
+  'bg-button-tab-bg-inactive text-button-tab-color-inactive border-button-tab-border-inactive hover:bg-button-tab-bg-hover hover:text-button-tab-color-hover hover:border-button-tab-border-hover text-[12px] font-medium';
 
 const activeProps = { className: cn(tabBase, tabActive) };
 const inactiveProps = { className: cn(tabBase, tabInactive) };
 
 const tabs = [
-  { to: '/all', label: 'All', shortcut: '1' },
+  { to: '/all', label: 'All issues', shortcut: '1' },
   { to: '/active', label: 'Active', shortcut: '2' },
   { to: '/backlog', label: 'Backlog', shortcut: '3' },
 ] as const;

@@ -27,6 +27,16 @@
   --color-success: #59a200;
   --color-avatar-blue: #008deb;
 
+  --color-button-tab-bg: lch(94.483% 0.5 282 / 1);
+  --color-button-tab-bg-inactive: lch(98.94% 0.5 282 / 1);
+  --color-button-tab-bg-hover: lch(95.854% 0.5 282 / 1);
+  --color-button-tab-color: lch(9.894% 0 282 / 1);
+  --color-button-tab-color-inactive: lch(39.576% 1.25 282 / 1);
+  --color-button-tab-color-hover: lch(19.788% 1.25 282 / 1);
+  --color-button-tab-border: lch(0% 0 0 / 0.149);
+  --color-button-tab-border-inactive: lch(0% 0 0 / 0.089);
+  --color-button-tab-border-hover: lch(0% 0 0 / 0.149);
+
   --color-border-panel: lch(90.84% 0 282);
   --shadow-panel: 0 3px 6px -2px lch(0 0 0 / 0.02), 0 1px 1px lch(0 0 0 / 0.04);
 }
@@ -44,6 +54,16 @@
 
   --color-border: #262628;
   --color-border-strong: #555557;
+
+  --color-button-tab-bg: lch(12.234% 0.879 272 / 1);
+  --color-button-tab-bg-inactive: lch(6.449% 0.493 272 / 1);
+  --color-button-tab-bg-hover: lch(9.92% 0.493 272 / 1);
+  --color-button-tab-color: lch(100% 0 272 / 1);
+  --color-button-tab-color-inactive: lch(61.399% 1.15 272 / 1);
+  --color-button-tab-color-hover: lch(90.35% 1.15 272 / 1);
+  --color-button-tab-border: lch(100% 0 0 / 0.158);
+  --color-button-tab-border-inactive: lch(100% 0 0 / 0.136);
+  --color-button-tab-border-hover: lch(100% 0 0 / 0.158);
 
   --color-border-panel: lch(11% 1.38 272);
   --shadow-panel:
