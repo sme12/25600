@@ -1,6 +1,7 @@
 import { Outlet, createRootRoute } from '@tanstack/react-router';
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools';
 import { TanStackDevtools } from '@tanstack/react-devtools';
+import { HotkeysDevtoolsPanel } from '@tanstack/react-hotkeys-devtools';
 
 import '../styles.css';
 import { Navbar } from '../components/navbar';
@@ -33,6 +34,10 @@ function RootComponent() {
           {
             name: 'TanStack Router',
             render: <TanStackRouterDevtoolsPanel />,
+          },
+          {
+            name: 'TanStack Hotkeys',
+            render: (_el, props) => <HotkeysDevtoolsPanel {...props} />,
           },
         ]}
       />
