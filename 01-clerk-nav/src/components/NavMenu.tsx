@@ -32,7 +32,7 @@ function NavMenu({ portalContainer }: NavMenuProps) {
   return (
     <NavigationMenu.Root
       className={styles.desktopNav}
-      onValueChange={setActiveValue}
+      onValueChange={(value) => setActiveValue(value ?? '')}
     >
       <NavigationMenu.List className={styles.navList} data-nav-list>
         <NavItem label={LABELS.products}>
