@@ -1,9 +1,8 @@
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { Link, useNavigate } from '@tanstack/react-router';
 import { useHotkeys } from '@tanstack/react-hotkeys';
 
-import { readTheme, toggleTheme } from '../lib/theme';
-import type { Theme } from '../lib/theme';
+import { readTheme, applyTheme } from '../lib/theme';
 import { cn } from '../lib/utils';
 import { Tooltip, TooltipProvider } from './tooltip';
 
@@ -41,15 +40,19 @@ const tabs = [
 ] as const;
 
 export function Navbar() {
-  const [theme, setTheme] = useState<Theme>(() => readTheme());
   const navigate = useNavigate();
 
   const hotkeys = useMemo(
-    () =>
-      tabs.map((tab) => ({
+    () => [
+      ...tabs.map((tab) => ({
         hotkey: tab.shortcut,
         callback: () => navigate({ to: tab.to }),
       })),
+      {
+        hotkey: { key: 'T', mod: true, alt: true },
+        callback: () => applyTheme(readTheme() === 'dark' ? 'light' : 'dark'),
+      },
+    ],
     [navigate]
   );
   useHotkeys(hotkeys);
@@ -74,13 +77,6 @@ export function Navbar() {
           </Tooltip>
         ))}
       </TooltipProvider>
-      <button
-        type="button"
-        onClick={() => setTheme(toggleTheme(theme))}
-        className="text-text-secondary hover:text-text ml-auto text-[12px]"
-      >
-        {theme === 'dark' ? 'Switch to light' : 'Switch to dark'}
-      </button>
     </div>
   );
 }
