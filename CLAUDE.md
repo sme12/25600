@@ -3,7 +3,7 @@
 - npm workspaces + Turborepo. Root scripts: `build`, `deploy` (builds all + `scripts/assemble.js` into `dist/`), `lint:all`, `format:all`.
 - Each study lives in a numbered workspace (e.g. [01-clerk-nav/](01-clerk-nav/), [02-linear-issues/](02-linear-issues/)) and is deployed as a sub-path of `25600.design` (Vite `base: '/<workspace>/'`).
 - Run a workspace dev server with `npm run dev -w <workspace>`.
-- Shared root configs: [tsconfig.base.json](tsconfig.base.json), [eslint.config.js](eslint.config.js) (root-level, used by legacy workspaces), [.prettierrc](.prettierrc) (singleQuote, tabWidth 2, trailingComma es5, lf, `prettier-plugin-css-order`).
+- Shared root configs: [tsconfig.base.json](tsconfig.base.json), [eslint.config.js](eslint.config.js) (root-level, used by legacy workspaces), [prettier.config.js](prettier.config.js) (singleQuote, tabWidth 2, trailingComma es5, lf, `prettier-plugin-css-order`).
 - Premise: recreate exceptional UI from design-engineering-forward companies in fine detail. See [README.md](README.md).
 
 ## 02-linear-issues
