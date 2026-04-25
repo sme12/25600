@@ -8,7 +8,7 @@ import { cn } from '../lib/utils';
 import { Tooltip, TooltipProvider } from './tooltip';
 
 const tabBase =
-  'inline-flex items-center px-2.5 h-7 rounded-full border-[0.5px]';
+  'inline-flex items-center px-2.5 h-7 rounded-full border-[0.5px] cursor-default';
 
 const tabActive =
   'bg-button-tab-bg text-button-tab-color border-button-tab-border text-[12px] font-medium';
@@ -40,7 +40,7 @@ export function Navbar() {
   useHotkeys(hotkeys);
 
   return (
-    <div className="flex items-center gap-1.5 h-[43.5px] px-4 border-b border-border">
+    <div className="flex h-[43.5px] items-center gap-1.5 px-2">
       <TooltipProvider>
         {tabs.map((tab) => (
           <Tooltip key={tab.to} label={tab.label} shortcut={tab.shortcut}>
@@ -58,7 +58,7 @@ export function Navbar() {
       <button
         type="button"
         onClick={() => setTheme(toggleTheme(theme))}
-        className="ml-auto text-[12px] text-text-secondary hover:text-text"
+        className="text-text-secondary hover:text-text ml-auto text-[12px]"
       >
         {theme === 'dark' ? 'Switch to light' : 'Switch to dark'}
       </button>

@@ -20,6 +20,7 @@
 
   --color-border: #d5d5d5;
   --color-border-strong: #9e9ea1;
+  --color-border-muted: #e5e5e5;
 
   --color-label-feature: #bb87fc;
   --color-label-improvement: #4ea7fc;
@@ -47,13 +48,14 @@
   --color-surface-active: lch(11.72% 0.75 272);
   --color-section-header: lch(7.67% 0.75 272);
 
-  --color-text: #ffffff;
+  --color-text: #e3e3e6;
   --color-text-secondary: #949496;
   --color-text-tertiary: #949496;
   --color-text-muted: #555557;
 
   --color-border: #262628;
   --color-border-strong: #555557;
+  --color-border-muted: #1d1e1f;
 
   --color-button-tab-bg: lch(12.234% 0.879 272 / 1);
   --color-button-tab-bg-inactive: lch(6.449% 0.493 272 / 1);
