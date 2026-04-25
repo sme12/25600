@@ -1,0 +1,8 @@
+/** @type {import("prettier").Config} */
+export default {
+  singleQuote: true,
+  tabWidth: 2,
+  trailingComma: 'es5',
+  endOfLine: 'lf',
+  plugins: ['prettier-plugin-css-order'],
+};

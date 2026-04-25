@@ -1,0 +1,93 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans:
+    'Inter Variable', 'SF Pro Display', -apple-system, system-ui, 'Segoe UI',
+    Roboto, sans-serif;
+
+  --font-weight-normal: 450;
+
+  --color-bg: lch(95.94% 0.5 282);
+  --color-surface: lch(98.94% 0.5 282);
+  --color-surface-active: lch(94.04% 0.5 282);
+  --color-section-header: lch(95.94% 0.5 282);
+  --color-popover: lch(100% 0 0);
+  --color-popover-border: var(--color-border);
+  --color-popover-text: var(--color-text-secondary);
+
+  --color-text: #1b1b1b;
+  --color-text-secondary: #5d5d5f;
+  --color-text-tertiary: #303032;
+  --color-text-muted: #9e9ea1;
+  --color-on-accent: #ffffff;
+  --color-text-shortcut: #5e5e60;
+
+  --color-border: #d5d5d5;
+  --color-border-strong: #9e9ea1;
+  --color-border-muted: #e5e5e5;
+
+  --color-label-feature: #bb87fc;
+  --color-label-improvement: #4ea7fc;
+  --color-label-design: #5e6ad2;
+  --color-success: #59a200;
+  --color-avatar-blue: #008deb;
+
+  --color-button-tab-bg: lch(94.483% 0.5 282 / 1);
+  --color-button-tab-bg-inactive: lch(98.94% 0.5 282 / 1);
+  --color-button-tab-bg-hover: lch(95.854% 0.5 282 / 1);
+  --color-button-tab-color: lch(9.894% 0 282 / 1);
+  --color-button-tab-color-inactive: lch(39.576% 1.25 282 / 1);
+  --color-button-tab-color-hover: lch(19.788% 1.25 282 / 1);
+  --color-button-tab-border: lch(0% 0 0 / 0.149);
+  --color-button-tab-border-inactive: lch(0% 0 0 / 0.089);
+  --color-button-tab-border-hover: lch(0% 0 0 / 0.149);
+
+  --color-border-panel: lch(90.84% 0 282);
+  --shadow-panel: 0 3px 6px -2px lch(0 0 0 / 0.02), 0 1px 1px lch(0 0 0 / 0.04);
+}
+
+.dark {
+  --color-bg: lch(1.82% 0 272);
+  --color-surface: lch(4.52% 0.3 272);
+  --color-surface-active: lch(11.72% 0.75 272);
+  --color-section-header: lch(7.67% 0.75 272);
+  --color-popover: #1b1b1c;
+  --color-popover-border: #363739;
+  --color-popover-text: #e4e5e7;
+
+  --color-text: #e3e3e6;
+  --color-text-secondary: #949496;
+  --color-text-tertiary: #949496;
+  --color-text-muted: #555557;
+  --color-text-shortcut: #999a9c;
+
+  --color-border: #262628;
+  --color-border-strong: #555557;
+  --color-border-muted: #1d1e1f;
+
+  --color-button-tab-bg: lch(12.234% 0.879 272 / 1);
+  --color-button-tab-bg-inactive: lch(6.449% 0.493 272 / 1);
+  --color-button-tab-bg-hover: lch(9.92% 0.493 272 / 1);
+  --color-button-tab-color: lch(100% 0 272 / 1);
+  --color-button-tab-color-inactive: lch(61.399% 1.15 272 / 1);
+  --color-button-tab-color-hover: lch(90.35% 1.15 272 / 1);
+  --color-button-tab-border: lch(100% 0 0 / 0.158);
+  --color-button-tab-border-inactive: lch(100% 0 0 / 0.136);
+  --color-button-tab-border-hover: lch(100% 0 0 / 0.158);
+
+  --color-border-panel: lch(11% 1.38 272);
+  --shadow-panel:
+    0 4px 4px -1px lch(0 0 0 / 0.04), 0 1px 1px 0 lch(0 0 0 / 0.08);
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+  }
+
+  body {
+    @apply bg-bg text-text antialiased;
+  }
+}

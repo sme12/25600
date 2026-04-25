@@ -5,7 +5,8 @@
   "type": "module",
   "packageManager": "npm@11.6.2",
   "workspaces": [
-    "01-clerk-nav"
+    "01-clerk-nav",
+    "02-linear-issues"
   ],
   "scripts": {
     "build": "turbo run build",
