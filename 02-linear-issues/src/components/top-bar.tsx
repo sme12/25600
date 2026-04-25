@@ -14,7 +14,7 @@ export function TopBar() {
       <button
         type="button"
         aria-label={t.menu}
-        className="text-text-secondary hover:text-text flex h-7 w-7 items-center justify-center px-0.5"
+        className="text-text-secondary hover:text-text flex h-7 w-7 items-center justify-center px-0.5 lg:hidden"
       >
         <SidebarIcon className="h-3.5 w-3.5" />
       </button>

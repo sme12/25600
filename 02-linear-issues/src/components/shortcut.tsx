@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 
 export function Shortcut({ children }: { children: ReactNode }) {
   return (
-    <kbd className="inline-flex items-center justify-center min-w-4.5 h-4.5 px-1 rounded border border-border bg-bg text-text-secondary text-[11px] font-medium font-sans">
+    <kbd className="border-border text-text-shortcut inline-flex h-4.5 min-w-4.5 items-center justify-center rounded border-[0.5px] p-0.5 font-sans text-[11px] font-[400]">
       {children}
     </kbd>
   );
