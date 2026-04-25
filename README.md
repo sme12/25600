@@ -27,11 +27,11 @@ npm run deploy           # build all projects + assemble for production
 
 ## Studies
 
-| #   | Study                        | Live Demo                                                          | Original                                           | Status  |
-| --- | ---------------------------- | ------------------------------------------------------------------ | -------------------------------------------------- | ------- |
-| 01  | [clerk-nav](./01-clerk-nav/) | [25600.design/01-clerk-nav](https://www.25600.design/01-clerk-nav) | [clerk.com](https://clerk.com) (snapshot Feb 2026) | ✅ Done |
-| 02  | TBA                          |                                                                    |                                                    | TBA     |
-| 03  | TBA                          |                                                                    |                                                    | TBA     |
+| #   | Study                                | Live Demo                                                                  | Original                                           | Status  |
+| --- | ------------------------------------ | -------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
+| 01  | [clerk-nav](./01-clerk-nav/)         | [25600.design/01-clerk-nav](https://www.25600.design/01-clerk-nav)         | [clerk.com](https://clerk.com) (snapshot Feb 2026) | ✅ Done |
+| 02  | [linear-issues](./02-linear-issues/) | [25600.design/02-linear-issues](https://www.25600.design/02-linear-issues) | [linear.app](https://linear.app)                   | 🚧 WIP  |
+| 03  | TBA                                  |                                                                            |                                                    | TBA     |
 
 ## Disclaimer
 
