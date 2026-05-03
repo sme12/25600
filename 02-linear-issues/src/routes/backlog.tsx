@@ -1,14 +1,12 @@
-import { createFileRoute } from '@tanstack/react-router';
+import { createFileRoute, useLoaderData } from '@tanstack/react-router';
+import { STATES } from '#/data/states';
+import { IssueGroupList } from '#/components/issue-group-list';
 
 export const Route = createFileRoute('/backlog')({ component: Backlog });
 
+const BACKLOG_STATES = STATES.filter((s) => s.type === 'backlog');
+
 function Backlog() {
-  return (
-    <section>
-      <h1 className="text-2xl font-semibold">Backlog</h1>
-      <p className="mt-2 text-sm text-neutral-500">
-        Placeholder for the backlog view.
-      </p>
-    </section>
-  );
+  const issues = useLoaderData({ from: '__root__' });
+  return <IssueGroupList issues={issues} states={BACKLOG_STATES} />;
 }

@@ -5,8 +5,11 @@ import { HotkeysDevtoolsPanel } from '@tanstack/react-hotkeys-devtools';
 
 import '../styles.css';
 import { Header } from '../components/header';
+import { ISSUES } from '#/data/issues';
 
 export const Route = createRootRoute({
+  loader: () => ISSUES,
+  staleTime: Infinity,
   component: RootComponent,
 });
 
