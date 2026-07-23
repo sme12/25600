@@ -16,7 +16,18 @@ export function Nav() {
         onClick={() => setTheme(toggleTheme(theme))}
         className="-my-[11px] -mr-[11px] flex size-11 cursor-pointer items-center justify-center text-muted transition-colors duration-150 hover:text-accent"
       >
-        {theme === 'dark' ? <MoonIcon /> : <SunIcon />}
+        <span className="block size-5 overflow-hidden">
+          <span
+            className="flex flex-col transition-transform duration-300 ease-[cubic-bezier(0.65,0,0.35,1)]"
+            style={{
+              transform:
+                theme === 'dark' ? 'translateY(-50%)' : 'translateY(0)',
+            }}
+          >
+            <MoonIcon />
+            <SunIcon />
+          </span>
+        </span>
       </button>
     </header>
   );
