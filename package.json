@@ -11,6 +11,7 @@
   ],
   "scripts": {
     "build": "turbo run build",
+    "typecheck": "turbo run typecheck",
     "deploy": "turbo run build && node scripts/assemble.js",
     "lint:all": "eslint \"*/src/**/*.{ts,tsx}\"",
     "format:all": "prettier --write \"**/*.{ts,tsx,css,md,json}\" --ignore-path .gitignore"

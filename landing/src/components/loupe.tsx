@@ -127,7 +127,7 @@ export function Loupe({
         }}
       >
         <div className="absolute inset-0 h-[300px] w-[1040px] bg-bg px-12 pt-11">
-          <HeroCopy inLoupe />
+          <HeroCopy />
         </div>
       </div>
       <div
