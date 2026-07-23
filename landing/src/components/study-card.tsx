@@ -23,6 +23,9 @@ function PreviewVideo({ name }: { name: string }) {
     }
   }, [reducedMotion, src]);
 
+  // scale-[1.015] crops the video's outer edge under the rounded border,
+  // hiding any baked-in recording border and the sub-pixel seam where the
+  // clipped video meets the card border.
   return (
     <video
       ref={ref}
@@ -32,7 +35,7 @@ function PreviewVideo({ name }: { name: string }) {
       muted
       playsInline
       preload="metadata"
-      className="block h-full w-full object-cover"
+      className="block h-full w-full scale-[1.015] object-cover"
     />
   );
 }
