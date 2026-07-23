@@ -26,9 +26,12 @@
   --foot-link: #5a5a60;
   --grid: rgba(0, 0, 0, 0.05);
   --grid-loupe: rgba(0, 0, 0, 0.08);
-  --loupe-border: #dcdbd5;
-  --loupe-inset: #ffffff;
-  --loupe-shadow: 0 10px 30px rgba(0, 0, 0, 0.14);
+  /* Tube shading (gradients): sheen = specular (> bg), shade = edge (< bg). */
+  --loupe-sheen: #ffffff;
+  --loupe-shade: #dcdbd5;
+  --loupe-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.05), 0 6px 14px rgba(0, 0, 0, 0.06),
+    0 12px 28px rgba(0, 0, 0, 0.07), 0 22px 48px rgba(0, 0, 0, 0.08);
   --elev: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
@@ -48,9 +51,12 @@
   --foot-link: #9a9aa0;
   --grid: rgba(255, 255, 255, 0.045);
   --grid-loupe: rgba(255, 255, 255, 0.08);
-  --loupe-border: #34343a;
-  --loupe-inset: #1a1a1e;
-  --loupe-shadow: 0 14px 44px rgba(0, 0, 0, 0.5);
+  /* Same lighting model as light, in dark-suitable shades (not inverted). */
+  --loupe-sheen: #3e3e48;
+  --loupe-shade: #0f0f12;
+  --loupe-shadow:
+    0 3px 8px rgba(0, 0, 0, 0.22), 0 8px 20px rgba(0, 0, 0, 0.3),
+    0 18px 40px rgba(0, 0, 0, 0.36), 0 32px 64px rgba(0, 0, 0, 0.42);
   --elev: 0 2px 8px rgba(0, 0, 0, 0.45);
 }
 
@@ -77,8 +83,7 @@
   --color-faint-2: var(--faint2);
   --color-foot-border: var(--foot-border);
   --color-foot-link: var(--foot-link);
-  --color-loupe-border: var(--loupe-border);
-  --color-loupe-inset: var(--loupe-inset);
+  --color-loupe-shade: var(--loupe-shade);
   --shadow-elev: var(--elev);
   --shadow-loupe: var(--loupe-shadow);
 }

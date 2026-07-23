@@ -14,6 +14,25 @@ const REST = { px: 840, py: 150, qx: 585, qy: 70 };
 const R = LOUPE_SIZE / 2;
 const S = LOUPE_ZOOM;
 
+// Handle: a pill on the down-right diagonal (matches the favicon), its near end
+// tucked under the glass so the frame reads as extending into a grip.
+const HANDLE_LEN = 110; // length along the diagonal
+const HANDLE_W = 32; // thickness
+const HANDLE_TUCK = 12; // how far the near end hides under the rim
+const HANDLE_ANGLE = 54; // degrees from +x (45 = radial down-right; higher swings it left)
+// Cylindrical grip shading; edges darkened to the frame color so the silhouette
+// reads on the light side too.
+const HANDLE_BG =
+  'linear-gradient(to bottom, var(--loupe-shade) 0%, var(--bg) 15%, var(--loupe-sheen) 40%, var(--bg) 66%, var(--loupe-shade) 100%)';
+const HANDLE_RAD = (HANDLE_ANGLE * Math.PI) / 180;
+const HANDLE_X = R + (R - HANDLE_TUCK) * Math.cos(HANDLE_RAD); // near-end anchor
+const HANDLE_Y = R + (R - HANDLE_TUCK) * Math.sin(HANDLE_RAD);
+
+// Rim bezel: the frame's rounded cross-section (dark edges, bright middle),
+// radial so the glass shares the handle's tube-like depth.
+const RIM_BG =
+  'radial-gradient(circle closest-side, transparent 0 89.5%, var(--loupe-shade) 91%, var(--bg) 93%, var(--loupe-sheen) 95.5%, var(--bg) 98%, var(--loupe-shade) 100%)';
+
 export function Loupe({
   heroRef,
   copyRef,
@@ -106,7 +125,7 @@ export function Loupe({
     <div
       ref={outerRef}
       aria-hidden
-      className="pointer-events-none absolute z-[5] overflow-hidden rounded-full border border-loupe-border bg-bg shadow-loupe"
+      className="pointer-events-none absolute z-[5]"
       style={{
         width: LOUPE_SIZE,
         height: LOUPE_SIZE,
@@ -115,25 +134,42 @@ export function Loupe({
         transition: `left 0.6s ${EASE}, top 0.6s ${EASE}`,
       }}
     >
+      {/* Handle: pill on the 45° diagonal, rotated about its near end (which is
+          tucked under the glass) so the frame appears to extend into a grip. */}
       <div
-        ref={innerRef}
-        className="absolute top-0 left-0 origin-top-left"
+        className="absolute rounded-full shadow-loupe"
         style={{
-          width: HERO_W,
-          height: INNER_H,
-          opacity: 0,
-          transform: `translate(${R - REST.qx * S}px, ${R - REST.qy * S}px) scale(${S})`,
-          transition: `transform 0.6s ${EASE}, opacity 0.3s ease`,
+          width: HANDLE_LEN,
+          height: HANDLE_W,
+          left: HANDLE_X,
+          top: HANDLE_Y - HANDLE_W / 2,
+          background: HANDLE_BG,
+          transform: `rotate(${HANDLE_ANGLE}deg)`,
+          transformOrigin: '0 50%',
         }}
-      >
-        <div className="absolute inset-0 h-[300px] w-[1040px] bg-bg px-12 pt-11">
-          <HeroCopy />
-        </div>
-      </div>
-      <div
-        className="bg-grid-loupe absolute inset-0 rounded-full"
-        style={{ boxShadow: 'inset 0 0 0 6px var(--loupe-inset)' }}
       />
+      <div className="absolute inset-0 overflow-hidden rounded-full border border-loupe-shade bg-bg shadow-loupe">
+        <div
+          ref={innerRef}
+          className="absolute top-0 left-0 origin-top-left"
+          style={{
+            width: HERO_W,
+            height: INNER_H,
+            opacity: 0,
+            transform: `translate(${R - REST.qx * S}px, ${R - REST.qy * S}px) scale(${S})`,
+            transition: `transform 0.6s ${EASE}, opacity 0.3s ease`,
+          }}
+        >
+          <div className="absolute inset-0 h-[300px] w-[1040px] bg-bg px-12 pt-11">
+            <HeroCopy />
+          </div>
+        </div>
+        <div className="bg-grid-loupe absolute inset-0 rounded-full" />
+        <div
+          className="pointer-events-none absolute inset-0 rounded-full"
+          style={{ background: RIM_BG }}
+        />
+      </div>
     </div>
   );
 }
