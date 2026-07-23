@@ -55,8 +55,8 @@
   --loupe-sheen: #3e3e48;
   --loupe-shade: #0f0f12;
   --loupe-shadow:
-    0 3px 8px rgba(0, 0, 0, 0.22), 0 8px 20px rgba(0, 0, 0, 0.3),
-    0 18px 40px rgba(0, 0, 0, 0.36), 0 32px 64px rgba(0, 0, 0, 0.42);
+    0 3px 8px rgba(0, 0, 0, 0.12), 0 8px 20px rgba(0, 0, 0, 0.16),
+    0 18px 40px rgba(0, 0, 0, 0.2), 0 32px 64px rgba(0, 0, 0, 0.24);
   --elev: 0 2px 8px rgba(0, 0, 0, 0.45);
 }
 
