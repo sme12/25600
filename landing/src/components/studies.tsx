@@ -45,7 +45,6 @@ export function Studies() {
           <div className="grid auto-rows-[202px] grid-cols-3 gap-4">
             <Tile
               label="03 — Yet to study"
-              sub="Announcing soon"
               className="gap-1"
               labelClassName="text-[13.5px]"
               subClassName="text-xs"
@@ -59,23 +58,20 @@ export function Studies() {
           <MobileCards />
           <Tile
             label="03 — Yet to study"
-            sub="Announcing soon"
             className="mb-8 h-24 gap-0.5"
             labelClassName="text-[13px] leading-4"
             subClassName="text-[11.5px] leading-4"
           />
-          <div className="grid grid-cols-2 gap-8">
-            <Tile
-              label="04 — Yet"
-              className="h-24"
-              labelClassName="text-[12.5px]"
-            />
-            <Tile
-              label="05 — Yet"
-              className="h-24"
-              labelClassName="text-[12.5px]"
-            />
-          </div>
+          <Tile
+            label="04 — Yet to study"
+            className="mb-8 h-24"
+            labelClassName="text-[13px] leading-4"
+          />
+          <Tile
+            label="05 — Yet to study"
+            className="h-24"
+            labelClassName="text-[13px] leading-4"
+          />
         </>
       )}
     </section>

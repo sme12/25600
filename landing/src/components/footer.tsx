@@ -1,3 +1,5 @@
+import { GitHubIcon } from './icons';
+
 export function Footer() {
   return (
     <footer className="border-t border-border bg-surface-2 px-5 py-12 desktop:mx-auto desktop:mt-16 desktop:flex desktop:w-[1040px] desktop:items-center desktop:justify-between desktop:border-foot-border desktop:bg-transparent desktop:px-12 desktop:pt-8 desktop:pb-12">
@@ -18,9 +20,10 @@ export function Footer() {
         <span className="text-dim">MIT license</span>
         <a
           href="https://github.com/sme12/25600"
-          className="text-foot-link transition-colors duration-150 hover:text-accent"
+          className="inline-flex items-center gap-1.5 text-foot-link transition-colors duration-150 hover:text-accent"
         >
-          github.com/sme12/25600
+          <GitHubIcon size={14} />
+          See on GitHub
         </a>
       </div>
     </footer>
