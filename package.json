@@ -6,10 +6,12 @@
   "packageManager": "npm@11.6.2",
   "workspaces": [
     "01-clerk-nav",
-    "02-linear-issues"
+    "02-linear-issues",
+    "landing"
   ],
   "scripts": {
     "build": "turbo run build",
+    "typecheck": "turbo run typecheck",
     "deploy": "turbo run build && node scripts/assemble.js",
     "lint:all": "eslint \"*/src/**/*.{ts,tsx}\"",
     "format:all": "prettier --write \"**/*.{ts,tsx,css,md,json}\" --ignore-path .gitignore"

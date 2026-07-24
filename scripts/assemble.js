@@ -27,8 +27,12 @@ const entries = readdirSync(root).filter((name) => {
 });
 
 for (const name of entries) {
-  cpSync(join(root, name, 'dist'), join(outDir, name), { recursive: true });
-  console.info(`  assembled: ${name}/dist -> dist/${name}/`);
+  // The landing workspace serves the site root, not a sub-path
+  const dest = name === 'landing' ? outDir : join(outDir, name);
+  cpSync(join(root, name, 'dist'), dest, { recursive: true });
+  console.info(
+    `  assembled: ${name}/dist -> ${name === 'landing' ? 'dist/' : `dist/${name}/`}`
+  );
 }
 
 // Copy root public/ files (e.g. index.html) into dist/
