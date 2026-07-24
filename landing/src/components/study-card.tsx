@@ -79,7 +79,7 @@ function CardOverlay({ github, live }: { github: string; live: string }) {
         </a>
         <a
           href={live}
-          className="inline-flex h-9 items-center gap-[6px] rounded-[10px] bg-accent px-4 text-[13px] leading-none font-semibold text-white shadow-[0_2px_12px_rgba(13,153,255,.45)] transition-colors duration-150 hover:bg-accent-hover"
+          className="inline-flex h-9 items-center gap-[6px] rounded-[10px] bg-accent px-4 text-[13px] leading-none font-semibold text-white shadow-[0_2px_10px_rgba(0,0,0,.18)] transition-colors duration-150 hover:bg-accent-hover"
         >
           Live demo →
         </a>
