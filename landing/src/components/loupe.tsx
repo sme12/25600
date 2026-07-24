@@ -1,9 +1,8 @@
 import { useEffect, useRef } from 'react';
 import type { RefObject } from 'react';
-import { HeroCopy } from '#/components/hero';
-import { LOUPE_SIZE, LOUPE_ZOOM } from '#/lib/constants';
+import { HeroCopy } from '#/components/hero-copy';
+import { HERO_WIDTH, LOUPE_SIZE, LOUPE_ZOOM } from '#/lib/constants';
 
-const HERO_W = 1040;
 const INNER_H = 248;
 const EASE = 'cubic-bezier(0.16, 1, 0.3, 1)';
 
@@ -70,15 +69,14 @@ export function Loupe({
     };
 
     const place = (px: number, py: number, qx: number, qy: number) => {
-      outer.style.left = `${px - R}px`;
-      outer.style.top = `${py - R}px`;
+      outer.style.transform = `translate(${px - R}px, ${py - R}px)`;
       inner.style.transform = `translate(${R - qx * S}px, ${R - qy * S}px) scale(${S})`;
     };
 
     const rest = () => {
       activeRef.current = false;
       hero.style.cursor = '';
-      outer.style.transition = `left 0.6s ${EASE}, top 0.6s ${EASE}`;
+      outer.style.transition = `transform 0.6s ${EASE}`;
       inner.style.transition = `transform 0.6s ${EASE}, opacity 0.3s ease`;
       inner.style.opacity = '0';
       place(REST.px, REST.py, REST.qx, REST.qy);
@@ -99,7 +97,7 @@ export function Loupe({
       // Sample in the hero's own 1040px coordinate space in case the
       // page is render-scaled.
       const rect = hero.getBoundingClientRect();
-      const scale = rect.width / HERO_W;
+      const scale = rect.width / HERO_WIDTH;
       const x = (e.clientX - rect.left) / scale;
       const y = (e.clientY - rect.top) / scale;
       if (!activeRef.current) {
@@ -125,13 +123,12 @@ export function Loupe({
     <div
       ref={outerRef}
       aria-hidden
-      className="pointer-events-none absolute z-[5]"
+      className="pointer-events-none absolute top-0 left-0 z-[5]"
       style={{
         width: LOUPE_SIZE,
         height: LOUPE_SIZE,
-        left: REST.px - R,
-        top: REST.py - R,
-        transition: `left 0.6s ${EASE}, top 0.6s ${EASE}`,
+        transform: `translate(${REST.px - R}px, ${REST.py - R}px)`,
+        transition: `transform 0.6s ${EASE}`,
       }}
     >
       {/* Handle: pill on the 45° diagonal, rotated about its near end (which is
@@ -153,14 +150,17 @@ export function Loupe({
           ref={innerRef}
           className="absolute top-0 left-0 origin-top-left"
           style={{
-            width: HERO_W,
+            width: HERO_WIDTH,
             height: INNER_H,
             opacity: 0,
             transform: `translate(${R - REST.qx * S}px, ${R - REST.qy * S}px) scale(${S})`,
             transition: `transform 0.6s ${EASE}, opacity 0.3s ease`,
           }}
         >
-          <div className="absolute inset-0 h-[300px] w-[1040px] bg-bg px-12 pt-11">
+          <div
+            className="absolute inset-0 h-[300px] bg-bg px-12 pt-11"
+            style={{ width: HERO_WIDTH }}
+          >
             <HeroCopy />
           </div>
         </div>

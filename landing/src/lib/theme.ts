@@ -8,6 +8,11 @@ export function readTheme(): Theme {
 
 export function applyTheme(theme: Theme): void {
   document.documentElement.classList.toggle('dark', theme === 'dark');
+  const themeColor = document.querySelector<HTMLMetaElement>(
+    'meta[name="theme-color"]'
+  );
+  const color = themeColor?.dataset[theme];
+  if (themeColor && color) themeColor.content = color;
   try {
     localStorage.setItem(STORAGE_KEY, theme);
   } catch {

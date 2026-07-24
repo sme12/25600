@@ -13,13 +13,9 @@
     />
     <meta
       name="theme-color"
-      media="(prefers-color-scheme: light)"
       content="#f4f4f1"
-    />
-    <meta
-      name="theme-color"
-      media="(prefers-color-scheme: dark)"
-      content="#1c1c20"
+      data-light="#f4f4f1"
+      data-dark="#1c1c20"
     />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link
@@ -38,7 +34,10 @@
         const isDark =
           stored === 'dark' ||
           (!stored && matchMedia('(prefers-color-scheme: dark)').matches);
-        if (isDark) document.documentElement.classList.add('dark');
+        const theme = isDark ? 'dark' : 'light';
+        document.documentElement.classList.toggle('dark', isDark);
+        const themeColor = document.querySelector('meta[name="theme-color"]');
+        if (themeColor) themeColor.content = themeColor.dataset[theme];
       }
     </script>
   </head>

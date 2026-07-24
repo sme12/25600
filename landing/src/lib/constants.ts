@@ -1,4 +1,5 @@
 export const DESKTOP_MQ = '(min-width: 1088px)';
+export const HERO_WIDTH = 1040;
 
 /** Loupe magnification, tweakable 2–16. */
 export const LOUPE_ZOOM = 6;

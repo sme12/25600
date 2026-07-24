@@ -7,7 +7,14 @@ import { useTheme } from '#/lib/use-theme';
 import { cn } from '#/lib/utils';
 import type { Study } from '#/data/studies';
 
-const [clerk, linear] = studies;
+function studyById(id: string): Study {
+  const study = studies.find((candidate) => candidate.id === id);
+  if (!study) throw new Error(`Missing study: ${id}`);
+  return study;
+}
+
+const clerk = studyById('01');
+const linear = studyById('02');
 
 function PreviewVideo({ name }: { name: string }) {
   const ref = useRef<HTMLVideoElement>(null);
