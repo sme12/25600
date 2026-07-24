@@ -4,6 +4,8 @@ export interface Study {
   github: string;
   live: string;
   status: 'live' | 'in-progress';
+  /** When the study was finished, e.g. "Feb 2026". Set for `live` studies. */
+  completed?: string;
 }
 
 export const studies: Study[] = [
@@ -13,6 +15,7 @@ export const studies: Study[] = [
     github: 'https://github.com/sme12/25600/tree/main/01-clerk-nav',
     live: 'https://www.25600.design/01-clerk-nav',
     status: 'live',
+    completed: 'Feb 2026',
   },
   {
     id: '02',

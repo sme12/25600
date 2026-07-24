@@ -1,5 +1,4 @@
 import { useEffect, useRef } from 'react';
-import type { ReactNode } from 'react';
 import { GitHubIcon } from '#/components/icons';
 import { studies } from '#/data/studies';
 import { useMediaQuery } from '#/lib/use-media-query';
@@ -47,15 +46,26 @@ function PreviewVideo({ name }: { name: string }) {
   );
 }
 
-function InProgressPill({ className }: { className?: string }) {
+function StatusPill({
+  study,
+  className,
+}: {
+  study: Study;
+  className?: string;
+}) {
+  const inProgress = study.status === 'in-progress';
+  const label = inProgress ? 'In progress' : study.completed;
+  if (!label) return null;
+
   return (
     <span
       className={cn(
-        'rounded-full bg-amber/[.14] px-2.5 py-1 text-[11px] leading-none font-semibold text-amber',
+        'rounded-full px-2.5 py-1 text-[11px] leading-none font-semibold',
+        inProgress ? 'bg-amber/[.14] text-amber' : 'bg-muted/[.14] text-muted',
         className
       )}
     >
-      In progress
+      {label}
     </span>
   );
 }
@@ -92,20 +102,12 @@ export function DesktopCards() {
   return (
     <div className="mb-4 grid grid-cols-2 gap-4">
       <DesktopCard study={clerk} video="clerk-nav" />
-      <DesktopCard study={linear} video="linear-issues" pill />
+      <DesktopCard study={linear} video="linear-issues" />
     </div>
   );
 }
 
-function DesktopCard({
-  study,
-  video,
-  pill,
-}: {
-  study: Study;
-  video: string;
-  pill?: boolean;
-}) {
+function DesktopCard({ study, video }: { study: Study; video: string }) {
   return (
     <article className="group flex flex-col overflow-hidden rounded-xl border border-border bg-surface">
       <div className="relative aspect-video overflow-hidden bg-surface-2">
@@ -116,7 +118,7 @@ function DesktopCard({
         <span className="text-[15px] font-semibold text-text">
           {study.id} — {study.title}
         </span>
-        {pill && <InProgressPill />}
+        <StatusPill study={study} />
       </div>
     </article>
   );
@@ -125,24 +127,24 @@ function DesktopCard({
 export function MobileCards() {
   return (
     <>
-      <MobileCard study={clerk} media={<PreviewVideo name="clerk-nav" />} />
-      <MobileCard
-        study={linear}
-        media={
-          <div className="relative h-full">
-            <PreviewVideo name="linear-issues" />
-            <InProgressPill className="absolute top-3 right-3 px-[9px] text-[10.5px]" />
-          </div>
-        }
-      />
+      <MobileCard study={clerk} video="clerk-nav" />
+      <MobileCard study={linear} video="linear-issues" />
     </>
   );
 }
 
-function MobileCard({ study, media }: { study: Study; media: ReactNode }) {
+function MobileCard({ study, video }: { study: Study; video: string }) {
   return (
     <article className="mb-8 overflow-hidden rounded-xl bg-surface shadow-elev">
-      <div className="h-48 overflow-hidden bg-surface-2">{media}</div>
+      <div className="relative h-48 overflow-hidden bg-surface-2">
+        <PreviewVideo name={video} />
+        <StatusPill
+          study={study}
+          // Over video the flat tint has no reliable backdrop, so the overlay
+          // pill sits on a translucent surface instead (keeps its text color).
+          className="absolute top-3 right-3 bg-surface/85 px-[9px] text-[10.5px] backdrop-blur-[2px]"
+        />
+      </div>
       <div className="flex h-16 items-center justify-between gap-3 pr-3 pl-[18px]">
         <span className="text-sm font-semibold text-text">
           {study.id} — {study.title}
