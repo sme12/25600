@@ -14,7 +14,7 @@ export function Nav() {
         type="button"
         aria-label="Toggle color theme"
         onClick={() => setTheme(toggleTheme(theme))}
-        className="-my-[11px] -mr-[11px] flex size-11 cursor-pointer items-center justify-center text-muted transition-colors duration-150 hover:text-accent"
+        className="-my-[11px] -mr-[11px] flex size-11 cursor-pointer items-center justify-center text-dim transition-colors duration-150 hover:text-accent dark:text-muted"
       >
         <span className="block size-5 overflow-hidden">
           <span
