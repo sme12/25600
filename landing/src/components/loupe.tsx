@@ -32,6 +32,10 @@ const HANDLE_Y = R + (R - HANDLE_TUCK) * Math.sin(HANDLE_RAD);
 const RIM_BG =
   'radial-gradient(circle closest-side, transparent 0 89.5%, var(--loupe-shade) 91%, var(--bg) 93%, var(--loupe-sheen) 95.5%, var(--bg) 98%, var(--loupe-shade) 100%)';
 
+// Grid origin, in loupe-local coords, for a sample point (qx, qy) in hero
+// space — identical to the zoomed content's origin, so the two travel as one.
+const gridPos = (qx: number, qy: number) => `${R - qx * S}px ${R - qy * S}px`;
+
 export function Loupe({
   heroRef,
   copyRef,
@@ -41,13 +45,15 @@ export function Loupe({
 }) {
   const outerRef = useRef<HTMLDivElement>(null);
   const innerRef = useRef<HTMLDivElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
   const activeRef = useRef(false);
 
   useEffect(() => {
     const hero = heroRef.current;
     const outer = outerRef.current;
     const inner = innerRef.current;
-    if (!hero || !outer || !inner) return;
+    const grid = gridRef.current;
+    if (!hero || !outer || !inner || !grid) return;
 
     // Bounding box (viewport coords) of the headline + paragraph text, so
     // the loupe only tracks over the copy and not the empty right side.
@@ -71,6 +77,10 @@ export function Loupe({
     const place = (px: number, py: number, qx: number, qy: number) => {
       outer.style.transform = `translate(${px - R}px, ${py - R}px)`;
       inner.style.transform = `translate(${R - qx * S}px, ${R - qy * S}px) scale(${S})`;
+      // The grid belongs to the magnified canvas, not to the glass: share the
+      // zoomed content's origin so it stays pinned to what's underneath and
+      // only the window over it moves.
+      grid.style.backgroundPosition = gridPos(qx, qy);
     };
 
     const rest = () => {
@@ -78,6 +88,7 @@ export function Loupe({
       hero.style.cursor = '';
       outer.style.transition = `transform 0.6s ${EASE}`;
       inner.style.transition = `transform 0.6s ${EASE}, opacity 0.3s ease`;
+      grid.style.transition = `background-position 0.6s ${EASE}`;
       inner.style.opacity = '0';
       place(REST.px, REST.py, REST.qx, REST.qy);
     };
@@ -105,6 +116,7 @@ export function Loupe({
         hero.style.cursor = 'none';
         outer.style.transition = 'none';
         inner.style.transition = 'opacity 0.2s ease';
+        grid.style.transition = 'none';
         inner.style.opacity = '1';
       }
       place(x, y, x, y);
@@ -164,7 +176,14 @@ export function Loupe({
             <HeroCopy />
           </div>
         </div>
-        <div className="bg-grid-loupe absolute inset-0 rounded-full" />
+        <div
+          ref={gridRef}
+          className="bg-grid-loupe absolute inset-0 rounded-full"
+          style={{
+            backgroundPosition: gridPos(REST.qx, REST.qy),
+            transition: `background-position 0.6s ${EASE}`,
+          }}
+        />
         <div
           className="pointer-events-none absolute inset-0 rounded-full"
           style={{ background: RIM_BG }}

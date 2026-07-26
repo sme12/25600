@@ -116,9 +116,12 @@
   background-size: 16px 16px;
 }
 
+/* Painted in the loupe's magnified canvas space: 48px on screen is an 8px
+   canvas grid at LOUPE_ZOOM 6. Keep it a multiple of LOUPE_ZOOM so the cells
+   stay whole canvas units. */
 @utility bg-grid-loupe {
   background-image:
     linear-gradient(to right, var(--grid-loupe) 1px, transparent 1px),
     linear-gradient(to bottom, var(--grid-loupe) 1px, transparent 1px);
-  background-size: 32px 32px;
+  background-size: 48px 48px;
 }
