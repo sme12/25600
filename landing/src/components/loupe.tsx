@@ -1,7 +1,9 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { RefObject } from 'react';
 import { HeroCopy } from '#/components/hero-copy';
 import { HERO_WIDTH, LOUPE_SIZE, LOUPE_ZOOM } from '#/lib/constants';
+import { measureTextBox } from '#/lib/text-box';
+import type { TextBox } from '#/lib/text-box';
 
 const INNER_H = 248;
 const EASE = 'cubic-bezier(0.16, 1, 0.3, 1)';
@@ -36,6 +38,11 @@ const RIM_BG =
 // space — identical to the zoomed content's origin, so the two travel as one.
 const gridPos = (qx: number, qy: number) => `${R - qx * S}px ${R - qy * S}px`;
 
+// Half of a 1px stroke. Selection marks are pulled back by this so the stroke
+// straddles the geometry rather than sitting inside it, the way Figma centers
+// a selection stroke on the bounds.
+const HAIR = 0.5;
+
 export function Loupe({
   heroRef,
   copyRef,
@@ -46,14 +53,20 @@ export function Loupe({
   const outerRef = useRef<HTMLDivElement>(null);
   const innerRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
+  const marksRef = useRef<HTMLDivElement>(null);
   const activeRef = useRef(false);
+  // The layer the selection marks currently describe, so we only re-measure
+  // when the pointer crosses from one text layer to the other.
+  const targetRef = useRef<Element | null>(null);
+  const [layer, setLayer] = useState<TextBox | null>(null);
 
   useEffect(() => {
     const hero = heroRef.current;
     const outer = outerRef.current;
     const inner = innerRef.current;
     const grid = gridRef.current;
-    if (!hero || !outer || !inner || !grid) return;
+    const marks = marksRef.current;
+    if (!hero || !outer || !inner || !grid || !marks) return;
 
     // Bounding box (viewport coords) of the headline + paragraph text, so
     // the loupe only tracks over the copy and not the empty right side.
@@ -74,22 +87,45 @@ export function Loupe({
       return { left, top, right, bottom };
     };
 
+    // The text layer under the pointer, or — in the gap between layers — the
+    // nearest one, so the marks never blink out mid-sweep.
+    const layerAt = (clientY: number) => {
+      const els = Array.from(copyRef.current?.querySelectorAll('h1, p') ?? []);
+      let best: Element | null = null;
+      let bestGap = Infinity;
+      for (const el of els) {
+        const r = el.getBoundingClientRect();
+        // 0 whenever the pointer is inside, so a hit always beats a near-miss.
+        const gap = Math.max(r.top - clientY, clientY - r.bottom, 0);
+        if (gap < bestGap) {
+          bestGap = gap;
+          best = el;
+        }
+      }
+      return best;
+    };
+
     const place = (px: number, py: number, qx: number, qy: number) => {
       outer.style.transform = `translate(${px - R}px, ${py - R}px)`;
       inner.style.transform = `translate(${R - qx * S}px, ${R - qy * S}px) scale(${S})`;
-      // The grid belongs to the magnified canvas, not to the glass: share the
-      // zoomed content's origin so it stays pinned to what's underneath and
-      // only the window over it moves.
+      // The grid and the selection marks belong to the magnified canvas, not to
+      // the glass: they share the zoomed content's origin so they stay pinned to
+      // what's underneath and only the window over them moves. The marks live
+      // outside the scaled layer so their strokes stay 1px on screen.
       grid.style.backgroundPosition = gridPos(qx, qy);
+      marks.style.transform = `translate(${R - qx * S}px, ${R - qy * S}px)`;
     };
 
     const rest = () => {
       activeRef.current = false;
+      targetRef.current = null;
       hero.style.cursor = '';
       outer.style.transition = `transform 0.6s ${EASE}`;
       inner.style.transition = `transform 0.6s ${EASE}, opacity 0.3s ease`;
       grid.style.transition = `background-position 0.6s ${EASE}`;
+      marks.style.transition = `transform 0.6s ${EASE}, opacity 0.3s ease`;
       inner.style.opacity = '0';
+      marks.style.opacity = '0';
       place(REST.px, REST.py, REST.qx, REST.qy);
     };
 
@@ -117,7 +153,14 @@ export function Loupe({
         outer.style.transition = 'none';
         inner.style.transition = 'opacity 0.2s ease';
         grid.style.transition = 'none';
+        marks.style.transition = 'opacity 0.2s ease';
         inner.style.opacity = '1';
+        marks.style.opacity = '1';
+      }
+      const target = layerAt(e.clientY);
+      if (target !== targetRef.current) {
+        targetRef.current = target;
+        setLayer(target ? measureTextBox(target, rect, scale) : null);
       }
       place(x, y, x, y);
     };
@@ -157,7 +200,10 @@ export function Loupe({
           transformOrigin: '0 50%',
         }}
       />
-      <div className="absolute inset-0 overflow-hidden rounded-full border border-loupe-shade bg-bg shadow-loupe">
+      {/* No border here: absolutely-positioned children anchor to the padding
+          box, so a border on the clip layer would shift the whole magnified
+          world 1px off the center that R measures to. The rim carries it. */}
+      <div className="absolute inset-0 overflow-hidden rounded-full bg-bg shadow-loupe">
         <div
           ref={innerRef}
           className="absolute top-0 left-0 origin-top-left"
@@ -170,7 +216,7 @@ export function Loupe({
           }}
         >
           <div
-            className="absolute inset-0 h-[300px] bg-bg px-12 pt-11"
+            className="absolute inset-0 h-[300px] bg-bg px-12 pt-10"
             style={{ width: HERO_WIDTH }}
           >
             <HeroCopy />
@@ -184,8 +230,43 @@ export function Loupe({
             transition: `background-position 0.6s ${EASE}`,
           }}
         />
+        {/* Figma's selected-text-layer marks: the layer's bounding box plus a
+            rule on every baseline. Transform and opacity are driven
+            imperatively (never via JSX style) so a re-measure re-render can't
+            clobber the values set during tracking. Offsets are hero px scaled
+            by S; strokes stay unscaled, so they read as 1px hairlines. */}
         <div
-          className="pointer-events-none absolute inset-0 rounded-full"
+          ref={marksRef}
+          className="absolute top-0 left-0 opacity-0"
+          style={{ width: HERO_WIDTH, height: INNER_H }}
+        >
+          {layer && (
+            <>
+              <div
+                className="absolute border border-loupe-select"
+                style={{
+                  left: layer.left * S - HAIR,
+                  top: layer.top * S - HAIR,
+                  width: layer.width * S + 1,
+                  height: layer.height * S + 1,
+                }}
+              />
+              {layer.baselines.map((y) => (
+                <div
+                  key={y}
+                  className="absolute h-px bg-loupe-select"
+                  style={{
+                    left: layer.left * S - HAIR,
+                    top: y * S - HAIR,
+                    width: layer.width * S + 1,
+                  }}
+                />
+              ))}
+            </>
+          )}
+        </div>
+        <div
+          className="pointer-events-none absolute inset-0 rounded-full border border-loupe-shade"
           style={{ background: RIM_BG }}
         />
       </div>

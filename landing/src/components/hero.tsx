@@ -1,12 +1,9 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import type { CSSProperties } from 'react';
 import { HeroCopy } from '#/components/hero-copy';
 import { Loupe } from '#/components/loupe';
-import {
-  DESKTOP_MQ,
-  HERO_WIDTH,
-  PAGE_GRID_DESKTOP,
-} from '#/lib/constants';
+import { applyBaselineTrim } from '#/lib/baseline-trim';
+import { DESKTOP_MQ, HERO_WIDTH, PAGE_GRID_DESKTOP } from '#/lib/constants';
 import { useMediaQuery } from '#/lib/use-media-query';
 
 const HERO_STYLE = {
@@ -16,14 +13,23 @@ const HERO_STYLE = {
 export function Hero() {
   const heroRef = useRef<HTMLElement>(null);
   const copyRef = useRef<HTMLDivElement>(null);
+  const isDesktop = useMediaQuery(DESKTOP_MQ);
   const loupeEnabled = useMediaQuery(
     `${DESKTOP_MQ} and (hover) and (pointer: fine)`
   );
 
+  // Re-run across the breakpoint: the trims describe whichever type scale is
+  // currently in force, and only the desktop one is grid-bound.
+  useEffect(() => {
+    const copy = copyRef.current;
+    if (!copy) return;
+    return applyBaselineTrim(copy);
+  }, [isDesktop]);
+
   return (
     <section
       ref={heroRef}
-      className="relative px-5 py-12 desktop:z-[5] desktop:mx-auto desktop:h-[300px] desktop:w-[var(--hero-width)] desktop:px-12 desktop:pt-11 desktop:pb-0"
+      className="relative px-5 py-12 desktop:z-[5] desktop:mx-auto desktop:h-[300px] desktop:w-[var(--hero-width)] desktop:px-12 desktop:pt-10 desktop:pb-0"
       style={HERO_STYLE}
     >
       {PAGE_GRID_DESKTOP && (

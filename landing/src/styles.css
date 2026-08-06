@@ -26,6 +26,8 @@
   --foot-link: #5a5a60;
   --grid: rgba(0, 0, 0, 0.05);
   --grid-loupe: rgba(0, 0, 0, 0.08);
+  /* Figma's selection stroke: its layer blue on light, component purple on dark. */
+  --loupe-select: #0d99ff;
   /* Tube shading (gradients): sheen = specular (> bg), shade = edge (< bg). */
   --loupe-sheen: #ffffff;
   --loupe-shade: #dcdbd5;
@@ -51,6 +53,7 @@
   --foot-link: #9a9aa0;
   --grid: rgba(255, 255, 255, 0.045);
   --grid-loupe: rgba(255, 255, 255, 0.08);
+  --loupe-select: #7b61ff;
   /* Same lighting model as light, in dark-suitable shades (not inverted). */
   --loupe-sheen: #3e3e48;
   --loupe-shade: #0f0f12;
@@ -84,6 +87,7 @@
   --color-foot-border: var(--foot-border);
   --color-foot-link: var(--foot-link);
   --color-loupe-shade: var(--loupe-shade);
+  --color-loupe-select: var(--loupe-select);
   --shadow-elev: var(--elev);
   --shadow-loupe: var(--loupe-shadow);
 }
@@ -124,4 +128,26 @@
     linear-gradient(to right, var(--grid-loupe) 1px, transparent 1px),
     linear-gradient(to bottom, var(--grid-loupe) 1px, transparent 1px);
   background-size: 48px 48px;
+}
+
+/* Baseline trim: park a text block's box *and* its baselines on that 8px canvas
+   grid. Inter puts a first baseline `line-height / 2 + 0.36376953125 ×
+   font-size` below the content top (hhea 1984 / −494, no line gap, 2048 upem);
+   these paddings are the remainder of that against 8, split above and below so
+   they always add up to one whole cell. Only holds while the block's own top
+   edge is a multiple of 8 and its leading is too — see hero-copy.
+
+   The literals are the arithmetic; `baseline-trim.ts` replaces them with what
+   the engine measurably does, since each one rounds ascent and descent its own
+   way before building a line box. */
+@utility trim-display {
+  /* 64px / 72px leading → rise 59.28125 */
+  padding-top: var(--trim-display-top, 4.71875px);
+  padding-bottom: var(--trim-display-bottom, 3.28125px);
+}
+
+@utility trim-body {
+  /* 15.5px / 24px leading → rise 17.638427734375 */
+  padding-top: var(--trim-body-top, 6.361572265625px);
+  padding-bottom: var(--trim-body-bottom, 1.638427734375px);
 }
